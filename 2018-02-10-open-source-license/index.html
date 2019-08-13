@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>浅谈开源许可证 | Jack&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/image/avatar.jpeg">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Jack&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/tags">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Jack&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/tags">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">浅谈开源许可证</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Jack Tang</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">2018-02-10&nbsp;&nbsp;14:44:27</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>前段时间Github上面华为开源的项目被指违反开源许可证的事情闹得不小，<a href="https://github.com/ServiceComb/go-chassis/issues/28#issuecomment-367562226" target="_blank" rel="noopener">事件传送门</a>。从这个事情可以看出，很大一部分国内的开发人员对于开源的概念还是处于懵懂的状态，对于开源与版权的关系还是搞不清楚。那么，对于开源的项目要如何维护自己的权益，如何遵守社区的规范呢？</p>
+<h3 id="开源协议"><a href="#开源协议" class="headerlink" title="开源协议"></a>开源协议</h3><p>相信大家在写代码的时候都会先去Github上面找找有没有前人的经验可以借鉴，但是通常都会忽略的是，很多项目都有开源许可证。如果一不小心违反了开源许可证所规定的内容，就容易发生与上面的华为员工一样的情况，被原作者要求按照许可证修改你的项目，甚至可能面临被起诉的风险。</p>
+<h4 id="开源协议的意义"><a href="#开源协议的意义" class="headerlink" title="开源协议的意义"></a>开源协议的意义</h4><p>开源协议的存在不仅仅是为了保护作者，更是为了保护使用者。开源协议的存在使作者拥有了自己项目的版权，别人如果需要使用该项目，那就必须要按照协议所规定的来操作。另外，如果有人用项目来做违法的事情，开源协议的存在让作者可以免责，责任全部由使用者来承担。</p>
+<p>对于项目的使用者来说，开源协议的存在更是让使用的权限变得更清晰。对于一些宽松的协议来说，除了不能直接抄袭之外，其他的基本没有限制。在协议的保护下，使用者也不会再被作者冠以侵权的名义了。</p>
+<h4 id="开源协议的分类"><a href="#开源协议的分类" class="headerlink" title="开源协议的分类"></a>开源协议的分类</h4><p>这里主要介绍三种较为常见的开源协议。</p>
+<ol>
+<li>MIT：允许别人以任何方式使用。署名作者。原作者不承担代码使用后的风险。</li>
+<li>APACHE：授权使用者免费使用个人专利。使用者必须放置协议说明。使用者需要对修改部分声明。禁止用作者的名号进行商业广告。原作者不承担代码使用后风险。</li>
+<li>GPL：使用者须遵循相同的协议进行开源。原作者不承担代码使用后风险。</li>
+</ol>
+<p>另外需要注意的是，在不同的平台上发布的项目，会默认遵守该平台的协议，例如Github上的项目，别人可以毫无限制地查看和fork你的项目。</p>
+<p>如果需要了解更为详细的内容，请移步<a href="https://choosealicense.com/" target="_blank" rel="noopener">Choose an open source license</a>。</p>
+<h3 id="知识共享协议"><a href="#知识共享协议" class="headerlink" title="知识共享协议"></a>知识共享协议</h3><p>与开源协议一样，知识共享协议是为了方便知识的传播和保护作者版权而生的。</p>
+<p>可以到<a href="https://creativecommons.org/choose/" target="_blank" rel="noopener">选择一个知识共享协议</a>来为自己选择一个合适的知识共享协议。</p>
+<p>这里推荐选择CC BY-NC-ND 4.0协议，它的规则是禁止商用，保持原文，明确署名。选择这个较为严苛的协议的原因是，防止别人将原文的排版打乱，影响读者阅读，其次，也方便读者发现错误时，可以及时联系原作者加以修正。</p>
+<p>同样的，在任何平台上发布的内容都会自动遵循该平台的知识共享协议，有些平台上面发布的内容，该平台会自动拥有版权。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Jack Tang</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://jackeggie.github.io/2018-02-10-open-source-license/">http://jackeggie.github.io/2018-02-10-open-source-license/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="external nofollow" target="_blank">CC BY-NC-ND 4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/github/"># github</a>
+                    
+                        <a href="/tags/open-source/"># open source</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2018-02-17-string-search/">字符串匹配算法</a>
+            
+            
+            <a class="next" rel="next" href="/2018-02-03-hexo-pic/">Hexo图片引用问题</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Jack Tang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

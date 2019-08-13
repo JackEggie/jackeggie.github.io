@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>搜索引擎技术的简介 | Jack&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/image/avatar.jpeg">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Jack&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/tags">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Jack&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/tags">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">搜索引擎技术的简介</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Jack Tang</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">2018-05-17&nbsp;&nbsp;13:20:34</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="什么是搜索引擎？"><a href="#什么是搜索引擎？" class="headerlink" title="什么是搜索引擎？"></a>什么是搜索引擎？</h3><h4 id="日常生活中的搜索引擎"><a href="#日常生活中的搜索引擎" class="headerlink" title="日常生活中的搜索引擎"></a>日常生活中的搜索引擎</h4><p>搜索引擎是一种用来在互联网上搜索信息的应用程序。当然，现在说是应用程序已经不太确切了，称为服务会更准确一些。像 Google、Baidu 等互联网搜索引擎人们都已经习以为常。通过搜索引擎，人们可以很轻松方便地从网络上查找到自己需要的资源，很难以想象没有搜索引擎的时代人们需要怎样去获取信息。</p>
+<h4 id="搜索引擎-VS-数据库"><a href="#搜索引擎-VS-数据库" class="headerlink" title="搜索引擎 VS 数据库"></a>搜索引擎 VS 数据库</h4><p>同样提供存储和查询功能，但是搜索引擎和数据库在设计理念和工作方式上差异还是非常大的。数据库的功能更为的全面，是一种通用的数据存取引擎，搜索引擎则重点处理大数据量的文本数据，并且只侧重于获取数据的性能和方式。</p>
+<h5 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h5><p>数据库通常使用 like 关键字来进行文本匹配，然而这在长文本中效率很低。当然你也可以对需要搜索的字段建立索引，可是数据库中你不能对所有潜在的搜索字段都建立索引。</p>
+<h5 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h5><p>数据库使用 B 树来建立索引，这是一种平衡搜索树，查找到所有的条目的速度都相同。而搜索引擎采用的数据结构是倒排索引，这在后文会进行介绍。</p>
+<h5 id="设计理念"><a href="#设计理念" class="headerlink" title="设计理念"></a>设计理念</h5><p>设计理念的不同导致了功能上的部分差异。数据库的优势在于表与表之间的关系，而搜索引擎几乎不支持任何跨索引查询。数据库在使用上读写两端都同样重要，而搜索引擎则完全侧重于获取数据的方式上。</p>
+<h4 id="搜索引擎的历史"><a href="#搜索引擎的历史" class="headerlink" title="搜索引擎的历史"></a>搜索引擎的历史</h4><p>最早的搜索引擎诞生于 1987 年，名叫 Archie（/‘ɑ:tʃi/），是加拿大魁北克省蒙特利尔的麦吉尔大学的一个志愿者团队制作的。它最初的目的只是提供一个互联网上 FTP 资源的检索功能，是利用 grep 命令来实现的。到了 1990 年，Archie 经过了一次升级，升级后可以使用 telnet 来访问搜索服务了，并且有了最初的 web 界面。</p>
+<p>在最早的搜索引擎出现之后，互联网上的资源渐渐丰富起来，人们对于高效地搜索互联网上的资源渐渐有了需求。到了1995年，Yahoo 公司率先开展了搜索引擎业务。虽然搜索引擎的业务发展在当时还并不理想，但是带动了互联网行业做搜索引擎的趋势。在那之后，1998 年和 2000 年，Google 和 Baidu 相继开展了自己的搜索引擎业务，真正将将搜索引擎普及到寻常百姓家中。在 2009 年，Microsoft 公司才反应过来，推出了 Bing 搜索，但行业中可以分的利益已经不多。</p>
+<p>到现在，Google 已经成为了世界上最受欢迎的搜索引擎，与其他互联网搜索引擎相比，占有 90% 以上的访问量，其次是 Bing 和 Baidu。但在不同的地区，搜索引擎的偏好还是存在很大的差异，在俄罗斯，Yandex 是最受欢迎的搜索引擎，在中国，则是 Baidu 最受欢迎，在韩国最受欢迎的是 Naver，在日本和台湾则是 Yahoo。</p>
+<h4 id="全文搜索"><a href="#全文搜索" class="headerlink" title="全文搜索"></a>全文搜索</h4><p>前文所提到的都是广义上的搜索引擎，在搜索引擎技术的研究中，注意研究全文搜索技术。区别于元数据搜索和数据库搜索，全文搜索侧重于大数据量的文本检索技术。</p>
+<h5 id="Lucene"><a href="#Lucene" class="headerlink" title="Lucene"></a>Lucene</h5><p>Lucene 是 Java 实现的全文检索工具包，由 Doug Cutting 所编写（Doug Cutting 创立了 Lucene 和 Nutch，也是 Hadoop 的奠基人之一）。Lucene 在全文检索技术中已经成为了一个标杆，它被翻译成多种语言，以便在不同的环境中被使用。其中建立倒排索引的方式和使用的 TF-IDF 文档打分算法被业界公认为是搜索技术的行业标准。</p>
+<h5 id="Solr-amp-Elasticsearch"><a href="#Solr-amp-Elasticsearch" class="headerlink" title="Solr &amp; Elasticsearch"></a>Solr &amp; Elasticsearch</h5><p>Solr 和 Elasticsearch 都是基于 Lucene 的全文检索平台，利用他们可以搭建完整的搜索服务。由于 Elasticsearch 可以方便地和可视化工具做集成，现在 Elasticsearch 更受欢迎，通常Elasticsearch会被用来做系统日志的收集和管理。</p>
+<h3 id="搜索引擎中的关键技术"><a href="#搜索引擎中的关键技术" class="headerlink" title="搜索引擎中的关键技术"></a>搜索引擎中的关键技术</h3><h4 id="索引技术"><a href="#索引技术" class="headerlink" title="索引技术"></a>索引技术</h4><p>不同于 grep 命令的顺序扫描和数据库的平衡搜索树，搜索引擎通常采用的是倒排索引的结构。倒排索引通常指关键字和其所属文档的对应关系，在代码中以基本的 keyword -&gt; { doc1, doc2, doc3… } 来实现。</p>
+<h4 id="搜索技术"><a href="#搜索技术" class="headerlink" title="搜索技术"></a>搜索技术</h4><p>对于海量的原始数据而言，除了需要倒排索引技术的帮助之外，还需要一些特定的搜索技术来完善搜索功能。最为迫切的需求无非是如何把用户想要的结果返回给用户，也就是文档排序问题。</p>
+<h5 id="TF-IDF"><a href="#TF-IDF" class="headerlink" title="TF-IDF"></a>TF-IDF</h5><p>这里引出一种名为 TF-IDF 的算法来帮助搜索引擎做排序工作。</p>
+<p>TF（Term Frequency）指文档中某个词出现的频率。</p>
+<p>DF（Document Frequency）指包含某个词的文档的数量。IDF 即为该值的倒数。</p>
+<p>一个经典的 TF-IDF 值的计算公式为 <code>weight = tf * sqrt(n / df)</code>。</p>
+<blockquote>
+<p>TF-IDF 的思路来自于词和文档的关系。文档中某个词出现的越少，则文档和该词的关联越小。而若某个词被大量文档包含，则认为该词更为通用，不是一个可以和某文档关联的词。</p>
+</blockquote>
+<h5 id="VSM（Vector-Space-Model）"><a href="#VSM（Vector-Space-Model）" class="headerlink" title="VSM（Vector Space Model）"></a>VSM（Vector Space Model）</h5><p>这就是我们常说的向量空间模型。在向量空间模型中，两个向量的夹角越小，则认为其相关性越大。我们用文档中所有词的词频（权重）组成向量，来计算文档之间的余弦值或者是文档与查询条件之间的余弦值。</p>
+<h4 id="其他技术"><a href="#其他技术" class="headerlink" title="其他技术"></a>其他技术</h4><h5 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h5><p>爬虫是搜索引擎获取数据的重要组成部分，但也通常被人们忽视。原因可能是其相对较低的技术含量，亦或是其多样化的实现方式。</p>
+<p>爬虫可以比人类更快地获取数据。要实现一个爬虫，首先即要考虑的是并发的问题。分布式通常是解决并发量的一个方案。但要小心，并发量提升之后也通常会对爬取的站点带来请求的压力。因此，若需要开发爬虫，则必须要遵守每个站点的robots.txt中制定的规则，这已然成为了爬虫必须要遵守的礼仪规范。</p>
+<h5 id="分词"><a href="#分词" class="headerlink" title="分词"></a>分词</h5><p>为了提升搜索的效率，对文档的预处理是非常重要的。而分词则是处理文档的第一步。</p>
+<p>英文的分词是天然由空格形成的，而对于东方的“方格字”，分词就显得很难了。现在应用得最多的分词方式即是基于字典的分词：正向最大匹配法、逆向最大匹配法和双向最大匹配法。</p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>搜索引擎的技术是一门很深的学问，并且在近年来还处在高速的发展中。虽然现如今如谷歌、阿里等大厂的搜索相关的技术已经较为成熟，但很多技术仍然处于瓶颈中，亟待突破性的发展。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Jack Tang</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://jackeggie.github.io/2018-05-17-intro-to-search-engine/">http://jackeggie.github.io/2018-05-17-intro-to-search-engine/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="external nofollow" target="_blank">CC BY-NC-ND 4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/search-engine/"># search engine</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2018-10-08-talk-about-double-locking-problem/">Java 中的双重检查锁(Double-Checked Locking)的问题</a>
+            
+            
+            <a class="next" rel="next" href="/2018-04-28-structuring-a-page-of-content/">结构化一个页面的内容 - MDN html 作业</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Jack Tang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

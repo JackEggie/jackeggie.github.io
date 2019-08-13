@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>聊聊我的第一次心理咨询体验 | Jack&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/image/avatar.jpeg">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Jack&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/tags">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Jack&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/tags">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">聊聊我的第一次心理咨询体验</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Jack Tang</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">2019-04-22&nbsp;&nbsp;13:01:04</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>从去年开始筹备婚礼之后，自己的情绪就变得逐渐“难以控制”起来。在以前，即使偶尔和父母有矛盾，也仅仅只是不开心，很少有能够影响好几天的情况发生。而现在，一旦因为某些事情不顺心，可以被悲观的情绪影响好多天。被消极的想法支配的感觉真的很不好。</p>
+<p>在被悲观情绪支配的情况愈演愈烈之后，我极度想要做出一些改变。</p>
+<h2 id="改变"><a href="#改变" class="headerlink" title="改变"></a>改变</h2><p>首先，我认为人是很难改变其他人的所做和所想的。基于这一点，我决定改变还是要从自身入手。</p>
+<p>我最开始尝试的是去说服。这种方式在现在看来是完全错误的，事实也印证了这一点。我与父母沟通的时候，我越是想要去说服他们，他们便越不认同我的说法。最后矛盾被激化，我得到的答案变成了“我不听话，是个不孝子”。</p>
+<p>在失败的尝试过后，我决定有矛盾的时候，尝试着让自己去排解不好的情绪。把问题放任，用时间去解决问题。同样地，得到的结果仍然很不好。除了大多数问题是时间无法冲淡的之外，更严重的是情绪非常难以排解。我常常在排解的过程中陷入非常大的痛苦中。</p>
+<h2 id="尝试"><a href="#尝试" class="headerlink" title="尝试"></a>尝试</h2><p>这样的痛苦持续了将近一年的时间。而现在我想要寻求一些专业的帮助，能够给我一些生活上的指引和转变，让我重新快乐起来。</p>
+<p>也曾经在网上查找过专业的心理咨询机构，看到网上的评价寥寥无几，并且评价都较为一般，便不太相信那些所谓的心理咨询机构。也找过一些医院的精神科室的资料，但医院好像都只接受精神状态特别不正常的病人，其治疗手段也都比较粗暴，鲜有“吃力不讨好”的咨询的方式。</p>
+<p>前段时间在豆瓣上看到了某公益心理组织有心理咨询的体验活动，便萌生了去试试的想法。我知道自己的情况并不严重，或许只是某种思路上的错误让自己走不出来。这与那些需要长期咨询治疗的情况不同，也许只需要有一位专业人士给我“指点迷津”，我便能“豁然开朗”。</p>
+<h2 id="体验"><a href="#体验" class="headerlink" title="体验"></a>体验</h2><p>在报名之后等了约一周多的时间，即使不太清楚这样的公益组织是如何运作的，我的耐心也在逐渐被消磨。慢慢地，我想是不是这种非营利性的活动会更加不靠谱呢？</p>
+<p>但是在收到反馈的时候我是惊喜的。我想我可能找到了国内心理咨询的正确打开方式了。</p>
+<p>时间约在了周末的下午，一个办公楼的星巴克内。这样的时间和选址让我基本确定了这个公益活动的性质，我是感到比较惊讶的。时间其实不必多说，只是为了选择咨询师和体验者都方便的时间，并且周末的时间会更加宽松，如果有任何意外的情况都会比较好处理。而地点就比较有意思，选在了周末没有人上班的办公楼的星巴克内。这个地点有两个属性，公众场合和人流量少。这两个属性都在一定程度上给了体验者些许安全感。唯一的缺点是，就算是周末办公楼的星巴克，也是比较吵闹的。</p>
+<p>体验的过程就不多说了，整体感觉还是非常专业的，这对于我这样没有过心理咨询体验的人来说，感受非常的好。倾诉和聆听的过程中，我没有感受到任何的尴尬，反而有一种莫名的信任。我信任坐在对面的那个人是理解我的，这让我觉得难能可贵。（也许体验的好坏与咨询师有关，我遇到的这个咨询师本身就是医务工作者，经验比较丰富）</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>在一个小时的咨询过程中，我们就问题的核心和解决方案进行了讨论。</p>
+<p>我做了小小的笔记：</p>
+<ol>
+<li>我的问题核心是“理解”。这包括父母对我的理解和我对父母的理解。这种理解是相互的，如果有一方不能很好的理解对方，矛盾就会显现。</li>
+<li>我的负面情绪的来源是“控制”。同样地，控制也是相互的。而我这次咨询的最大收获之一便是，我理解了原来反控制的本质也是一种控制。多年来我一直处于对父母的控制的反抗中，在这过程中我痛苦的原因原来不是父母对我的控制欲，而是我不仅想要拜托父母的控制，更想要他们理解我。而他们由于种种原因，其实不太可能完全理解我，是我对他们的要求太高。我进入了一个反控制的死胡同里，要他们完全理解我并不是我的本意。这种错误的需求是让我痛苦的原因。</li>
+<li>找到问题以后，便是解决的办法：<ul>
+<li>既然痛苦的原因是我的控制欲，那么想办法减少这种欲望就可以。又因为我本不想这么控制父母，这个问题就很简单了。</li>
+<li>由于目前已经发生了很多矛盾，仍然需要减少后续矛盾发生的可能性。方案有二，减少接触的机会和减少对父母的需求。</li>
+<li>如果发生了矛盾，排解的方式推荐对抗性的运动（如拳击）和找人分担。</li>
+</ul>
+</li>
+</ol>
+<p>总之，我的问题好像得到了解决。但这也还是看我自己，如果懂得了做人的道理却仍然学不会好好做人，这不就会显得很愚蠢吗？</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Jack Tang</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://jackeggie.github.io/2019-04-22-my-first-psychological-counseling/">http://jackeggie.github.io/2019-04-22-my-first-psychological-counseling/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="external nofollow" target="_blank">CC BY-NC-ND 4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/psychology/"># psychology</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019-05-04-distributed-transactions-in-spring-with-and-without-xa-part-1/">【译】Spring 的分布式事务实现 — 使用和不使用 XA — 第一部分</a>
+            
+            
+            <a class="next" rel="next" href="/2019-04-14-your-first-cli-tool-with-rust/">【译】用 Rust 打造你的第一个命令行工具</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Jack Tang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

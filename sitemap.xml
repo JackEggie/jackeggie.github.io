@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://jackeggie.github.io/about/index.html</loc>
+    
+    <lastmod>2019-08-13T09:00:04.072Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/2018-10-08-talk-about-double-locking-problem/</loc>
+    
+    <lastmod>2019-08-02T02:25:20.707Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/2018-04-28-structuring-a-page-of-content/</loc>
+    
+    <lastmod>2019-08-02T02:24:37.229Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/2018-04-21-marking-up-a-letter/</loc>
+    
+    <lastmod>2019-08-02T02:24:15.984Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/2018-04-07-cache-framework-research/</loc>
+    
+    <lastmod>2019-08-02T02:23:46.306Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/2018-03-24-java-memory-module/</loc>
+    
+    <lastmod>2019-08-02T02:23:32.890Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/2018-03-17-emotion-management/</loc>
+    
+    <lastmod>2019-08-02T02:23:17.027Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/2018-03-10-jvm-memory-structure/</loc>
+    
+    <lastmod>2019-08-02T02:23:02.529Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/2018-02-24-json-parser-performance/</loc>
+    
+    <lastmod>2019-08-02T02:22:33.144Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/2018-02-17-string-search/</loc>
+    
+    <lastmod>2019-08-02T02:22:18.496Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/2018-01-26-gitflow-example/</loc>
+    
+    <lastmod>2019-08-02T02:21:44.960Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/tags/index.html</loc>
+    
+    <lastmod>2019-08-01T10:08:16.139Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/2018-04-14-upgrade-hexo-and-next/</loc>
+    
+    <lastmod>2019-08-01T09:51:48.578Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/2018-05-17-intro-to-search-engine/</loc>
+    
+    <lastmod>2019-08-01T09:51:48.513Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/2018-03-03-practice-scrum/</loc>
+    
+    <lastmod>2019-08-01T09:51:48.497Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/2018-02-10-open-source-license/</loc>
+    
+    <lastmod>2019-08-01T09:51:48.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/2018-03-31-fickleness/</loc>
+    
+    <lastmod>2019-08-01T09:51:48.465Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/2018-01-21-create-a-blog/</loc>
+    
+    <lastmod>2019-08-01T09:51:48.398Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/2018-02-03-hexo-pic/</loc>
+    
+    <lastmod>2019-08-01T09:51:48.384Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/2019-07-25-a-bird-s-eye-view-of-go/</loc>
+    
+    <lastmod>2019-08-01T09:49:25.030Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/2019-07-21-binary-form-of-int-in-java/</loc>
+    
+    <lastmod>2019-08-01T09:47:37.305Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/2019-05-16-what-we-ve-learned-about-hiring-engineering-managers/</loc>
+    
+    <lastmod>2019-08-01T09:46:05.243Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/2019-05-04-distributed-transactions-in-spring-with-and-without-xa-part-1/</loc>
+    
+    <lastmod>2019-08-01T09:44:12.611Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/2019-04-22-my-first-psychological-counseling/</loc>
+    
+    <lastmod>2019-08-01T09:41:57.702Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/2019-04-14-your-first-cli-tool-with-rust/</loc>
+    
+    <lastmod>2019-08-01T09:39:48.031Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/2019-03-02-how-to-build-your-own-neural-network-from-scratch-in-python/</loc>
+    
+    <lastmod>2019-08-01T09:37:11.887Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/categories/index.html</loc>
+    
+    <lastmod>2019-08-01T09:11:49.030Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/Search/index.html</loc>
+    
+    <lastmod>2019-08-01T09:11:48.931Z</lastmod>
+    
+  </url>
+  
+</urlset>

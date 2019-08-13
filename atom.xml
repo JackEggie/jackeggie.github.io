@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Jack&#39;s Blog</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://jackeggie.github.io/"/>
+  <updated>2019-08-01T09:49:25.030Z</updated>
+  <id>http://jackeggie.github.io/</id>
+  
+  <author>
+    <name>Jack Tang</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【译】Go 语言概览</title>
+    <link href="http://jackeggie.github.io/2019-07-25-a-bird-s-eye-view-of-go/"/>
+    <id>http://jackeggie.github.io/2019-07-25-a-bird-s-eye-view-of-go/</id>
+    <published>2019-07-25T10:49:21.000Z</published>
+    <updated>2019-08-01T09:49:25.030Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;原文地址：&lt;a href=&quot;https://blog.merovius.de/2019/06/12/birdseye-go.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;A bird’s eye view
+        
+      
+    
+    </summary>
+    
+    
+      <category term="gold-miner" scheme="http://jackeggie.github.io/tags/gold-miner/"/>
+    
+      <category term="translation" scheme="http://jackeggie.github.io/tags/translation/"/>
+    
+      <category term="go-lang" scheme="http://jackeggie.github.io/tags/go-lang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java 中 int 类型的二进制表示</title>
+    <link href="http://jackeggie.github.io/2019-07-21-binary-form-of-int-in-java/"/>
+    <id>http://jackeggie.github.io/2019-07-21-binary-form-of-int-in-java/</id>
+    <published>2019-07-21T09:55:51.000Z</published>
+    <updated>2019-08-01T09:47:37.305Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot; title=&quot;原理&quot;&gt;&lt;/a&gt;原理&lt;/h2&gt;&lt;p&gt;可通过 Integer.MAX_VALUE 和 Integer.MIN_VALUE 查看 int 类型的最大和最小值，分别为
+        
+      
+    
+    </summary>
+    
+    
+      <category term="java" scheme="http://jackeggie.github.io/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【译】我们从招聘技术经理的过程中学到了什么</title>
+    <link href="http://jackeggie.github.io/2019-05-16-what-we-ve-learned-about-hiring-engineering-managers/"/>
+    <id>http://jackeggie.github.io/2019-05-16-what-we-ve-learned-about-hiring-engineering-managers/</id>
+    <published>2019-05-16T05:32:55.000Z</published>
+    <updated>2019-08-01T09:46:05.243Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;原文地址：&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="gold-miner" scheme="http://jackeggie.github.io/tags/gold-miner/"/>
+    
+      <category term="translation" scheme="http://jackeggie.github.io/tags/translation/"/>
+    
+      <category term="management" scheme="http://jackeggie.github.io/tags/management/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【译】Spring 的分布式事务实现 — 使用和不使用 XA — 第一部分</title>
+    <link href="http://jackeggie.github.io/2019-05-04-distributed-transactions-in-spring-with-and-without-xa-part-1/"/>
+    <id>http://jackeggie.github.io/2019-05-04-distributed-transactions-in-spring-with-and-without-xa-part-1/</id>
+    <published>2019-05-04T02:24:09.000Z</published>
+    <updated>2019-08-01T09:44:12.611Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;原文地址：&lt;a href=&quot;https://www.javaworld.com/article/2077963/distributed-transactions-in-spring--with-and-without-xa.html&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="gold-miner" scheme="http://jackeggie.github.io/tags/gold-miner/"/>
+    
+      <category term="translation" scheme="http://jackeggie.github.io/tags/translation/"/>
+    
+      <category term="spring" scheme="http://jackeggie.github.io/tags/spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>聊聊我的第一次心理咨询体验</title>
+    <link href="http://jackeggie.github.io/2019-04-22-my-first-psychological-counseling/"/>
+    <id>http://jackeggie.github.io/2019-04-22-my-first-psychological-counseling/</id>
+    <published>2019-04-22T05:01:04.000Z</published>
+    <updated>2019-08-01T09:41:57.702Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="psychology" scheme="http://jackeggie.github.io/tags/psychology/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【译】用 Rust 打造你的第一个命令行工具</title>
+    <link href="http://jackeggie.github.io/2019-04-14-your-first-cli-tool-with-rust/"/>
+    <id>http://jackeggie.github.io/2019-04-14-your-first-cli-tool-with-rust/</id>
+    <published>2019-04-14T02:40:13.000Z</published>
+    <updated>2019-08-01T09:39:48.031Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;原文地址：&lt;a href=&quot;https://www.demainilpleut.fr/your-first-cli-tool-with-rust/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Your first
+        
+      
+    
+    </summary>
+    
+    
+      <category term="gold-miner" scheme="http://jackeggie.github.io/tags/gold-miner/"/>
+    
+      <category term="translation" scheme="http://jackeggie.github.io/tags/translation/"/>
+    
+      <category term="rust" scheme="http://jackeggie.github.io/tags/rust/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【译】如何用 Python 从零开始构建你自己的神经网络</title>
+    <link href="http://jackeggie.github.io/2019-03-02-how-to-build-your-own-neural-network-from-scratch-in-python/"/>
+    <id>http://jackeggie.github.io/2019-03-02-how-to-build-your-own-neural-network-from-scratch-in-python/</id>
+    <published>2019-03-02T02:34:00.000Z</published>
+    <updated>2019-08-01T09:37:11.887Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;原文地址：&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="gold-miner" scheme="http://jackeggie.github.io/tags/gold-miner/"/>
+    
+      <category term="translation" scheme="http://jackeggie.github.io/tags/translation/"/>
+    
+      <category term="python" scheme="http://jackeggie.github.io/tags/python/"/>
+    
+      <category term="ai" scheme="http://jackeggie.github.io/tags/ai/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java 中的双重检查锁(Double-Checked Locking)的问题</title>
+    <link href="http://jackeggie.github.io/2018-10-08-talk-about-double-locking-problem/"/>
+    <id>http://jackeggie.github.io/2018-10-08-talk-about-double-locking-problem/</id>
+    <published>2018-10-08T05:22:54.000Z</published>
+    <updated>2019-08-02T02:25:20.707Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Java-中的双重检查锁&quot;&gt;&lt;a href=&quot;#Java-中的双重检查锁&quot; class=&quot;headerlink&quot; title=&quot;Java 中的双重检查锁&quot;&gt;&lt;/a&gt;Java 中的双重检查锁&lt;/h3&gt;&lt;p&gt;不知道从什么时候开始，双重锁检机制开始在 Java
+        
+      
+    
+    </summary>
+    
+    
+      <category term="jvm" scheme="http://jackeggie.github.io/tags/jvm/"/>
+    
+      <category term="multi-thread" scheme="http://jackeggie.github.io/tags/multi-thread/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>搜索引擎技术的简介</title>
+    <link href="http://jackeggie.github.io/2018-05-17-intro-to-search-engine/"/>
+    <id>http://jackeggie.github.io/2018-05-17-intro-to-search-engine/</id>
+    <published>2018-05-17T05:20:34.000Z</published>
+    <updated>2019-08-01T09:51:48.513Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;什么是搜索引擎？&quot;&gt;&lt;a href=&quot;#什么是搜索引擎？&quot; class=&quot;headerlink&quot; title=&quot;什么是搜索引擎？&quot;&gt;&lt;/a&gt;什么是搜索引擎？&lt;/h3&gt;&lt;h4 id=&quot;日常生活中的搜索引擎&quot;&gt;&lt;a href=&quot;#日常生活中的搜索引擎&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="search engine" scheme="http://jackeggie.github.io/tags/search-engine/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>结构化一个页面的内容 - MDN html 作业</title>
+    <link href="http://jackeggie.github.io/2018-04-28-structuring-a-page-of-content/"/>
+    <id>http://jackeggie.github.io/2018-04-28-structuring-a-page-of-content/</id>
+    <published>2018-04-28T06:03:24.000Z</published>
+    <updated>2019-08-02T02:24:37.229Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;本文将会解析来自MDN web docs的一份html作业，内容较为基础，有一定html知识的同学可以选择绕道。&lt;/p&gt;
+&lt;h3
+        
+      
+    
+    </summary>
+    
+    
+      <category term="html" scheme="http://jackeggie.github.io/tags/html/"/>
+    
+      <category term="frontend" scheme="http://jackeggie.github.io/tags/frontend/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>标记一封信 - MDN html 作业</title>
+    <link href="http://jackeggie.github.io/2018-04-21-marking-up-a-letter/"/>
+    <id>http://jackeggie.github.io/2018-04-21-marking-up-a-letter/</id>
+    <published>2018-04-21T02:02:18.000Z</published>
+    <updated>2019-08-02T02:24:15.984Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;本文将会解析来自MDN web docs的一份html作业，内容较为基础，有一定html知识的同学可以选择绕道。&lt;/p&gt;
+&lt;h3
+        
+      
+    
+    </summary>
+    
+    
+      <category term="html" scheme="http://jackeggie.github.io/tags/html/"/>
+    
+      <category term="frontend" scheme="http://jackeggie.github.io/tags/frontend/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>本博客升级过程</title>
+    <link href="http://jackeggie.github.io/2018-04-14-upgrade-hexo-and-next/"/>
+    <id>http://jackeggie.github.io/2018-04-14-upgrade-hexo-and-next/</id>
+    <published>2018-04-14T08:52:37.000Z</published>
+    <updated>2019-08-01T09:51:48.578Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;本文主要描述Hexo相关组件的升级方式和Next主题的升级方式。&lt;/p&gt;
+&lt;h3 id=&quot;Hexo升级&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://jackeggie.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>缓存框架调研</title>
+    <link href="http://jackeggie.github.io/2018-04-07-cache-framework-research/"/>
+    <id>http://jackeggie.github.io/2018-04-07-cache-framework-research/</id>
+    <published>2018-04-07T08:33:33.000Z</published>
+    <updated>2019-08-02T02:23:46.306Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Redis&quot;&gt;&lt;a href=&quot;#Redis&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="cache" scheme="http://jackeggie.github.io/tags/cache/"/>
+    
+      <category term="redis" scheme="http://jackeggie.github.io/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浮躁、静不下心的解决方案</title>
+    <link href="http://jackeggie.github.io/2018-03-31-fickleness/"/>
+    <id>http://jackeggie.github.io/2018-03-31-fickleness/</id>
+    <published>2018-03-31T10:07:32.000Z</published>
+    <updated>2019-08-01T09:51:48.465Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="psychology" scheme="http://jackeggie.github.io/tags/psychology/"/>
+    
+      <category term="fickleness" scheme="http://jackeggie.github.io/tags/fickleness/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java内存结构</title>
+    <link href="http://jackeggie.github.io/2018-03-24-java-memory-module/"/>
+    <id>http://jackeggie.github.io/2018-03-24-java-memory-module/</id>
+    <published>2018-03-24T07:43:07.000Z</published>
+    <updated>2019-08-02T02:23:32.890Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="jvm" scheme="http://jackeggie.github.io/tags/jvm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>对于情绪管理的思考</title>
+    <link href="http://jackeggie.github.io/2018-03-17-emotion-management/"/>
+    <id>http://jackeggie.github.io/2018-03-17-emotion-management/</id>
+    <published>2018-03-17T09:32:24.000Z</published>
+    <updated>2019-08-02T02:23:17.027Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="psychology" scheme="http://jackeggie.github.io/tags/psychology/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JVM内存结构</title>
+    <link href="http://jackeggie.github.io/2018-03-10-jvm-memory-structure/"/>
+    <id>http://jackeggie.github.io/2018-03-10-jvm-memory-structure/</id>
+    <published>2018-03-10T08:42:27.000Z</published>
+    <updated>2019-08-02T02:23:02.529Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;JVM内存结构概述&quot;&gt;&lt;a href=&quot;#JVM内存结构概述&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="jvm" scheme="http://jackeggie.github.io/tags/jvm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Scrum实践</title>
+    <link href="http://jackeggie.github.io/2018-03-03-practice-scrum/"/>
+    <id>http://jackeggie.github.io/2018-03-03-practice-scrum/</id>
+    <published>2018-03-03T07:17:56.000Z</published>
+    <updated>2019-08-01T09:51:48.497Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;相关概念&quot;&gt;&lt;a href=&quot;#相关概念&quot; class=&quot;headerlink&quot; title=&quot;相关概念&quot;&gt;&lt;/a&gt;相关概念&lt;/h3&gt;&lt;h4 id=&quot;Agile&quot;&gt;&lt;a href=&quot;#Agile&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="agile" scheme="http://jackeggie.github.io/tags/agile/"/>
+    
+      <category term="scrum" scheme="http://jackeggie.github.io/tags/scrum/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Json解析器性能对比</title>
+    <link href="http://jackeggie.github.io/2018-02-24-json-parser-performance/"/>
+    <id>http://jackeggie.github.io/2018-02-24-json-parser-performance/</id>
+    <published>2018-02-24T07:31:19.000Z</published>
+    <updated>2019-08-02T02:22:33.144Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;在两年前曾经做过四种Json解析器的性能对比，现在回头看当时的结果，跟当时的想法还是有很大差异的。&lt;/p&gt;
+&lt;h3
+        
+      
+    
+    </summary>
+    
+    
+      <category term="json" scheme="http://jackeggie.github.io/tags/json/"/>
+    
+      <category term="performance" scheme="http://jackeggie.github.io/tags/performance/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>字符串匹配算法</title>
+    <link href="http://jackeggie.github.io/2018-02-17-string-search/"/>
+    <id>http://jackeggie.github.io/2018-02-17-string-search/</id>
+    <published>2018-02-17T08:12:48.000Z</published>
+    <updated>2019-08-02T02:22:18.496Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;问题引入&quot;&gt;&lt;a href=&quot;#问题引入&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="algorithm" scheme="http://jackeggie.github.io/tags/algorithm/"/>
+    
+  </entry>
+  
+</feed>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>【译】Spring 的分布式事务实现 — 使用和不使用 XA — 第一部分 | Jack&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/image/avatar.jpeg">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Jack&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/tags">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Jack&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/tags">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">【译】Spring 的分布式事务实现 — 使用和不使用 XA — 第一部分</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Jack Tang</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">2019-05-04&nbsp;&nbsp;10:24:09</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <blockquote>
+<ul>
+<li>原文地址：<a href="https://www.javaworld.com/article/2077963/distributed-transactions-in-spring--with-and-without-xa.html" target="_blank" rel="noopener">Distributed transactions in Spring, with and without XA - Part I</a></li>
+<li>原文作者：<a href="mailto:david.syer@springsource.com" target="_blank" rel="noopener">David Syer</a></li>
+<li>译文出自：<a href="https://github.com/xitu/gold-miner" target="_blank" rel="noopener">掘金翻译计划</a></li>
+<li>本文永久链接：<a href="https://github.com/xitu/gold-miner/blob/master/TODO1/distributed-transactions-in-spring-with-and-without-xa-part-1.md" target="_blank" rel="noopener">https://github.com/xitu/gold-miner/blob/master/TODO1/distributed-transactions-in-spring-with-and-without-xa-part-1.md</a></li>
+<li>译者：<a href="https://github.com/JackEggie" target="_blank" rel="noopener">JackEggie</a></li>
+<li>校对者：<a href="https://github.com/fireairforce" target="_blank" rel="noopener">fireairforce</a></li>
+</ul>
+</blockquote>
+<h1 id="Spring-的分布式事务实现-—-使用和不使用-XA-—-第一部分"><a href="#Spring-的分布式事务实现-—-使用和不使用-XA-—-第一部分" class="headerlink" title="Spring 的分布式事务实现 — 使用和不使用 XA — 第一部分"></a>Spring 的分布式事务实现 — 使用和不使用 XA — 第一部分</h1><blockquote>
+<ul>
+<li><a href="https://github.com/xitu/gold-miner/blob/master/TODO1/distributed-transactions-in-spring-with-and-without-xa-part-1.md" target="_blank" rel="noopener">Spring 的分布式事务实现 — 使用和不使用 XA — 第一部分</a></li>
+<li><a href="https://github.com/xitu/gold-miner/blob/master/TODO1/distributed-transactions-in-spring-with-and-without-xa-part-2.md" target="_blank" rel="noopener">Spring 的分布式事务实现 — 使用和不使用 XA — 第二部分</a></li>
+<li><a href="https://github.com/xitu/gold-miner/blob/master/TODO1/distributed-transactions-in-spring-with-and-without-xa-part-3.md" target="_blank" rel="noopener">Spring 的分布式事务实现 — 使用和不使用 XA — 第三部分</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>Spring 的 7 种事务处理模式</p>
+</blockquote>
+<p>虽然在 Spring 中分布式事务通常使用 Java Transaction API 和 XA 协议实现，但也有其他的实现方式。最好的实现方式取决于应用程序所使用资源的类型，以及你是否愿意在性能、安全性、可靠性和数据完整性之间做出权衡。针对这个 Java 中的典型问题，Spring 的开发者 David Syer 将会介绍 7 种 Spring 分布式应用的实现方式，其中 3 种实现使用了 XA 协议，另外 4 种使用了其他的实现方式。（中级知识点）</p>
+<p>Spring 框架对 Java Transaction API (JTA) 的支持使应用程序能够<a href="http://www.javaworld.com/javaworld/jw-04-2007/jw-04-xa.html" target="_blank" rel="noopener">无需在 Java EE 容器中</a>即可使用分布式事务和 XA 协议。然而，即使有了这种支持，XA 的性能开销仍然很大，而且可能不可靠并且难于管理。不过令人惊喜的是，某种特定类型的应用程序可以完全避免使用 XA 来实现分布式事务。</p>
+<p>为了让你对分布式事务的各种实现方式有充分的理解和思考，我将详细分析这 7 种事务处理模式，并提供代码示例帮助你理解得更具体。我将根据安全性和可靠性来依次介绍这些模式，从通常来说数据完整性和原子性程度最高的模式开始。当你按顺序浏览时，你会看到越来越多的警示说明和限制条件。这些模式的性能开销也大致相反（从开销最大的模式开始）。与编写业务代码完全不同的是，这些模式都是从架构复杂度和技术难度考虑的，所以我不会关心业务用例，只关心使每种模式正常工作的最小代码量。</p>
+<p>注意，只有前三种模式涉及 XA。而从性能的角度考虑，这些模式可能无法使用或性能差到不可接受。我不会像介绍其他模式那样对 XA 模式有详细的讨论，因为 XA 在其他地方已经有很多介绍了，不过我提供了第一个模式（基于 XA）的简单示例。通过阅读本文，你将了解使用分布式事务可以做什么、不能做什么，何时使用 XA、何时不使用 XA，以及如何避免使用 XA。</p>
+<h2 id="分布式事务及其原子性"><a href="#分布式事务及其原子性" class="headerlink" title="分布式事务及其原子性"></a>分布式事务及其原子性</h2><p>一个<strong>分布式事务</strong>通常包含多个事务资源。事务资源是指关系型数据库和消息中间件的连接。一个典型的事务资源都会有像 <code>begin()</code>、<code>rollback()</code>、<code>commit()</code> 这样的 API。在 Java 中，一个事务资源通常表现为底层连接工厂提供的实例：对于数据库来说，就是 <code>Connection</code> 对象（由 <code>DataSource</code> 提供）或是 <a href="http://www.javaworld.com/javaworld/jw-01-2008/jw-01-jpa1.html" target="_blank" rel="noopener">Java Persistence API</a>（JPA）的 <code>EntityManager</code> 对象；对于 <a href="http://www.javaworld.com/jw-01-1999/jw-01-jms.html" target="_blank" rel="noopener">Java Message Service</a>（JMS）来说，则是 <code>Session</code> 对象。</p>
+<p>在一个典型的例子中，一个 JMS 消息触发了数据库的更新。根据时间先后顺序，一次成功的交互过程如下：</p>
+<ol>
+<li>启动消息事务</li>
+<li><strong>接收消息</strong></li>
+<li>启动数据库事务</li>
+<li><strong>更新数据库</strong></li>
+<li>提交数据库事务</li>
+<li>提交消息事务</li>
+</ol>
+<p>如果数据库在更新数据时报错（如约束冲突），理想的交互顺序如下：</p>
+<ol>
+<li>启动消息事务</li>
+<li><strong>接收消息</strong></li>
+<li>启动数据库事务</li>
+<li><strong>更新数据库失败！</strong></li>
+<li>回滚数据库事务</li>
+<li>回滚消息事务</li>
+</ol>
+<p>在这个例子中，消息在最后回滚完成之后回到了中间件，在某个时刻将再次提交到另一个事务中。这通常是一件好事，因为如果这样做的话更新数据时发生的错误将会被记录下来。（自动重试和异常处理的机制超出了本文的讨论范围。）</p>
+<p>上述两个例子中最重要的特点就是<strong>原子性</strong>，逻辑上来说，一个事务要么完全成功，要么完全失败。</p>
+<p>那么是什么保证了上面两个例子在流程上的一致性呢？我们必须在事务资源之间进行一些同步，以便在一个事务提交之后，另一个事务才能提交。否则，整个事务就不是原子性的。因为涉及多个资源，所以事务是分布式的。如果不进行同步，事务就不会是原子性的。分布式事务的理论和实现上的困难都与资源的同步（或缺少资源）有关。</p>
+<p>下面讨论的前三个模式都是基于 XA 协议的。由于这些模式已经被普及，所以在这里我不会介绍得很详细。如果你对 XA 的模式非常熟悉，你可以直接跳到<a href="#共享事务资源模式">共享事务资源模式</a>。</p>
+<h2 id="完整的-XA-协议与两阶段提交（2PC）"><a href="#完整的-XA-协议与两阶段提交（2PC）" class="headerlink" title="完整的 XA 协议与两阶段提交（2PC）"></a>完整的 XA 协议与两阶段提交（2PC）</h2><p>如果你需要确保应用程序的事务在服务器宕机（服务器崩溃或断电）之后仍能够恢复，那么完整的 XA 协议是你唯一的选择。在下面的例子中，用于同步事务的共享资源是一个特殊的事务管理器，它使用 XA 协议协调了进程的信息。在 Java 中，从开发者的角度来看，该协议是通过 JTA 的 <code>UserTransaction</code> 对象暴露出来的。</p>
+<p>作为一个系统接口，XA 是大多数开发者从未见过的一种底层技术。开发者需要知道 XA 协议的存在、它能做什么、性能消耗如何，以及它是如何操作事务资源的。性能消耗来自于<a href="http://www.javaworld.com/jw-07-2000/jw-0714-transaction.html" target="_blank" rel="noopener">两阶段提交</a>（2PC）协议，事务管理器使用该协议来确保所有资源能在事务结束前就事务的结果达成一致。</p>
+<p>如果应用程序是基于 Spring 构建的，它将使用 Spring 中的 <code>JtaTransactionManager</code> 和 Spring 声明性事务管理来隐藏底层同步的细节。对于开发者来说，使用 XA 与否取决于工厂资源的配置方式：在应用程序中如何配置 <code>DataSource</code> 实例和事务管理器。本文包含了一个示例应用程序（<code>atomikos-db</code> 项目），它演示了这种配置方式。该应用程序中只有 <code>DataSource</code> 实例和事务管理器是基于 XA 或者 JTA 的。</p>
+<p>要查看示例的运行方式，请运行 <code>com.springsource.open.db</code> 下的单元测试。<code>MulipleDataSourceTests</code> 类向两个数据源插入了数据，然后使用 Spring 的集成支持特性将事务回滚，如清单 1 所示：</p>
+<h4 id="清单-1-事务回滚"><a href="#清单-1-事务回滚" class="headerlink" title="清单 1. 事务回滚"></a>清单 1. 事务回滚</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Transactional</span></span><br><span class="line">  <span class="meta">@Test</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testInsertIntoTwoDataSources</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> count = getJdbcTemplate().update(</span><br><span class="line">        <span class="string">"INSERT into T_FOOS (id,name,foo_date) values (?,?,null)"</span>, <span class="number">0</span>,</span><br><span class="line">        <span class="string">"foo"</span>);</span><br><span class="line">    assertEquals(<span class="number">1</span>, count);</span><br><span class="line"></span><br><span class="line">    count = getOtherJdbcTemplate()</span><br><span class="line">        .update(</span><br><span class="line">            <span class="string">"INSERT into T_AUDITS (id,operation,name,audit_date) values (?,?,?,?)"</span>,</span><br><span class="line">            <span class="number">0</span>, <span class="string">"INSERT"</span>, <span class="string">"foo"</span>, <span class="keyword">new</span> Date());</span><br><span class="line">    assertEquals(<span class="number">1</span>, count);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 数据的变更将在此方法退出后回滚</span></span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>然后 <code>MulipleDataSourceTests</code> 将会验证这两个操作都回滚完成，如清单 2 所示：</p>
+<h4 id="清单-2-验证回滚"><a href="#清单-2-验证回滚" class="headerlink" title="清单 2. 验证回滚"></a>清单 2. 验证回滚</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@AfterTransaction</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkPostConditions</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> count = getJdbcTemplate().queryForInt(<span class="string">"select count(*) from T_FOOS"</span>);</span><br><span class="line">    <span class="comment">// 该数据变更已被测试框架回滚</span></span><br><span class="line">    assertEquals(<span class="number">0</span>, count);</span><br><span class="line"></span><br><span class="line">    count = getOtherJdbcTemplate().queryForInt(<span class="string">"select count(*) from T_AUDITS"</span>);</span><br><span class="line">    <span class="comment">// 由于 XA 的存在，该数据变更也被回滚了</span></span><br><span class="line">    assertEquals(<span class="number">0</span>, count);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>为了更好地理解 Spring 事务管理的工作原理以及配置的方式，请参阅 <a href="http://static.springframework.org/spring/docs/2.5.x/reference/new-in-2.html#new-in-2-middle-tier" target="_blank" rel="noopener">Spring 参考文档</a>。</p>
+<h2 id="XA-与-1PC-优化"><a href="#XA-与-1PC-优化" class="headerlink" title="XA 与 1PC 优化"></a>XA 与 1PC 优化</h2><p>这种模式通过避免 2PC 的性能开销对许多只包含单资源事务的事务管理器进行了优化。你将会希望你的应用程序服务能够借此解决这个问题。</p>
+<h2 id="XA-与最终资源策略"><a href="#XA-与最终资源策略" class="headerlink" title="XA 与最终资源策略"></a>XA 与最终资源策略</h2><p>XA 事务管理器的另一个特性是，当除某一个资源外的所有资源都支持 XA 时，它仍然可以提供与所有资源都支持 XA 时相同的数据恢复保证。通过对资源进行排序，并使非 XA 资源参与决策来实现该特性。如果提交失败，则回滚所有其他资源。这几乎是 100% 的完全性保证，但还不够完美。当提交失败时，除非采取额外的措施（在一些高端实现中有这样的实现），否则报错的跟踪信息会很少。</p>
+<h2 id="共享事务资源模式"><a href="#共享事务资源模式" class="headerlink" title="共享事务资源模式"></a>共享事务资源模式</h2><p>在某些系统中，为了降低复杂性和增加吞吐量，一种较好的模式是通过确保系统中的所有事务资源实际上都是同一个资源的不同形式，从而完全消除对 XA 的依赖。显然，这在所有的用例中都是不可能的，但这种模式与 XA 一样可靠，而且通常要快得多。这样的共享事务资源模式是足够可靠的，但只限于某些特定的平台和处理场景。</p>
+<p>有一个这种模式的简单例子对很多人来说都很熟悉，即在对象关系映射（ORM）组件和 <a href="http://www.javaworld.com/javaworld/jw-05-2006/jw-0501-jdbc.html" target="_blank" rel="noopener">JDBC</a> 组件之间共享数据库的 <code>Connection</code>。这就是你使用支持 ORM 工具的 Spring 事务管理器时所发生的事情，如 <a href="http://www.javaworld.com/javaworld/jw-10-2004/jw-1018-hibernate.html" target="_blank" rel="noopener">Hibernate</a>、<a href="http://www.eclipse.org/eclipselink/" target="_blank" rel="noopener">EclipseLink</a> 和 <a href="http://www.javaworld.com/javaworld/jw-01-2008/jw-01-jpa1.html" target="_blank" rel="noopener">Java Persistence API</a>（JPA）。同一个事务可以安全地跨 ORM 和 JDBC 组件使用，该执行过程通常由控制事务的服务级方法来实现。</p>
+<p>该模式的另一个有效用法是单个数据库的消息驱动更新（如本文中介绍的简单例子所示）。消息中间件系统需要将数据存储在某个地方，通常是关系数据库中。要实现此模式，只需指定消息传递系统的目标数据库为同一个业务数据库即可。此模式需要消息中间件的供应商公开其存储策略的详细信息，以便可以将其配置指向相同的数据库并挂接到相同的事务中。</p>
+<p>并不是所有的供应商都能做到这一点。另一种适用于几乎所有数据库的方式，是使用 <a href="http://activemq.apache.org/" target="_blank" rel="noopener">Apache ActiveMQ</a> 进行消息传递并将存储策略配置到消息代理服务器中。了解其中的技巧，配置起来就会非常简单。本文的 <code>shared-jms-db</code> 示例项目展示了这种配置方式。应用程序的代码中（在本例中是单元测试）不需要感知这种模式的使用，因为它已经在 Spring 配置中已经以声明方式被启用了。</p>
+<p>示例中名为 <code>SynchronousMessageTriggerAndRollbackTests</code> 的单元测试验证了所有同步消息的接收处理。<code>testReceiveMessageUpdateDatabase</code> 方法接收了两条消息，并将这两条消息中的数据记录插入到数据库中。当退出该方法时，测试框架将会回滚当前的事务，接下来你就可以验证消息和数据库更新都已经回滚，如清单 3 所示：</p>
+<h4 id="清单-3-验证消息和数据库更新的回滚"><a href="#清单-3-验证消息和数据库更新的回滚" class="headerlink" title="清单 3. 验证消息和数据库更新的回滚"></a>清单 3. 验证消息和数据库更新的回滚</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@AfterTransaction</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkPostConditions</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  assertEquals(<span class="number">0</span>, SimpleJdbcTestUtils.countRowsInTable(jdbcTemplate, <span class="string">"T_FOOS"</span>));</span><br><span class="line">  List&lt;String&gt; list = getMessages();</span><br><span class="line">  assertEquals(<span class="number">2</span>, list.size());</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>该配置最重要的特性是 ActiveMQ 的持久化策略，它将业务数据源的消息系统连接到同一个 <code>DataSource</code>，用于接收消息的 Spring <code>JmsTemplate</code> 上的标志位也同样重要。配置 ActiveMQ 持久化策略的方式如清单 4 所示：</p>
+<h4 id="清单-4-ActiveMQ-的持久化配置"><a href="#清单-4-ActiveMQ-的持久化配置" class="headerlink" title="清单 4. ActiveMQ 的持久化配置"></a>清单 4. ActiveMQ 的持久化配置</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"connectionFactory"</span> <span class="attr">class</span>=<span class="string">"org.apache.activemq.ActiveMQConnectionFactory"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">depends-on</span>=<span class="string">"brokerService"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">vm:</span>//<span class="attr">localhost</span>?<span class="attr">async</span>=<span class="string">false</span>" /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"brokerService"</span> <span class="attr">class</span>=<span class="string">"org.apache.activemq.broker.BrokerService"</span> <span class="attr">init-method</span>=<span class="string">"start"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">destroy-method</span>=<span class="string">"stop"</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.apache.activemq.store.jdbc.JDBCPersistenceAdapter"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"com.springsource.open.jms.JmsTransactionAwareDataSourceProxy"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">property</span> /&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">property</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span>  /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>用于接收消息的 Spring <code>JmsTemplate</code> 上的标志位配置如清单 5 所示：</p>
+<h4 id="清单-5-为事务配置-JmsTemplate"><a href="#清单-5-为事务配置-JmsTemplate" class="headerlink" title="清单 5. 为事务配置 JmsTemplate"></a>清单 5. 为事务配置 <code>JmsTemplate</code></h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"jmsTemplate"</span> <span class="attr">class</span>=<span class="string">"org.springframework.jms.core.JmsTemplate"</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line">  <span class="comment">&lt;!-- 这很重要... --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>  /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果没有设置 <code>sessionTransacted=true</code>，就永远不会执行 JMS 会话事务的 API 调用，并且消息的接收将无法回滚。这里重要的一点是嵌入式消息代理服务器中的特殊参数 <code>async=false</code> 和对 <code>DataSource</code> 的包装，他们共同确保了 ActiveMQ 和 Spring 共同使用了同一个 JDBC 事务的 <code>Connection</code>。</p>
+<blockquote>
+<p>如果发现译文存在错误或其他需要改进的地方，欢迎到 <a href="https://github.com/xitu/gold-miner" target="_blank" rel="noopener">掘金翻译计划</a> 对译文进行修改并 PR，也可获得相应奖励积分。文章开头的 <strong>本文永久链接</strong> 即为本文在 GitHub 上的 MarkDown 链接。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><a href="https://github.com/xitu/gold-miner" target="_blank" rel="noopener">掘金翻译计划</a> 是一个翻译优质互联网技术文章的社区，文章来源为 <a href="https://juejin.im" target="_blank" rel="noopener">掘金</a> 上的英文分享文章。内容覆盖 <a href="https://github.com/xitu/gold-miner#android" target="_blank" rel="noopener">Android</a>、<a href="https://github.com/xitu/gold-miner#ios" target="_blank" rel="noopener">iOS</a>、<a href="https://github.com/xitu/gold-miner#前端" target="_blank" rel="noopener">前端</a>、<a href="https://github.com/xitu/gold-miner#后端" target="_blank" rel="noopener">后端</a>、<a href="https://github.com/xitu/gold-miner#区块链" target="_blank" rel="noopener">区块链</a>、<a href="https://github.com/xitu/gold-miner#产品" target="_blank" rel="noopener">产品</a>、<a href="https://github.com/xitu/gold-miner#设计" target="_blank" rel="noopener">设计</a>、<a href="https://github.com/xitu/gold-miner#人工智能" target="_blank" rel="noopener">人工智能</a>等领域，想要查看更多优质译文请持续关注 <a href="https://github.com/xitu/gold-miner" target="_blank" rel="noopener">掘金翻译计划</a>、<a href="http://weibo.com/juejinfanyi" target="_blank" rel="noopener">官方微博</a>、<a href="https://zhuanlan.zhihu.com/juejinfanyi" target="_blank" rel="noopener">知乎专栏</a>。</p>
+</blockquote>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Jack Tang</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://jackeggie.github.io/2019-05-04-distributed-transactions-in-spring-with-and-without-xa-part-1/">http://jackeggie.github.io/2019-05-04-distributed-transactions-in-spring-with-and-without-xa-part-1/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="external nofollow" target="_blank">CC BY-NC-ND 4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/gold-miner/"># gold-miner</a>
+                    
+                        <a href="/tags/translation/"># translation</a>
+                    
+                        <a href="/tags/spring/"># spring</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019-05-16-what-we-ve-learned-about-hiring-engineering-managers/">【译】我们从招聘技术经理的过程中学到了什么</a>
+            
+            
+            <a class="next" rel="next" href="/2019-04-22-my-first-psychological-counseling/">聊聊我的第一次心理咨询体验</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Jack Tang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
