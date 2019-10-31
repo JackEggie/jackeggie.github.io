@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>【译】如何用 Python 从零开始构建你自己的神经网络 - Jack&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+<link href="/zh-cn/how-to-build-your-own-neural-network-from-scratch-in-python/" rel="alternate" hreflang="zh-CN" />
+    
+
+
+
+
+
+
+    <meta name="description" content="原文地址：How to build your own Neural Network from scratch in Python 原文作者：James Loy 译文出自：掘金翻译计划 本文永久链接：https:&#x2F;&#x2F;github.com&#x2F;xitu&#x2F;gold-miner&#x2F;blob&#x2F;master&#x2F;TODO1&#x2F;how-to-build-your-own-neural-network-from-scra">
+<meta name="keywords" content="gold-miner,translation,python,ai">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【译】如何用 Python 从零开始构建你自己的神经网络">
+<meta property="og:url" content="http:&#x2F;&#x2F;jackeggie.github.io&#x2F;how-to-build-your-own-neural-network-from-scratch-in-python&#x2F;index.html">
+<meta property="og:site_name" content="Jack&#39;s Blog">
+<meta property="og:description" content="原文地址：How to build your own Neural Network from scratch in Python 原文作者：James Loy 译文出自：掘金翻译计划 本文永久链接：https:&#x2F;&#x2F;github.com&#x2F;xitu&#x2F;gold-miner&#x2F;blob&#x2F;master&#x2F;TODO1&#x2F;how-to-build-your-own-neural-network-from-scra">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;1600&#x2F;1*sX6T0Y4aa3ARh7IBS_sdqw.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;1600&#x2F;1*E1_l8PGamc2xTNS87XGNcA.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;1600&#x2F;1*CEtt0h8Rss_qPu7CyqMTdQ.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;1600&#x2F;1*E1_l8PGamc2xTNS87XGNcA.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;1600&#x2F;1*iNa1VLdaeqwUAxpNXs3jwQ.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;1600&#x2F;1*3FgDOt4kJxK2QZlb9T0cpg.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;1600&#x2F;1*7zxb2lfWWKaVxnmq2o69Mw.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;1600&#x2F;1*HaC4iILh2t0oOKi6S6FwtA.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;1600&#x2F;1*fWNNA2YbsLSoA104K3Z3RA.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;1600&#x2F;1*9oOlYhhOSdCUqUJ0dQ_KxA.png">
+<meta property="og:updated_time" content="2019-10-31T06:19:25.156Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;1600&#x2F;1*sX6T0Y4aa3ARh7IBS_sdqw.png">
+
+
+
+
+
+<link rel="icon" href="/images/avatar.jpeg">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108548768-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-108548768-1');
+</script>
+
+
+    
+
+
+</head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    Jack&#39;s Blog
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">Archives</a>
+            
+            <a class="navbar-item "
+               href="/tags">Tags</a>
+            
+            <a class="navbar-item "
+               href="/about">About</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="Search" href="javascript:;" target="_blank" rel="noopener">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="Table of Contents">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                    
+                    
+                    <a class="navbar-item" href="#如何用-Python-从零开始构建你自己的神经网络">1&nbsp;&nbsp;<b>如何用 Python 从零开始构建你自己的神经网络</b></a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#什么是神经网络？">1.1&nbsp;&nbsp;什么是神经网络？</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#前馈过程">1.1.1&nbsp;&nbsp;前馈过程</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#损失函数">1.1.2&nbsp;&nbsp;损失函数</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#反向传播过程">1.1.3&nbsp;&nbsp;反向传播过程</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#融会贯通">1.2&nbsp;&nbsp;融会贯通</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#后续的学习任务">1.3&nbsp;&nbsp;后续的学习任务</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#结语">1.4&nbsp;&nbsp;结语</a>
+                    
+                </div>
+            </div>
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/JackEggie" target="_blank" rel="noopener">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            【译】如何用 Python 从零开始构建你自己的神经网络
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2019-03-02T02:34:00.000Z" itemprop="datePublished">Mar 2 2019</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            18 minutes read (About 2652 words)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <blockquote>
+<ul>
+<li>原文地址：<a href="https://towardsdatascience.com/how-to-build-your-own-neural-network-from-scratch-in-python-68998a08e4f6" target="_blank" rel="noopener">How to build your own Neural Network from scratch in Python</a></li>
+<li>原文作者：<a href="https://towardsdatascience.com/@jamesloyys" target="_blank" rel="noopener">James Loy</a></li>
+<li>译文出自：<a href="https://github.com/xitu/gold-miner" target="_blank" rel="noopener">掘金翻译计划</a></li>
+<li>本文永久链接：<a href="https://github.com/xitu/gold-miner/blob/master/TODO1/how-to-build-your-own-neural-network-from-scratch-in-python.md" target="_blank" rel="noopener">https://github.com/xitu/gold-miner/blob/master/TODO1/how-to-build-your-own-neural-network-from-scratch-in-python.md</a></li>
+<li>译者：<a href="https://github.com/JackEggie" target="_blank" rel="noopener">JackEggie</a></li>
+<li>校对者：<a href="https://github.com/lsvih" target="_blank" rel="noopener">lsvih</a>, <a href="https://github.com/xionglong58" target="_blank" rel="noopener">xionglong58</a></li>
+</ul>
+</blockquote>
+<h1 id="如何用-Python-从零开始构建你自己的神经网络"><a href="#如何用-Python-从零开始构建你自己的神经网络" class="headerlink" title="如何用 Python 从零开始构建你自己的神经网络"></a>如何用 Python 从零开始构建你自己的神经网络</h1><blockquote>
+<p>一个帮助初学者理解深度神经网络内部工作机制的指南</p>
+</blockquote>
+<p><strong>写作动机：</strong> 为了使我自己可以更好地理解深度学习，我决定在没有像 TensorFlow 这样的深度学习库的情况下，从零开始构建一个神经网络。我相信，理解神经网络的内部工作原理对任何有追求的数据科学家来说都很重要。</p>
+<p>这篇文章包含了我所学到的东西，希望对你们也有用。</p>
+<a id="more"></a>
+
+<h2 id="什么是神经网络？"><a href="#什么是神经网络？" class="headerlink" title="什么是神经网络？"></a>什么是神经网络？</h2><p>大多数介绍神经网络的文章在描述它们时都会与大脑做类比。在不深入研究与大脑类似之处的情况下，我发现将神经网络简单地描述为给定输入映射到期望输出的数学函数更容易理解一些。</p>
+<p>神经网络由以下几个部分组成：</p>
+<ul>
+<li>一个<strong>输入层</strong>，<strong><em>x</em></strong></li>
+<li>任意数量的<strong>隐含层</strong></li>
+<li>一个<strong>输出层</strong>，<strong><em>ŷ</em></strong></li>
+<li>层与层之间的一组<strong>权重</strong>和<strong>偏差</strong>，<strong><em>W</em> 和 <em>b</em></strong></li>
+<li>每个隐含层中所包含的一个可选的<strong>激活函数</strong>，<strong><em>σ</em></strong>。在本教程中，我们将使用 Sigmoid 激活函数。</li>
+</ul>
+<p>下图展示了 2 层神经网络的架构（<strong>注：在计算神经网络中的层数时，输入层通常被排除在外</strong>）</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*sX6T0Y4aa3ARh7IBS_sdqw.png" alt=""></p>
+<p>2 层神经网络的架构</p>
+<p>在 Python 中创建一个神经网络的类很简单。</p>
+<p><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NeuralNetwork</span>:</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, x, y)</span>:</span></span><br><span class="line">        self.input      = x</span><br><span class="line">        self.weights1   = np.random.rand(self.input.shape[<span class="hljs-number">1</span>],<span class="hljs-number">4</span>) </span><br><span class="line">        self.weights2   = np.random.rand(<span class="hljs-number">4</span>,<span class="hljs-number">1</span>)                 </span><br><span class="line">        self.y          = y</span><br><span class="line">        self.output     = np.zeros(y.shape)</span><br></pre></td></tr></table></figure></p>
+<p><strong>训练神经网络</strong></p>
+<p>一个简单的 2 层神经网络的输出 <strong><em>ŷ</em></strong> 如下：</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*E1_l8PGamc2xTNS87XGNcA.png" alt=""></p>
+<p>你可能注意到了，在上面的等式中，只有权重 <strong><em>W</em></strong> 和偏差 <strong><em>b</em></strong> 这两个变量会对输出 <strong><em>ŷ</em></strong> 产生影响。</p>
+<p>当然，合理的权重和偏差会决定预测的准确程度。将针对输入数据的权重和偏差进行微调的过程就是<strong>训练神经网络</strong>的过程。</p>
+<p>训练过程的每次迭代包括以下步骤：</p>
+<ul>
+<li>计算预测输出的值 <strong><em>ŷ</em></strong>，即<strong>前馈</strong></li>
+<li>更新权重和偏差，即<strong>反向传播</strong></li>
+</ul>
+<p>下面的序列图展示了这个过程。</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*CEtt0h8Rss_qPu7CyqMTdQ.png" alt=""></p>
+<h3 id="前馈过程"><a href="#前馈过程" class="headerlink" title="前馈过程"></a>前馈过程</h3><p>正如我们在上面的序列图中看到的，前馈只是一个简单的计算过程，对于一个基本的 2 层神经网络，它的输出是：</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*E1_l8PGamc2xTNS87XGNcA.png" alt=""></p>
+<p>让我们在 Python 代码中添加一个前馈函数来实现这一点。注意，为了简单起见，我们假设偏差为 0。</p>
+<p><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NeuralNetwork</span>:</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, x, y)</span>:</span></span><br><span class="line">        self.input      = x</span><br><span class="line">        self.weights1   = np.random.rand(self.input.shape[<span class="hljs-number">1</span>],<span class="hljs-number">4</span>) </span><br><span class="line">        self.weights2   = np.random.rand(<span class="hljs-number">4</span>,<span class="hljs-number">1</span>)                 </span><br><span class="line">        self.y          = y</span><br><span class="line">        self.output     = np.zeros(self.y.shape)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">feedforward</span><span class="hljs-params">(self)</span>:</span></span><br><span class="line">        self.layer1 = sigmoid(np.dot(self.input, self.weights1))</span><br><span class="line">        self.output = sigmoid(np.dot(self.layer1, self.weights2))</span><br></pre></td></tr></table></figure></p>
+<p>但是，我们仍然需要一种方法来评估预测的“精准程度”（即我们的预测有多好）？而<strong>损失函数</strong>能让我们做到这一点。</p>
+<h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p>可用的损失函数有很多，而我们对损失函数的选择应该由问题本身的性质决定。在本教程中，我们将使用简单的<strong>平方和误差</strong>作为我们的损失函数。</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*iNa1VLdaeqwUAxpNXs3jwQ.png" alt=""></p>
+<p>这就是说，平方和误差只是每个预测值与实际值之差的总和。我们将差值平方后再计算，以便我们评估误差的绝对值。</p>
+<p><strong>训练的目标是找到能使损失函数最小化的一组最优的权值和偏差。</strong></p>
+<h3 id="反向传播过程"><a href="#反向传播过程" class="headerlink" title="反向传播过程"></a>反向传播过程</h3><p>现在我们已经得出了预测的误差（损失），我们还需要找到一种方法将误差<strong>传播</strong>回来，并更新我们的权重和偏差。</p>
+<p>为了得出调整权重和偏差的合适的量，我们需要计算<strong>损失函数对于权重和偏差的导数</strong>。</p>
+<p>回忆一下微积分的知识，计算函数的导数就是计算函数的斜率。</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*3FgDOt4kJxK2QZlb9T0cpg.png" alt=""></p>
+<p>梯度下降算法</p>
+<p>如果我们已经算出了导数，我们就可以简单地通过增大/减小导数来更新权重和偏差（参见上图）。这就是所谓的<strong>梯度下降</strong>。</p>
+<p>然而，我们无法直接计算损失函数对于权重和偏差的导数，因为损失函数的等式中不包含权重和偏差。 因此，我们需要<strong>链式法则</strong>来帮助我们进行计算。</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*7zxb2lfWWKaVxnmq2o69Mw.png" alt=""></p>
+<p>为了更新权重使用链式法则求解函数的导数。注意，为了简单起见，我们只展示了假设为 1 层的神经网络的偏导数。</p>
+<p>哦！这真难看，但它让我们得到了我们需要的东西 —— 损失函数对于权重的导数（斜率），这样我们就可以相应地调整权重。</p>
+<p>现在我们知道要怎么做了，让我们向 Pyhton 代码中添加反向传播函数。</p>
+<p><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NeuralNetwork</span>:</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, x, y)</span>:</span></span><br><span class="line">        self.input      = x</span><br><span class="line">        self.weights1   = np.random.rand(self.input.shape[<span class="hljs-number">1</span>],<span class="hljs-number">4</span>) </span><br><span class="line">        self.weights2   = np.random.rand(<span class="hljs-number">4</span>,<span class="hljs-number">1</span>)                 </span><br><span class="line">        self.y          = y</span><br><span class="line">        self.output     = np.zeros(self.y.shape)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">feedforward</span><span class="hljs-params">(self)</span>:</span></span><br><span class="line">        self.layer1 = sigmoid(np.dot(self.input, self.weights1))</span><br><span class="line">        self.output = sigmoid(np.dot(self.layer1, self.weights2))</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">backprop</span><span class="hljs-params">(self)</span>:</span></span><br><span class="line">        <span class="hljs-comment"># 应用链式法则求出损失函数对于 weights2 和 weights1 的导数</span></span><br><span class="line">        d_weights2 = np.dot(self.layer1.T, (<span class="hljs-number">2</span>*(self.y - self.output) * sigmoid_derivative(self.output)))</span><br><span class="line">        d_weights1 = np.dot(self.input.T,  (np.dot(<span class="hljs-number">2</span>*(self.y - self.output) * sigmoid_derivative(self.output), self.weights2.T) * sigmoid_derivative(self.layer1)))</span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment"># 用损失函数的导数(斜率)更新权重</span></span><br><span class="line">        self.weights1 += d_weights1</span><br><span class="line">        self.weights2 += d_weights2</span><br></pre></td></tr></table></figure></p>
+<p>如果你需要更深入地理解微积分和链式法则在反向传播中的应用，我强烈推荐 3Blue1Brown 的教程。</p>
+<p>观看<a href="https://youtu.be/tIeHLnjs5U8" target="_blank" rel="noopener">视频教程</a></p>
+<h2 id="融会贯通"><a href="#融会贯通" class="headerlink" title="融会贯通"></a>融会贯通</h2><p>现在我们已经有了前馈和反向传播的完整 Python 代码，让我们将神经网络应用到一个示例中，看看效果如何。</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*HaC4iILh2t0oOKi6S6FwtA.png" alt=""></p>
+<p>我们的神经网络应该通过学习得出一组理想的权重来表示这个函数。请注意，仅仅是求解权重的过程对我们来说也并不简单。</p>
+<p>让我们对神经网络进行 1500 次训练迭代，看看会发生什么。观察下图中每次迭代的损失变化，我们可以清楚地看到损失<strong>单调递减至最小值</strong>。这与我们前面讨论的梯度下降算法是一致的。</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*fWNNA2YbsLSoA104K3Z3RA.png" alt=""></p>
+<p>让我们看一下经过 1500 次迭代后神经网络的最终预测（输出）。</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*9oOlYhhOSdCUqUJ0dQ_KxA.png" alt=""></p>
+<p>1500 次训练迭代后的预测结果</p>
+<p>我们成功了！我们的前馈和反向传播算法成功地训练了神经网络，预测结果收敛于真实值。</p>
+<p>请注意，预测值和实际值之间会存在细微的偏差。我们需要这种偏差，因为它可以防止<strong>过拟合</strong>，并允许神经网络更好地<strong>推广</strong>至不可见数据中。</p>
+<h2 id="后续的学习任务"><a href="#后续的学习任务" class="headerlink" title="后续的学习任务"></a>后续的学习任务</h2><p>幸运的是，我们的学习旅程还未结束。关于神经网络和深度学习，我们还有<strong>很多</strong>内容需要学习。例如：</p>
+<ul>
+<li>除了 Sigmoid 函数，我们还可以使用哪些<strong>激活函数</strong>？</li>
+<li>在训练神经网络时使用<strong>学习率</strong></li>
+<li>使用<strong>卷积</strong>进行图像分类任务</li>
+</ul>
+<p>我将会就这些主题编写更多内容，请在 Medium 上关注我并留意更新！</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>当然，我也在从零开始编写我自己的神经网络的过程中学到了很多。</p>
+<p>虽然像 TensorFlow 和 Keras 这样的深度学习库使得构建深度神经网络变得很简单，即使你不完全理解神经网络内部工作原理也没关系，但是我发现对于有追求的数据科学家来说，深入理解神经网络是很有好处的。</p>
+<p>这个练习花费了我大量的时间，我希望它对你们也有帮助！</p>
+<blockquote>
+<p>如果发现译文存在错误或其他需要改进的地方，欢迎到 <a href="https://github.com/xitu/gold-miner" target="_blank" rel="noopener">掘金翻译计划</a> 对译文进行修改并 PR，也可获得相应奖励积分。文章开头的 <strong>本文永久链接</strong> 即为本文在 GitHub 上的 MarkDown 链接。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><a href="https://github.com/xitu/gold-miner" target="_blank" rel="noopener">掘金翻译计划</a> 是一个翻译优质互联网技术文章的社区，文章来源为 <a href="https://juejin.im" target="_blank" rel="noopener">掘金</a> 上的英文分享文章。内容覆盖 <a href="https://github.com/xitu/gold-miner#android" target="_blank" rel="noopener">Android</a>、<a href="https://github.com/xitu/gold-miner#ios" target="_blank" rel="noopener">iOS</a>、<a href="https://github.com/xitu/gold-miner#前端" target="_blank" rel="noopener">前端</a>、<a href="https://github.com/xitu/gold-miner#后端" target="_blank" rel="noopener">后端</a>、<a href="https://github.com/xitu/gold-miner#区块链" target="_blank" rel="noopener">区块链</a>、<a href="https://github.com/xitu/gold-miner#产品" target="_blank" rel="noopener">产品</a>、<a href="https://github.com/xitu/gold-miner#设计" target="_blank" rel="noopener">设计</a>、<a href="https://github.com/xitu/gold-miner#人工智能" target="_blank" rel="noopener">人工智能</a>等领域，想要查看更多优质译文请持续关注 <a href="https://github.com/xitu/gold-miner" target="_blank" rel="noopener">掘金翻译计划</a>、<a href="http://weibo.com/juejinfanyi" target="_blank" rel="noopener">官方微博</a>、<a href="https://zhuanlan.zhihu.com/juejinfanyi" target="_blank" rel="noopener">知乎专栏</a>。</p>
+</blockquote>
+
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/gold-miner/">#gold-miner</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/translation/">#translation</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/python/">#python</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/ai/">#ai</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/your-first-cli-tool-with-rust/">【译】用 Rust 打造你的第一个命令行工具</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/talk-about-double-locking-problem/">Java 中的双重检查锁(Double-Checked Locking)的问题</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="notification is-danger">
+    You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.
+</div>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">Comments</h3>
+    
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		id: 'how-to-build-your-own-neural-network-from-scratch-in-python/',
+		owner: 'JackEggie',
+		repo: 'jackeggie.github.io',
+		oauth: {
+			client_id: '18f330dcf69901af7b83',
+			client_secret: '9015cbae380288ebbb49a3c8140302e2a9c7de43',
+		},
+	})
+	gitment.render('comment-container')
+</script>
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2019 Jack Tang&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/JackEggie" target="_blank" rel="noopener">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-up is-right is-hoverable" style="margin-top: -0.2em;">
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>English</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/how-to-build-your-own-neural-network-from-scratch-in-python/" class="dropdown-item">
+                    English
+                </a>
+            
+                <a href="/zh-cn/how-to-build-your-own-neural-network-from-scratch-in-python/" class="dropdown-item">
+                    简体中文
+                </a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("en-AU");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+<script src="/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+</body>
+</html>

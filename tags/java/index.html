@@ -2,12 +2,14 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>标签: java - Jack&#39;s Blog</title>
+<title>Tag: java - Jack&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
 
+<link href="/zh-cn/tags/java/index.html" rel="alternate" hreflang="zh-CN" />
+    
 
 
 
@@ -18,7 +20,7 @@
 <meta property="og:title" content="Jack&#39;s Blog">
 <meta property="og:url" content="http:&#x2F;&#x2F;jackeggie.github.io&#x2F;tags&#x2F;java&#x2F;index.html">
 <meta property="og:site_name" content="Jack&#39;s Blog">
-<meta property="og:locale" content="zh-cn">
+<meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
 
 
@@ -101,7 +103,7 @@
         
         <div class="navbar-menu navbar-end">
             
-            <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
+            <a class="navbar-item search" title="Search" href="javascript:;" target="_blank" rel="noopener">
                 <i class="fas fa-search"></i>
             </a>
             
@@ -131,19 +133,19 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2019-07-21-binary-form-of-int-in-java/" itemprop="url">Java 中 int 类型的二进制表示</a>
+            <a href="/binary-form-of-int-in-java/" itemprop="url">Java 中 int 类型的二进制表示</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
-            <time datetime="2019-07-21T09:55:51.000Z" itemprop="datePublished">7月 21 2019</time>
+            <time datetime="2019-07-21T09:55:51.000Z" itemprop="datePublished">Jul 21 2019</time>
         </span>
         
         
         <span class="column is-narrow">
             
             
-            2 分钟 读完 (约 366 字)
+            2 minutes read (About 366 words)
         </span>
         
     </div>
@@ -153,7 +155,7 @@
 <p>Java 中负数的表示方式为正数的补码（例：原码 00，反码 11，补码 00，补码的计算方式为反码加一，此处丢弃溢出位）。采用这种方式的原因是 0 的交叉（zero crossing）问题，即 0 和 -0 需要用同一种方式表示，见补码计算例子。如果采用反码表示负数的话，0 就会有两种表示：所有位全为 0、所有位全为 1。</p>
 <p>因此 Java 中 0 的所有位全为 0，1 为 0000…0001，-1 的所有位全为 1，Integer.MAX_VALUE 为 0111…1111，Integer.MIN_VALUE 为 1000…0000。</p>
         <p class="article-more-link">
-            <a href="/2019-07-21-binary-form-of-int-in-java/#more">阅读更多</a>
+            <a href="/binary-form-of-int-in-java/#more">Read More</a>
         </p>
     
     </div>
@@ -193,6 +195,35 @@
             </div>
             
             
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-up is-right is-hoverable" style="margin-top: -0.2em;">
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>English</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/tags/java/index.html" class="dropdown-item">
+                    English
+                </a>
+            
+                <a href="/zh-cn/tags/java/index.html" class="dropdown-item">
+                    简体中文
+                </a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
         </div>
     </div>
 </footer>
@@ -221,7 +252,7 @@
     window.FontAwesomeConfig = {
         searchPseudoElements: true
     }
-    moment.locale("zh-CN");
+    moment.locale("en-AU");
 </script>
 
 
@@ -345,7 +376,7 @@
     <div class="searchbox-mask"></div>
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -357,11 +388,11 @@
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: '文章',
-                PAGES: '页面',
-                CATEGORIES: '分类',
-                TAGS: '标签',
-                UNTITLED: '(无标题)',
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
         };

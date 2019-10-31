@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>JVM内存结构 - Jack&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+<link href="/zh-cn/jvm-memory-structure/" rel="alternate" hreflang="zh-CN" />
+    
+
+
+
+
+
+
+    <meta name="description" content="JVM内存结构概述在开发过程中经常会遇到的堆内存的概念具体是什么？常量池在JVM中的内存区域是怎么管理的？遇到OutOfMemory异常应该如何处理？ 平时对上述问题可能只有一个模糊的概念，本文将会详细地介绍JVM的内存结构，让上面问题的答案变得清晰明了。 JVM的内存结构主要分为堆内存、方法区和栈三大块。而堆内存又分为新生代和老生代。方法区存储的信息为常量、类信息和静态变量等。栈分为程序计数器、">
+<meta name="keywords" content="jvm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM内存结构">
+<meta property="og:url" content="http:&#x2F;&#x2F;jackeggie.github.io&#x2F;jvm-memory-structure&#x2F;index.html">
+<meta property="og:site_name" content="Jack&#39;s Blog">
+<meta property="og:description" content="JVM内存结构概述在开发过程中经常会遇到的堆内存的概念具体是什么？常量池在JVM中的内存区域是怎么管理的？遇到OutOfMemory异常应该如何处理？ 平时对上述问题可能只有一个模糊的概念，本文将会详细地介绍JVM的内存结构，让上面问题的答案变得清晰明了。 JVM的内存结构主要分为堆内存、方法区和栈三大块。而堆内存又分为新生代和老生代。方法区存储的信息为常量、类信息和静态变量等。栈分为程序计数器、">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http:&#x2F;&#x2F;jackeggie.github.io&#x2F;.io&#x2F;&#x2F;jvm-memory-structure.png">
+<meta property="og:updated_time" content="2019-10-31T06:19:24.968Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;jackeggie.github.io&#x2F;.io&#x2F;&#x2F;jvm-memory-structure.png">
+
+
+
+
+
+<link rel="icon" href="/images/avatar.jpeg">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108548768-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-108548768-1');
+</script>
+
+
+    
+
+
+</head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    Jack&#39;s Blog
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">Archives</a>
+            
+            <a class="navbar-item "
+               href="/tags">Tags</a>
+            
+            <a class="navbar-item "
+               href="/about">About</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="Search" href="javascript:;" target="_blank" rel="noopener">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="Table of Contents">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                    
+                    
+                    <a class="navbar-item" href="#JVM内存结构概述">1&nbsp;&nbsp;<b>JVM内存结构概述</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#JVM内存参数">2&nbsp;&nbsp;<b>JVM内存参数</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#堆空间">3&nbsp;&nbsp;<b>堆空间</b></a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#新生代">3.1&nbsp;&nbsp;新生代</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#老生代">3.2&nbsp;&nbsp;老生代</a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#方法区">4&nbsp;&nbsp;<b>方法区</b></a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#常量池">4.1&nbsp;&nbsp;常量池</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#静态数据池">4.2&nbsp;&nbsp;静态数据池</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#编译后的代码池">4.3&nbsp;&nbsp;编译后的代码池</a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#本地内存区">5&nbsp;&nbsp;<b>本地内存区</b></a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#程序计数器">5.1&nbsp;&nbsp;程序计数器</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#虚拟机栈">5.2&nbsp;&nbsp;虚拟机栈</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#本地方法栈">5.3&nbsp;&nbsp;本地方法栈</a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#堆外内存">6&nbsp;&nbsp;<b>堆外内存</b></a>
+                    
+                </div>
+            </div>
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/JackEggie" target="_blank" rel="noopener">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            JVM内存结构
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-03-10T08:42:27.000Z" itemprop="datePublished">Mar 10 2018</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            10 minutes read (About 1561 words)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h3 id="JVM内存结构概述"><a href="#JVM内存结构概述" class="headerlink" title="JVM内存结构概述"></a>JVM内存结构概述</h3><p>在开发过程中经常会遇到的堆内存的概念具体是什么？常量池在JVM中的内存区域是怎么管理的？遇到OutOfMemory异常应该如何处理？</p>
+<p>平时对上述问题可能只有一个模糊的概念，本文将会详细地介绍JVM的内存结构，让上面问题的答案变得清晰明了。</p>
+<p>JVM的内存结构主要分为堆内存、方法区和栈三大块。而堆内存又分为新生代和老生代。方法区存储的信息为常量、类信息和静态变量等。栈分为程序计数器、JVM方法栈和本地方法栈。堆和方法区是线程共享的内存区域，而栈是线程的私有内存区域。</p>
+<a id="more"></a>
+
+<h3 id="JVM内存参数"><a href="#JVM内存参数" class="headerlink" title="JVM内存参数"></a>JVM内存参数</h3><p>这里盗用一张图来展示JVM的内存结构和参数信息。</p>
+<p><img src="/.io//jvm-memory-structure.png" alt=""></p>
+<p>-Xms：堆的最小占用空间<br>-Xmx：堆的最大占用空间<br>-XX:NewSize：新生代的最小占用空间<br>-XX:MaxNewSize：新生代的最大占用空间<br>-XX:PermSize：永久代（方法区）的最小占用空间<br>-XX:MaxPermSize：永久代（方法区）的最大占用空间<br>-Xss：每个线程的栈的占用空间</p>
+<h3 id="堆空间"><a href="#堆空间" class="headerlink" title="堆空间"></a>堆空间</h3><p>堆是JVM管理的最大的一块内存区域，几乎所有的对象在创建的时候，都会在这里进行内存分配。平时我们所说的垃圾回收的工作就是在这里进行的，常用的垃圾回收算法都是基于分代回收的算法，因此堆空间可以分为新生代和老生代，新生代还可以分为Eden区、From Survive区和To Survive区。</p>
+<p>堆可以处于物理不连续的内存空间上，和磁盘的管理一样，只需要保证逻辑上的连续就可以。并且堆的大小是可扩展的，以保证操作系统内存分配的灵活性。</p>
+<h4 id="新生代"><a href="#新生代" class="headerlink" title="新生代"></a>新生代</h4><p>新生代是所有对象被初始化分配内存的地方，当有对象不再被引用的时候，Minor GC线程就会来把这一块内存回收掉。</p>
+<h4 id="老生代"><a href="#老生代" class="headerlink" title="老生代"></a>老生代</h4><p>当有对象在经历了几次Minor GC之后仍然存活，就会被移动到老生代中。或者虚拟机在分配占用内存较大的对象的时候，会直接在老生代中分配内存。Full GC会清理并回收老生代的内存。</p>
+<h3 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h3><p>方法区用于存储JVM的类信息、编译后的代码、常量和静态变量等数据。方法区和堆空间一样，都是内存共享的区域，也同样不需要连续的内存，大小也可扩展。</p>
+<p>方法区的特殊性在于，用户可以选择不在该区域进行垃圾回收，因此该区域也可被称为永久代。但通常来说，该区域的垃圾回收仍然是必要的，只是如何提升该区域的垃圾回收效果至今仍是一个较为困难的问题。</p>
+<h4 id="常量池"><a href="#常量池" class="headerlink" title="常量池"></a>常量池</h4><p>在class文件被加载到JVM中时，基础数据类型的常量会被加载到运行时常量池中。</p>
+<h4 id="静态数据池"><a href="#静态数据池" class="headerlink" title="静态数据池"></a>静态数据池</h4><p>静态数据池包括静态的变量和方法，以及静态的代码块。</p>
+<h4 id="编译后的代码池"><a href="#编译后的代码池" class="headerlink" title="编译后的代码池"></a>编译后的代码池</h4><p>这里保存着class文件的内容。</p>
+<h3 id="本地内存区"><a href="#本地内存区" class="headerlink" title="本地内存区"></a>本地内存区</h3><p>本地内存区由程序计数器、虚拟机栈和本地方法栈组成。这块区域是线程私有的。</p>
+<h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h4><p>顾名思义，程序计数器是程序运行的行号指示器。线程在执行时的逻辑循环、分支与跳转都通过程序计数器所标记的数据来执行。在多线程工作时，每个线程都有自己独立的程序计数器，保证一个CPU在同一时刻只会执行一个线程中的一个指令。</p>
+<p>如果线程执行的是Java方法，程序计数器记录的是编译后的虚拟机字节码指令的地址，而如果执行的是Native的方法，则计数器记录空值。</p>
+<p>这是JVM中唯一不会抛出OutOfMemory异常的区域。</p>
+<h4 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h4><p>与程序计数器相同，虚拟机栈也是线程私有的，生命周期与线程相同。虚拟机栈存储的是线程中的方法的局部变量、方法出入口等信息。</p>
+<p>虚拟机栈会抛出两种异常。当栈的深度超出JVM所规定的深度时，会抛出StackOverFlow异常。当请求栈的大小超出JVM所规定的内存大小时，会抛出OutOfMemory异常。</p>
+<h4 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h4><p>本地方法栈与虚拟机栈基本是类似的，只是本地方法栈存储的是Native方法的局部变量和方法信息。</p>
+<h3 id="堆外内存"><a href="#堆外内存" class="headerlink" title="堆外内存"></a>堆外内存</h3><p>除了JVM所管理的内存区域之外，JVM也可以访问操作系统直接管理的内存区域，这被称为堆外内存或者直接内存。使用堆外内存的好处在于，脱离了JVM的管理，不受GC线程的影响，并且在IO操作时会有更好的性能。</p>
+<p>堆外内存可以通过java.nio.ByteBuffer的allocateDirect方法来创建。但是在不使用后需要及时回收，否则造成内存泄漏会难以排查。使用时也要注意存储的数据不要过于复杂，或者数据仍然需要参与内存计算。堆外内存性能好在于可以少拷贝一次内存，直接进行IO，如果需要参与内存计算，则还需要把数据拷贝到JVM中，增加开销。</p>
+
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/jvm/">#jvm</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/emotion-management/">对于情绪管理的思考</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/practice-scrum/">Scrum实践</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="notification is-danger">
+    You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.
+</div>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">Comments</h3>
+    
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		id: 'jvm-memory-structure/',
+		owner: 'JackEggie',
+		repo: 'jackeggie.github.io',
+		oauth: {
+			client_id: '18f330dcf69901af7b83',
+			client_secret: '9015cbae380288ebbb49a3c8140302e2a9c7de43',
+		},
+	})
+	gitment.render('comment-container')
+</script>
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2019 Jack Tang&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/JackEggie" target="_blank" rel="noopener">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-up is-right is-hoverable" style="margin-top: -0.2em;">
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>English</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/jvm-memory-structure/" class="dropdown-item">
+                    English
+                </a>
+            
+                <a href="/zh-cn/jvm-memory-structure/" class="dropdown-item">
+                    简体中文
+                </a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("en-AU");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+<script src="/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+</body>
+</html>
