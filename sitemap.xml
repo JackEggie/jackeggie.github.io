@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jackeggie.github.io/zh-cn/a-bird-s-eye-view-of-go/</loc>
+    
+    <lastmod>2019-10-31T07:19:46.936Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jackeggie.github.io/about/index.html</loc>
     
     <lastmod>2019-10-31T07:05:49.605Z</lastmod>

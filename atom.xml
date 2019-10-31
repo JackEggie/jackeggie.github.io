@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jackeggie.github.io/"/>
-  <updated>2019-10-31T06:16:22.553Z</updated>
+  <updated>2019-10-31T07:19:46.936Z</updated>
   <id>http://jackeggie.github.io/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【译】Go 语言概览 - for test</title>
+    <link href="http://jackeggie.github.io/zh-cn/a-bird-s-eye-view-of-go/"/>
+    <id>http://jackeggie.github.io/zh-cn/a-bird-s-eye-view-of-go/</id>
+    <published>2019-07-25T10:49:21.000Z</published>
+    <updated>2019-10-31T07:19:46.936Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;原文地址：&lt;a href=&quot;https://blog.merovius.de/2019/06/12/birdseye-go.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;A bird’s eye view of Go&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;原文作者：&lt;a href=&quot;https://blog.merovius.de&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Axel Wagner&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;译文出自：&lt;a href=&quot;https://github.com/xitu/gold-miner&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;掘金翻译计划&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;本文永久链接：&lt;a href=&quot;https://github.com/xitu/gold-miner/blob/master/TODO1/birdseye-go.md&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/xitu/gold-miner/blob/master/TODO1/birdseye-go.md&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;译者：&lt;a href=&quot;https://github.com/JackEggie&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;JackEggie&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;校对者：&lt;a href=&quot;https://github.com/40m41h42t&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;40m41h42t&lt;/a&gt;, &lt;a href=&quot;https://github.com/JalanJiang&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;JalanJiang&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;Go-语言概览&quot;&gt;&lt;a href=&quot;#Go-语言概览&quot; class=&quot;headerlink&quot; title=&quot;Go 语言概览&quot;&gt;&lt;/a&gt;Go 语言概览&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;本文摘要：本文非常笼统地总结了 Go 语言的定义、生态系统和实现方式，也尽力给出了与不同的需求所对应的参考文档，详情参见本文末尾。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;每当我们说起“Go 语言”的时候，可能会因为场景的不同聊到很多完全不同的东西。因此，我尝试着对 Go 语言和其生态系统做一个概述，并在各部分内容中都列出相关的文档（这可能有点像是大杂烩，其中还包含了我最近实际遇到的许多问题）。让我们开始吧：&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="gold-miner" scheme="http://jackeggie.github.io/tags/gold-miner/"/>
+    
+      <category term="translation" scheme="http://jackeggie.github.io/tags/translation/"/>
+    
+      <category term="go-lang" scheme="http://jackeggie.github.io/tags/go-lang/"/>
+    
+  </entry>
   
   <entry>
     <title>【译】Go 语言概览</title>
@@ -252,7 +286,7 @@
     <summary type="html">
     
       &lt;h3 id=&quot;Java-中的双重检查锁&quot;&gt;&lt;a href=&quot;#Java-中的双重检查锁&quot; class=&quot;headerlink&quot; title=&quot;Java 中的双重检查锁&quot;&gt;&lt;/a&gt;Java 中的双重检查锁&lt;/h3&gt;&lt;p&gt;不知道从什么时候开始，双重锁检机制开始在 Java 程序员中流传开来，并被一些不成熟的程序员所称道。然而，双重锁检机制无论在 Java 的什么年代，都是一个不折不扣的代码陷阱。&lt;/p&gt;
-&lt;p&gt;&lt;epacse hidden&gt;20&lt;/epacse&gt;&lt;/p&gt;
+&lt;p&gt;&lt;epacse hidden&gt;19&lt;/epacse&gt;&lt;/p&gt;
 &lt;p&gt;这段代码粗看上去使用了很“神奇”的 Java 多线程技巧，“巧妙”利用重复地两次检查对象是否为空来避免了大部分情况下 synchronized 关键字的性能消耗。&lt;/p&gt;
     
     </summary>
@@ -342,7 +376,7 @@
     
       &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;本文主要描述Hexo相关组件的升级方式和Next主题的升级方式。&lt;/p&gt;
 &lt;h3 id=&quot;Hexo升级&quot;&gt;&lt;a href=&quot;#Hexo升级&quot; class=&quot;headerlink&quot; title=&quot;Hexo升级&quot;&gt;&lt;/a&gt;Hexo升级&lt;/h3&gt;&lt;p&gt;本以为会比较复杂，其实非常简单，一条命令就能搞定。&lt;/p&gt;
-&lt;p&gt;&lt;epacse hidden&gt;19&lt;/epacse&gt;&lt;/p&gt;
+&lt;p&gt;&lt;epacse hidden&gt;21&lt;/epacse&gt;&lt;/p&gt;
 &lt;p&gt;这里解释一下这个命令的含义。npm是javascript的管理依赖的工具，会随着node.js一起安装。通过npm工具可以安装、更新、删除依赖，上面列出的命令即可以更新当前项目下的所有依赖。另外所有的依赖版本信息都会存储在项目的package.json中，可以直接到该文件中去查看依赖的版本是否是最新的。&lt;/p&gt;
     
     </summary>
@@ -513,27 +547,6 @@
       <category term="json" scheme="http://jackeggie.github.io/tags/json/"/>
     
       <category term="performance" scheme="http://jackeggie.github.io/tags/performance/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>字符串匹配算法</title>
-    <link href="http://jackeggie.github.io/string-search/"/>
-    <id>http://jackeggie.github.io/string-search/</id>
-    <published>2018-02-17T08:12:48.000Z</published>
-    <updated>2019-10-31T06:19:24.977Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;问题引入&quot;&gt;&lt;a href=&quot;#问题引入&quot; class=&quot;headerlink&quot; title=&quot;问题引入&quot;&gt;&lt;/a&gt;问题引入&lt;/h3&gt;&lt;p&gt;有一个长字符串string，现在需要在该字符串中查找到一个特定短字符串pattern，并返回其位置。&lt;/p&gt;
-&lt;p&gt;上述问题为经典的字符串查找问题，这类问题数据算法的基础问题，应当熟记解决方法。&lt;/p&gt;
-&lt;h3 id=&quot;Brute-Force算法&quot;&gt;&lt;a href=&quot;#Brute-Force算法&quot; class=&quot;headerlink&quot; title=&quot;Brute-Force算法&quot;&gt;&lt;/a&gt;Brute-Force算法&lt;/h3&gt;&lt;p&gt;最简单的方案就是分别对string和pattern的每个位置进行依次比较。这样就会产生两个循环体分别对string和pattern进行遍历，很容易得出时间复杂度为string长度的二次幂。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="algorithm" scheme="http://jackeggie.github.io/tags/algorithm/"/>
     
   </entry>
   
