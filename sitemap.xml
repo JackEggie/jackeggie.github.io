@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jackeggie.github.io/about/index.html</loc>
+    
+    <lastmod>2019-10-31T07:05:49.605Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jackeggie.github.io/zh-cn/about/index.html</loc>
+    
+    <lastmod>2019-10-31T07:05:49.595Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jackeggie.github.io/marking-up-a-letter/</loc>
     
     <lastmod>2019-10-31T06:19:25.338Z</lastmod>
@@ -166,13 +180,6 @@
     <loc>http://jackeggie.github.io/a-bird-s-eye-view-of-go/</loc>
     
     <lastmod>2019-10-31T06:16:22.553Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jackeggie.github.io/about/index.html</loc>
-    
-    <lastmod>2019-08-13T09:00:04.072Z</lastmod>
     
   </url>
   
