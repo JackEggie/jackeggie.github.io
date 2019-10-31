@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="Jack&#39;s Blog">
 <meta property="og:description" content="问题引入有一个长字符串string，现在需要在该字符串中查找到一个特定短字符串pattern，并返回其位置。 上述问题为经典的字符串查找问题，这类问题数据算法的基础问题，应当熟记解决方法。 Brute-Force算法最简单的方案就是分别对string和pattern的每个位置进行依次比较。这样就会产生两个循环体分别对string和pattern进行遍历，很容易得出时间复杂度为string长度的二次">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-08-02T02:22:18.496Z">
+<meta property="og:updated_time" content="2019-10-31T06:19:24.977Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -165,7 +165,7 @@
         <span class="column is-narrow">
             
             
-            4 分钟 读完 (约 635 字)
+            4 分钟 读完 (约 636 字)
         </span>
         
     </div>
@@ -174,6 +174,8 @@
         <h3 id="问题引入"><a href="#问题引入" class="headerlink" title="问题引入"></a>问题引入</h3><p>有一个长字符串string，现在需要在该字符串中查找到一个特定短字符串pattern，并返回其位置。</p>
 <p>上述问题为经典的字符串查找问题，这类问题数据算法的基础问题，应当熟记解决方法。</p>
 <h3 id="Brute-Force算法"><a href="#Brute-Force算法" class="headerlink" title="Brute-Force算法"></a>Brute-Force算法</h3><p>最简单的方案就是分别对string和pattern的每个位置进行依次比较。这样就会产生两个循环体分别对string和pattern进行遍历，很容易得出时间复杂度为string长度的二次幂。</p>
+<a id="more"></a>
+
 <p>核心代码：</p>
 <p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">boolean match = false;</span><br><span class="line">int index = -1;</span><br><span class="line">for (int i = 0; i &lt; source.length(); i++) &#123;</span><br><span class="line">    for (int j = 0; j &lt; pattern.length(); j++) &#123;</span><br><span class="line">        if (source.charAt(i + j) != pattern.charAt(j)) &#123;</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">        if (j == pattern.length() - 1) &#123;</span><br><span class="line">            match = true;</span><br><span class="line">            index = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if (match) &#123;</span><br><span class="line">        break;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="KMP算法"><a href="#KMP算法" class="headerlink" title="KMP算法"></a>KMP算法</h3><p>KMP算法是经典的字符串匹配的改进算法。该算法利用pattern的最大重复子串长度表来减少循环次数。</p>

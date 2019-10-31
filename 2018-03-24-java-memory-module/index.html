@@ -14,15 +14,15 @@
 
 
 
-    <meta name="description" content="概述Java内存模型是JVM与计算机内存协同工作的规范与准则。Java虚拟机中的线程与内存结构和计算机的CPU与主存的架构并不相同，因此才需要一套规则来整合两种模型来协同工作。 这套规则描述了线程间共享变量的可见性和多线程访问带来的冲突等问题。 原始的Java内存模型天生存在一些不足之处，因此在JDK1.5之后做了重新修订。 多线程下的Java内存结构我们已经了解了Java的内存结构主要被分为线程">
+    <meta name="description" content="概述Java内存模型是JVM与计算机内存协同工作的规范与准则。Java虚拟机中的线程与内存结构和计算机的CPU与主存的架构并不相同，因此才需要一套规则来整合两种模型来协同工作。 这套规则描述了线程间共享变量的可见性和多线程访问带来的冲突等问题。 原始的Java内存模型天生存在一些不足之处，因此在JDK1.5之后做了重新修订。">
 <meta name="keywords" content="jvm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java内存结构">
 <meta property="og:url" content="http:&#x2F;&#x2F;jackeggie.github.io&#x2F;2018-03-24-java-memory-module&#x2F;index.html">
 <meta property="og:site_name" content="Jack&#39;s Blog">
-<meta property="og:description" content="概述Java内存模型是JVM与计算机内存协同工作的规范与准则。Java虚拟机中的线程与内存结构和计算机的CPU与主存的架构并不相同，因此才需要一套规则来整合两种模型来协同工作。 这套规则描述了线程间共享变量的可见性和多线程访问带来的冲突等问题。 原始的Java内存模型天生存在一些不足之处，因此在JDK1.5之后做了重新修订。 多线程下的Java内存结构我们已经了解了Java的内存结构主要被分为线程">
+<meta property="og:description" content="概述Java内存模型是JVM与计算机内存协同工作的规范与准则。Java虚拟机中的线程与内存结构和计算机的CPU与主存的架构并不相同，因此才需要一套规则来整合两种模型来协同工作。 这套规则描述了线程间共享变量的可见性和多线程访问带来的冲突等问题。 原始的Java内存模型天生存在一些不足之处，因此在JDK1.5之后做了重新修订。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-08-02T02:23:32.890Z">
+<meta property="og:updated_time" content="2019-10-31T06:19:25.289Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -179,7 +179,7 @@
         <span class="column is-narrow">
             
             
-            9 分钟 读完 (约 1385 字)
+            9 分钟 读完 (约 1386 字)
         </span>
         
     </div>
@@ -188,6 +188,8 @@
         <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>Java内存模型是JVM与计算机内存协同工作的规范与准则。Java虚拟机中的线程与内存结构和计算机的CPU与主存的架构并不相同，因此才需要一套规则来整合两种模型来协同工作。</p>
 <p>这套规则描述了线程间共享变量的可见性和多线程访问带来的冲突等问题。</p>
 <p>原始的Java内存模型天生存在一些不足之处，因此在JDK1.5之后做了重新修订。</p>
+<a id="more"></a>
+
 <h3 id="多线程下的Java内存结构"><a href="#多线程下的Java内存结构" class="headerlink" title="多线程下的Java内存结构"></a>多线程下的Java内存结构</h3><p>我们已经了解了Java的内存结构主要被分为线程栈和堆。线程栈中存放的变量只在该线程内部可见，且各线程间均只可见自己线程栈中的变量。堆中存放的都是线程间共享的变量，对所有线程均可见。</p>
 <p>额外需要说明的是，如果线程中的变量是引用类型的，则被引用的对象是被分配在堆上的。同样地，对象所有的成员变量，包括静态的成员变量，都是被分配在堆上的。</p>
 <h3 id="硬件内存架构"><a href="#硬件内存架构" class="headerlink" title="硬件内存架构"></a>硬件内存架构</h3><p>硬件的内存架构与JVM的内存结构从设计上就是不同的。</p>

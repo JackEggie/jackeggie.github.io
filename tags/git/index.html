@@ -143,7 +143,7 @@
         <span class="column is-narrow">
             
             
-            6 分钟 读完 (约 880 字)
+            6 分钟 读完 (约 881 字)
         </span>
         
     </div>
@@ -152,25 +152,9 @@
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本文演示了如何用Gitflow来管理单个发布循环。</p>
 <p><img src="/.io//git-workflows-gitflow.png" alt=""></p>
 <h3 id="初始化中央仓库"><a href="#初始化中央仓库" class="headerlink" title="初始化中央仓库"></a>初始化中央仓库</h3><p>这时，Git会为你默认创建一个master分支，将你的最初的项目代码提交到master分支上。</p>
-<h3 id="创建开发分支"><a href="#创建开发分支" class="headerlink" title="创建开发分支"></a>创建开发分支</h3><p>从master创建一个develop分支，并将其push到服务器上。并让团队中每个成员都建立该分支的本地拷贝。develop分支将会包含项目的全部历史提交，而master分支可能只包含部分历史提交。</p>
-<h3 id="开始开发新功能"><a href="#开始开发新功能" class="headerlink" title="开始开发新功能"></a>开始开发新功能</h3><p>Jack需要基于develop分支拉取feature1分支，并在该分支上面进行新功能的开发。</p>
-<h3 id="完成新功能开发"><a href="#完成新功能开发" class="headerlink" title="完成新功能开发"></a>完成新功能开发</h3><p>Jack提交了所有代码到分支feature1上之后，将feature1分支合并到develop分支，解决冲突并推送到中央仓库。这里需要在合并前确保本地的develop分支是最新的。</p>
-<h3 id="发布新功能"><a href="#发布新功能" class="headerlink" title="发布新功能"></a>发布新功能</h3><p>Jack确定了发布的版本号为0.1，并且从develop拉了一个发布分支release-0.1，在发布过程中产生的问题都会提交到这个分支上，发布前执行测试和创建release note也都会基于这个分支来做。这里做到了所谓的发布前的代码冻结的作用。</p>
-<h3 id="完成发布"><a href="#完成发布" class="headerlink" title="完成发布"></a>完成发布</h3><p>Jack完成了0.1版本的发布，并且把release-0.1分支合并到master分支上，同时在master分支上提交了0.1版本的tag。并把master分支合并到develop分支上。</p>
-<p>这时，一个新功能的开发和一个新版本的发布已经完成。下面来看一下hotfix的流程。</p>
-<h3 id="发现bug并进行hotfix"><a href="#发现bug并进行hotfix" class="headerlink" title="发现bug并进行hotfix"></a>发现bug并进行hotfix</h3><p>Jack从master拉取了一个hotfix-issue-001分支，并且对issue-001进行修复。</p>
-<h3 id="发布hotfix"><a href="#发布hotfix" class="headerlink" title="发布hotfix"></a>发布hotfix</h3><p>Jack发布了hotfix-issue-001分支，并将其合并回master分支。然后再将master分支与develop分支进行合并。</p>
-<p>这时，一个hotfix的发布已经完成。</p>
-<p>上面所列举的Gitflow的用法只是使用过程中的某种特例，并不是所必须要遵守的规定。我们在使用Gitflow的过程中，需要大胆地对Gitflow的用法做取舍，以满足项目管理的健壮，完备和简洁。</p>
-<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><h4 id="简化"><a href="#简化" class="headerlink" title="简化"></a>简化</h4><p>这里提供一种简化Gitflow的思路，适用于小型开发团队。master分支与develop分支可以在同时开发的功能较少时进行简化，只使用master分支，略去develop分支。feature分支与release分支可以在开发人员较少时进行简化，只使用feature分支，略去release分支。</p>
-<h4 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h4><ol>
-<li>在并行开发的功能较多时，需要特别为发布计划和代码merge建立管理制度，以防止不同的功能之间冲突过多而花费大量时间。</li>
-<li>在开发人员较多时，可以采用在feature分支的基础上在拉取类似于feature-jack的个人开发分支，以减少开发过程中的冲突。</li>
-<li>针对有较为严格code review规定的团队，可以采用pull request来进行code review。</li>
-<li>所有的团队都需要注意，定时清理不需要的分支。</li>
-<li>所有的团队都需要注意，需要制定严格的分支名称的规则。</li>
-</ol>
-
+        <p class="article-more-link">
+            <a href="/2018-01-26-gitflow-example/#more">阅读更多</a>
+        </p>
     
     </div>
     

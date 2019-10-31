@@ -143,7 +143,7 @@
         <span class="column is-narrow">
             
             
-            6 分钟 读完 (约 834 字)
+            6 分钟 读完 (约 835 字)
         </span>
         
     </div>
@@ -161,47 +161,9 @@
 <p>事件通知：publish、subscribe命令</p>
 <p>持久化：rdb、aof</p>
 <p>客户端api：jedis、redisson</p>
-<h3 id="Ehcache"><a href="#Ehcache" class="headerlink" title="Ehcache"></a>Ehcache</h3><p>简介：进程内缓存框架，基于java开发，支持分布式存储，支持进程外存储。</p>
-<p>开源：Java</p>
-<p>jsr107：支持 <a href="http://blog.csdn.net/qq18998401056/article/details/53484739" target="_blank" rel="noopener">相关资料</a></p>
-<p>ssl加密：不支持</p>
-<p>sql查询：不支持</p>
-<p>事务：JTA事务支持</p>
-<p>数据分区：只存储local cache，分布式调用各自server上面的缓存数据</p>
-<p>java原生数据类型：与java原生数据类型兼容，本质上存储的都是Object</p>
-<p>二级缓存支持：无相关概念</p>
-<p>事件通知：CacheManagerEventListener和CacheEventListener接口</p>
-<p>持久化：磁盘</p>
-<p>客户端api：ehcache</p>
-<h3 id="Hazelcast"><a href="#Hazelcast" class="headerlink" title="Hazelcast"></a>Hazelcast</h3><p>简介：集群化分布式内存存储平台。</p>
-<p>开源：Java</p>
-<p>jsr107：支持</p>
-<p>ssl加密：商用版支持</p>
-<p>sql查询：仅提供有限的支持(只有几个关键字)</p>
-<p>事务：不支持</p>
-<p>数据分区：271个partition</p>
-<p>java原生数据类型：提供了set、map、list等数据类型</p>
-<p>二级缓存支持：无相关概念</p>
-<p>事件通知：CacheManagerEventListener和CacheEventListener接口</p>
-<p>持久化：商用版支持</p>
-<p>客户端api：hazelcast-client</p>
-<h3 id="Ignite"><a href="#Ignite" class="headerlink" title="Ignite"></a>Ignite</h3><p>简介：基于内存的分布式数据库，缓存，计算平台。</p>
-<p>开源：Java</p>
-<p>jsr107：支持</p>
-<p>ssl加密：支持</p>
-<p>sql查询：支持</p>
-<p>事务：支持</p>
-<p>数据分区：一致性hash</p>
-<p>java原生数据类型：支持</p>
-<p>二级缓存支持：客户端缓存</p>
-<p>事件通知：IgniteEvents</p>
-<p>持久化：可集成外部数据源（db、nosql等）</p>
-<p>客户端api：ignite</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>Redis使用最广泛，但是源码是C语言写的，修改原生功能相对困难。</p>
-<p>Ehcache的免费版仍然着眼于单机的缓存模式，集群化的实现相对困难，而收费版在集群化，堆外存储，持久化上面已经和市面上的大多数缓存框架功能一致了，远程调用和集群分片的模式较为成熟。</p>
-<p>Hazelcast和ehcache的收费版较为相像，但是更为灵活，数据同步的方式（同步/异步复制），副本集的数量，分片的存储方式都是可配置的。集群高可用的算法利用的是集群最老的节点保存的分区表。</p>
-<p>Ignite提供的功能更为强大，但是使用的公司相对较少。Ignite的设计是为了方便做内存计算，单纯的存储（尤其是持久化）会显得不太方便。比较亮眼的功能有对等类加载。</p>
-
+        <p class="article-more-link">
+            <a href="/2018-04-07-cache-framework-research/#more">阅读更多</a>
+        </p>
     
     </div>
     

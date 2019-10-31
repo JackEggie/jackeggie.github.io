@@ -14,16 +14,16 @@
 
 
 
-    <meta name="description" content="前言本文演示了如何用Gitflow来管理单个发布循环。  初始化中央仓库这时，Git会为你默认创建一个master分支，将你的最初的项目代码提交到master分支上。 创建开发分支从master创建一个develop分支，并将其push到服务器上。并让团队中每个成员都建立该分支的本地拷贝。develop分支将会包含项目的全部历史提交，而master分支可能只包含部分历史提交。 开始开发新功能Jac">
+    <meta name="description" content="前言本文演示了如何用Gitflow来管理单个发布循环。  初始化中央仓库这时，Git会为你默认创建一个master分支，将你的最初的项目代码提交到master分支上。">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gitflow工作流示例">
 <meta property="og:url" content="http:&#x2F;&#x2F;jackeggie.github.io&#x2F;2018-01-26-gitflow-example&#x2F;index.html">
 <meta property="og:site_name" content="Jack&#39;s Blog">
-<meta property="og:description" content="前言本文演示了如何用Gitflow来管理单个发布循环。  初始化中央仓库这时，Git会为你默认创建一个master分支，将你的最初的项目代码提交到master分支上。 创建开发分支从master创建一个develop分支，并将其push到服务器上。并让团队中每个成员都建立该分支的本地拷贝。develop分支将会包含项目的全部历史提交，而master分支可能只包含部分历史提交。 开始开发新功能Jac">
+<meta property="og:description" content="前言本文演示了如何用Gitflow来管理单个发布循环。  初始化中央仓库这时，Git会为你默认创建一个master分支，将你的最初的项目代码提交到master分支上。">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http:&#x2F;&#x2F;jackeggie.github.io&#x2F;.io&#x2F;&#x2F;git-workflows-gitflow.png">
-<meta property="og:updated_time" content="2019-08-02T02:21:44.960Z">
+<meta property="og:updated_time" content="2019-10-31T06:19:25.145Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;jackeggie.github.io&#x2F;.io&#x2F;&#x2F;git-workflows-gitflow.png">
 
@@ -217,7 +217,7 @@
         <span class="column is-narrow">
             
             
-            6 分钟 读完 (约 880 字)
+            6 分钟 读完 (约 881 字)
         </span>
         
     </div>
@@ -226,6 +226,8 @@
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本文演示了如何用Gitflow来管理单个发布循环。</p>
 <p><img src="/.io//git-workflows-gitflow.png" alt=""></p>
 <h3 id="初始化中央仓库"><a href="#初始化中央仓库" class="headerlink" title="初始化中央仓库"></a>初始化中央仓库</h3><p>这时，Git会为你默认创建一个master分支，将你的最初的项目代码提交到master分支上。</p>
+<a id="more"></a>
+
 <h3 id="创建开发分支"><a href="#创建开发分支" class="headerlink" title="创建开发分支"></a>创建开发分支</h3><p>从master创建一个develop分支，并将其push到服务器上。并让团队中每个成员都建立该分支的本地拷贝。develop分支将会包含项目的全部历史提交，而master分支可能只包含部分历史提交。</p>
 <h3 id="开始开发新功能"><a href="#开始开发新功能" class="headerlink" title="开始开发新功能"></a>开始开发新功能</h3><p>Jack需要基于develop分支拉取feature1分支，并在该分支上面进行新功能的开发。</p>
 <h3 id="完成新功能开发"><a href="#完成新功能开发" class="headerlink" title="完成新功能开发"></a>完成新功能开发</h3><p>Jack提交了所有代码到分支feature1上之后，将feature1分支合并到develop分支，解决冲突并推送到中央仓库。这里需要在合并前确保本地的develop分支是最新的。</p>

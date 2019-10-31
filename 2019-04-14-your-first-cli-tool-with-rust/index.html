@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="Jack&#39;s Blog">
 <meta property="og:description" content="原文地址：Your first CLI tool with Rust 原文作者：Jérémie Veillet 译文出自：掘金翻译计划 本文永久链接：https:&#x2F;&#x2F;github.com&#x2F;xitu&#x2F;gold-miner&#x2F;blob&#x2F;master&#x2F;TODO1&#x2F;your-first-cli-tool-with-rust.md 译者：JackEggie 校对者：TloveYing   用 Rust 打">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-08-01T09:39:48.031Z">
+<meta property="og:updated_time" content="2019-10-31T06:19:25.238Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -185,7 +185,7 @@
         <span class="column is-narrow">
             
             
-            31 分钟 读完 (约 4666 字)
+            31 分钟 读完 (约 4667 字)
         </span>
         
     </div>
@@ -204,6 +204,8 @@
 <h1 id="用-Rust-打造你的第一个命令行工具"><a href="#用-Rust-打造你的第一个命令行工具" class="headerlink" title="用 Rust 打造你的第一个命令行工具"></a>用 Rust 打造你的第一个命令行工具</h1><p>在精彩的编程世界里，你可能听说过这种名为 Rust 的新语言。它是一种开源的系统级编程语言。它专注于性能、内存安全和并行性。你可以像 C/C++ 那样用它编写底层应用程序。</p>
 <p>你可能已经在 <a href="https://webassembly.org/" target="_blank" rel="noopener">Web Assembly</a> 网站上见到过它了。Rust 能够编译 WASM 应用程序，你可以在 <a href="https://webassembly.org/docs/use-cases/" target="_blank" rel="noopener">Web Assembly FAQ</a> 上找到很多例子。它也被认为是 <a href="https://servo.org/" target="_blank" rel="noopener">servo</a> 的基石，servo 是一个在 Firefox 中实现的高性能浏览器引擎。</p>
 <p>这可能会让你望而却步，但这不是我们要在这里讨论的内容。我们将介绍如何使用它构建命令行工具，而你可能会从中发现很多有意思的东西。</p>
+<a id="more"></a>
+
 <h2 id="为什么是-Rust？"><a href="#为什么是-Rust？" class="headerlink" title="为什么是 Rust？"></a>为什么是 Rust？</h2><p>好吧，让我把事情说清楚。我本可以用任何其他语言或框架来完成命令行工具。我可以选 C、Go、Ruby 等等。甚至，我可以使用经典的 bash。</p>
 <p>在 2018 年中，我想学习一些新东西，Rust 激发了我的好奇心，同时我也需要构建一些简单的小工具来自动化工作和个人项目中的一些流程。</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>你可以使用 <a href="https://rustup.rs/" target="_blank" rel="noopener">Rustup</a> 来设置你的开发环境，它是安装和配置你机器上所有的 Rust 工具的主要入口。</p>

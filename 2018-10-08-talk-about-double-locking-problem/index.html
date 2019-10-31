@@ -14,15 +14,15 @@
 
 
 
-    <meta name="description" content="Java 中的双重检查锁不知道从什么时候开始，双重锁检机制开始在 Java 程序员中流传开来，并被一些不成熟的程序员所称道。然而，双重锁检机制无论在 Java 的什么年代，都是一个不折不扣的代码陷阱。 12345678910111213&#x2F;&#x2F; double-checked-locking - don&amp;apos;t do this!private static Something instance = null">
+    <meta name="description" content="Java 中的双重检查锁不知道从什么时候开始，双重锁检机制开始在 Java 程序员中流传开来，并被一些不成熟的程序员所称道。然而，双重锁检机制无论在 Java 的什么年代，都是一个不折不扣的代码陷阱。 24 这段代码粗看上去使用了很“神奇”的 Java 多线程技巧，“巧妙”利用重复地两次检查对象是否为空来避免了大部分情况下 synchronized 关键字的性能消耗。">
 <meta name="keywords" content="jvm,multi-thread">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 中的双重检查锁(Double-Checked Locking)的问题">
 <meta property="og:url" content="http:&#x2F;&#x2F;jackeggie.github.io&#x2F;2018-10-08-talk-about-double-locking-problem&#x2F;index.html">
 <meta property="og:site_name" content="Jack&#39;s Blog">
-<meta property="og:description" content="Java 中的双重检查锁不知道从什么时候开始，双重锁检机制开始在 Java 程序员中流传开来，并被一些不成熟的程序员所称道。然而，双重锁检机制无论在 Java 的什么年代，都是一个不折不扣的代码陷阱。 12345678910111213&#x2F;&#x2F; double-checked-locking - don&amp;apos;t do this!private static Something instance = null">
+<meta property="og:description" content="Java 中的双重检查锁不知道从什么时候开始，双重锁检机制开始在 Java 程序员中流传开来，并被一些不成熟的程序员所称道。然而，双重锁检机制无论在 Java 的什么年代，都是一个不折不扣的代码陷阱。 24 这段代码粗看上去使用了很“神奇”的 Java 多线程技巧，“巧妙”利用重复地两次检查对象是否为空来避免了大部分情况下 synchronized 关键字的性能消耗。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-08-02T02:25:20.707Z">
+<meta property="og:updated_time" content="2019-10-31T06:19:25.011Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -177,7 +177,7 @@
         <span class="column is-narrow">
             
             
-            8 分钟 读完 (约 1271 字)
+            8 分钟 读完 (约 1272 字)
         </span>
         
     </div>
@@ -186,6 +186,8 @@
         <h3 id="Java-中的双重检查锁"><a href="#Java-中的双重检查锁" class="headerlink" title="Java 中的双重检查锁"></a>Java 中的双重检查锁</h3><p>不知道从什么时候开始，双重锁检机制开始在 Java 程序员中流传开来，并被一些不成熟的程序员所称道。然而，双重锁检机制无论在 Java 的什么年代，都是一个不折不扣的代码陷阱。</p>
 <p><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// double-checked-locking - don't do this!</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Something instance = <span class="hljs-keyword">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> Something <span class="hljs-title">getInstance</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">if</span> (instance == <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">    <span class="hljs-keyword">synchronized</span> (<span class="hljs-keyword">this</span>) &#123;</span><br><span class="line">      <span class="hljs-keyword">if</span> (instance == <span class="hljs-keyword">null</span>)</span><br><span class="line">        instance = <span class="hljs-keyword">new</span> Something();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="hljs-keyword">return</span> instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>这段代码粗看上去使用了很“神奇”的 Java 多线程技巧，“巧妙”利用重复地两次检查对象是否为空来避免了大部分情况下 synchronized 关键字的性能消耗。</p>
+<a id="more"></a>
+
 <h3 id="双重锁检的一种优化方案"><a href="#双重锁检的一种优化方案" class="headerlink" title="双重锁检的一种优化方案"></a>双重锁检的一种优化方案</h3><p>有很多人对上述代码提出了异议，他们认为，对象的初始化和对象的赋值操作之间可能存在重排序，有一定的可能性 getInstance 方法返回的对象不是完全初始化完成的，因此解决方案是需要为 instance 变量添加 volatile 修饰。看上去这就是完美的解决方案了，volatile 关键字在对象的初始化和对象的赋值操作之间添加了 Happen-before 关系，因此也就不存在重排序的问题了。</p>
 <p>然而，首先，volatile 关键字在 Java 1.5 以前不能保证线程获取到的对象是最新的。其次，对象的初始化和对象的赋值操作之间的 Happen-before 关系是在 JMM 被重新修订之后（JSR-133）才出现的。也就是说，在 Java 1.5 以前，添加 volatile 与否对这段代码来说都是一样的效果，volatile 并不能解决任何问题。在 Java 1.5 以后，添加 volatile 与否对这段代码来说也都是一样的效果，因为新的 JMM 已经可以保证对象的初始化和对象的赋值操作之间存在 Happen-before 关系。</p>
 <blockquote>

@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="Jack&#39;s Blog">
 <meta property="og:description" content="原文地址：Distributed transactions in Spring, with and without XA - Part I 原文作者：David Syer 译文出自：掘金翻译计划 本文永久链接：https:&#x2F;&#x2F;github.com&#x2F;xitu&#x2F;gold-miner&#x2F;blob&#x2F;master&#x2F;TODO1&#x2F;distributed-transactions-in-spring-with-">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-08-01T09:44:12.611Z">
+<meta property="og:updated_time" content="2019-10-31T06:19:25.253Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -193,7 +193,7 @@
         <span class="column is-narrow">
             
             
-            26 分钟 读完 (约 3825 字)
+            26 分钟 读完 (约 3826 字)
         </span>
         
     </div>
@@ -220,6 +220,8 @@
 <p>Spring 的 7 种事务处理模式</p>
 </blockquote>
 <p>虽然在 Spring 中分布式事务通常使用 Java Transaction API 和 XA 协议实现，但也有其他的实现方式。最好的实现方式取决于应用程序所使用资源的类型，以及你是否愿意在性能、安全性、可靠性和数据完整性之间做出权衡。针对这个 Java 中的典型问题，Spring 的开发者 David Syer 将会介绍 7 种 Spring 分布式应用的实现方式，其中 3 种实现使用了 XA 协议，另外 4 种使用了其他的实现方式。（中级知识点）</p>
+<a id="more"></a>
+
 <p>Spring 框架对 Java Transaction API (JTA) 的支持使应用程序能够<a href="http://www.javaworld.com/javaworld/jw-04-2007/jw-04-xa.html" target="_blank" rel="noopener">无需在 Java EE 容器中</a>即可使用分布式事务和 XA 协议。然而，即使有了这种支持，XA 的性能开销仍然很大，而且可能不可靠并且难于管理。不过令人惊喜的是，某种特定类型的应用程序可以完全避免使用 XA 来实现分布式事务。</p>
 <p>为了让你对分布式事务的各种实现方式有充分的理解和思考，我将详细分析这 7 种事务处理模式，并提供代码示例帮助你理解得更具体。我将根据安全性和可靠性来依次介绍这些模式，从通常来说数据完整性和原子性程度最高的模式开始。当你按顺序浏览时，你会看到越来越多的警示说明和限制条件。这些模式的性能开销也大致相反（从开销最大的模式开始）。与编写业务代码完全不同的是，这些模式都是从架构复杂度和技术难度考虑的，所以我不会关心业务用例，只关心使每种模式正常工作的最小代码量。</p>
 <p>注意，只有前三种模式涉及 XA。而从性能的角度考虑，这些模式可能无法使用或性能差到不可接受。我不会像介绍其他模式那样对 XA 模式有详细的讨论，因为 XA 在其他地方已经有很多介绍了，不过我提供了第一个模式（基于 XA）的简单示例。通过阅读本文，你将了解使用分布式事务可以做什么、不能做什么，何时使用 XA、何时不使用 XA，以及如何避免使用 XA。</p>
