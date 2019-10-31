@@ -192,11 +192,11 @@
 
 <p><a href="https://github.com/JackEggie/json-parser-performance" target="_blank" rel="noopener">测试代码</a></p>
 <p>测试结果：</p>
-<div id="echarts4102" style="width: 100%;height: 400px;margin: 0 auto"></div>
+<div id="echarts3743" style="width: 100%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts4102'));
+        var myChart = echarts.init(document.getElementById('echarts3743'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -311,9 +311,23 @@
 <div class="comments">
     <h3 class="title is-4">评论</h3>
     
-<div class="notification is-danger">
-    You forgot to set the <code>appId</code> or <code>appKey</code> for Valine. Please set it in <code>_config.yml</code>.
-</div>
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'WLQY706vpvTaxFWErwryK5Do-gzGzoHsz',
+        appKey: 'RM1rBSv25YYfFrtQnPy8oRQa',
+        notify: false,
+        verify: false,
+        avatar: '',
+        placeholder: 'Say something...',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: ''
+    })
+</script>
 
 
 </div>
