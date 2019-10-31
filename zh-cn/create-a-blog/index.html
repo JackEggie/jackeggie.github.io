@@ -289,21 +289,10 @@
 <div class="comments">
     <h3 class="title is-4">评论</h3>
     
-<div id="comment-container"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-	var gitment = new Gitment({
-		id: 'zh-cn/create-a-blog/',
-		owner: 'JackEggie',
-		repo: 'jackeggie.github.io',
-		oauth: {
-			client_id: '18f330dcf69901af7b83',
-			client_secret: '9015cbae380288ebbb49a3c8140302e2a9c7de43',
-		},
-	})
-	gitment.render('comment-container')
-</script>
+<div class="notification is-danger">
+    You forgot to set the <code>appId</code> or <code>appKey</code> for Valine. Please set it in <code>_config.yml</code>.
+</div>
+
 
 </div>
 
