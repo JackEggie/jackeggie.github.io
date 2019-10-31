@@ -1,147 +1,979 @@
 <!DOCTYPE html>
-<html lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-
-
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
 <title>Jack&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
 
 
-    <link rel="icon" href="/image/avatar.jpeg">
 
 
 
 
-    <!-- stylesheets list from _config.yml -->
+
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Jack&#39;s Blog">
+<meta property="og:url" content="http:&#x2F;&#x2F;jackeggie.github.io&#x2F;page&#x2F;2&#x2F;index.html">
+<meta property="og:site_name" content="Jack&#39;s Blog">
+<meta property="og:locale" content="zh-cn">
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+<link rel="icon" href="/images/avatar.jpeg">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
     
-    <link rel="stylesheet" href="/css/style.css">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108548768-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-108548768-1');
+</script>
+
+
     
 
 
+</head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    Jack&#39;s Blog
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">Archives</a>
+            
+            <a class="navbar-item "
+               href="/tags">Tags</a>
+            
+            <a class="navbar-item "
+               href="/about">About</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/JackEggie" target="_blank" rel="noopener">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
 
-    <!-- scripts list from _config.yml -->
+    <section class="section">
+    <div class="container">
     
-    <script src="/js/script.js"></script>
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2018-04-21-marking-up-a-letter/" itemprop="url">标记一封信 - MDN html 作业</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-04-21T02:02:18.000Z" itemprop="datePublished">4月 21 2018</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            7 分钟 读完 (约 1017 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-    <script src="/js/tocbot.min.js"></script>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本文将会解析来自MDN web docs的一份html作业，内容较为基础，有一定html知识的同学可以选择绕道。</p>
+<h3 id="作业描述"><a href="#作业描述" class="headerlink" title="作业描述"></a>作业描述</h3><p>作业地址：<a href="https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML/Marking_up_a_letter" target="_blank" rel="noopener">标记一封信</a></p>
+<p>将上述页面提供的一封信进行合适的html标记，使其成为一封传统的信件的格式。</p>
+<h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><p><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"author"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"Dr Eleanor Gaye"</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>my test letter<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"styles/letter.css"</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sender-column"</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">i</span>&gt;</span></span><br><span class="line">			<span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>Dr. Eleanor Gaye<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">			Awesome Science faculty<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">			University of Awesome<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">			Bobtown, CA 99999,<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">			USA<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">			<span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>Tel:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> 123-456-7890<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">			<span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>Email:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> no_reply&amp;#64;example.com</span><br><span class="line">		<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sender-column"</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">time</span> <span class="hljs-attr">datetime</span>=<span class="hljs-string">"2016-01-20"</span>&gt;</span>20 January 2016<span class="hljs-tag">&lt;/<span class="hljs-name">time</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">i</span>&gt;</span></span><br><span class="line">			<span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>Miss Eileen Dover<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span></span><br><span class="line">			4321 Cliff Top Edge<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">			Dover, CT9 XXX<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">			UK</span><br><span class="line">		<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Re: Eileen Dover university application<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Dear Eileen,<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Thank you for your recent application to join us at the University of Awesome's science faculty to study as part of your <span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Philosophiae Doctor"</span>&gt;</span>PhD<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span> next year. I will answer your questions one by one, in the following sections.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Starting dates<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>We are happy to accomodate you starting your study with us at any time, however it would suit us better if you could start at the beginning of a semester; the start dates for each one are as follows:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>First semester: <span class="hljs-tag">&lt;<span class="hljs-name">time</span> <span class="hljs-attr">datetime</span>=<span class="hljs-string">"2016-09-09"</span>&gt;</span>9 September 2016<span class="hljs-tag">&lt;/<span class="hljs-name">time</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Second semester: <span class="hljs-tag">&lt;<span class="hljs-name">time</span> <span class="hljs-attr">datetime</span>=<span class="hljs-string">"2017-01-15"</span>&gt;</span>15 January 2017<span class="hljs-tag">&lt;/<span class="hljs-name">time</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Third semester: <span class="hljs-tag">&lt;<span class="hljs-name">time</span> <span class="hljs-attr">datetime</span>=<span class="hljs-string">"2017-05-02"</span>&gt;</span>2 May 2017<span class="hljs-tag">&lt;/<span class="hljs-name">time</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Please let me know if this is ok, and if so which start date you would prefer.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>You can find more information about <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://example.com"</span>&gt;</span>important university dates<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> on our website.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Subjects of study<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>At the Awesome Science Faculty, we have a pretty open-minded research facility — as long as the subjects fall somewhere in the realm of science and technology. You seem like an intelligent, dedicated researcher, and just the kind of person we'd like to have on our team. Saying that, of the ideas you submitted we were most intrigued by are as follows, in order of priority:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Turning H<span class="hljs-tag">&lt;<span class="hljs-name">sub</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">sub</span>&gt;</span>O into wine, and the health benefits of Resveratrol (C<span class="hljs-tag">&lt;<span class="hljs-name">sub</span>&gt;</span>14<span class="hljs-tag">&lt;/<span class="hljs-name">sub</span>&gt;</span>H<span class="hljs-tag">&lt;<span class="hljs-name">sub</span>&gt;</span>12<span class="hljs-tag">&lt;/<span class="hljs-name">sub</span>&gt;</span>O<span class="hljs-tag">&lt;<span class="hljs-name">sub</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">sub</span>&gt;</span>.)<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Measuring the effect on performance of funk bassplayers at temperatures exceeding 30&amp;deg;C (86&amp;deg;F), when the audience size exponentially increases (effect of 3 &amp;#215; 10<span class="hljs-tag">&lt;<span class="hljs-name">sup</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">sup</span>&gt;</span> &amp;gt; 3 &amp;#215; 10<span class="hljs-tag">&lt;<span class="hljs-name">sup</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-name">sup</span>&gt;</span>.)<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Hypertext Markup Language"</span>&gt;</span>HTML<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span> and <span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Cascading Style Sheets"</span>&gt;</span>CSS<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span> constructs for representing musical scores.<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>So please can you provide more information on each of these subjects, including how long you'd expect the research to take, required staff and other resources, and anything else you think we'd need to know? Thanks.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Exotic dance moves<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Yes, you are right! As part of my post-doctorate work, I <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>did<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span> study exotic tribal dances. To answer your question, my favourite dances are as follows, with definitions:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">dl</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>Polynesian chicken dance<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>A little known but very influential dance dating back as far as 300<span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Before Christ"</span>&gt;</span>BC<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span>, a whole village would dance around in a circle like chickens, to encourage their livestock or be "fruitful".<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>Icelandic brownian shuffle<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>Before the Icelanders developed fire as a means of getting warm, they used to practice this dance, which involved huddling close together in a circle on the floor, and shuffling their bodies around in imperceptably tiny, very rapid movements. One of my fellow students used to say that he thought this dance inspired modern styles such as Twerking.<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>Arctic robot dance<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>An interesting example of historic misinformation, English explorers in the 1960s believed to have discovered a new dance style characterised by "robotic", stilted movements, being practiced by inhabitants of Northern Alaska and Canada. Later on however it was discovered that they were just moving like this because they were really cold.<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;/<span class="hljs-name">dl</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>For more of my research, see my <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://example.com"</span>&gt;</span>exotic dance research page<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Yours sincerely,<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Dr Eleanor Gaye<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>University of Awesome motto: <span class="hljs-tag">&lt;<span class="hljs-name">q</span> <span class="hljs-attr">cite</span>=<span class="hljs-string">"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q"</span>&gt;</span>Be awesome to each other.<span class="hljs-tag">&lt;/<span class="hljs-name">q</span>&gt;</span> -- <span class="hljs-tag">&lt;<span class="hljs-name">cite</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"http://example.com"</span>&gt;</span>Bill S Preston, <span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Esquire"</span>&gt;</span>Esq<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">cite</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="页面构建"><a href="#页面构建" class="headerlink" title="页面构建"></a>页面构建</h4><p>创建<code>DOCTYPE</code>声明，用以表明文本格式。</p>
+<p>创建<code>html</code>、<code>head</code>、<code>body</code>基础标签。</p>
+<p>设置文本语言和字符集，在<code>html</code>的属性中和<code>head</code>标签的<code>meta</code>中。</p>
+<p>引入css文件，在<code>head</code>中使用<code>link</code>标签。</p>
+<p>设置文档<code>title</code>和必要的<code>meta</code>信息（作者）。</p>
+<p>使用标题和段落标签进行排版。</p>
+<h4 id="样式调整"><a href="#样式调整" class="headerlink" title="样式调整"></a>样式调整</h4><p>为发信人段落添加样式引用（<code>class</code>），并对其使用适当的斜体、加粗样式。</p>
+<p>使用列表来标记信中列举出来的信息，用<code>ol</code>表示有序列表，用<code>ul</code>表示无序列表，用<code>dl</code>表示描述列表。</p>
+<p>使用超链接标记站点信息，并设置合适的<code>title</code>和<code>target</code>属性。</p>
+<p>对文中的化学式、温度、公式使用合适的上下标，这里也可以对一些特殊字符使用url转义来在页面上展示，如<code>&amp;deg;</code>表示&deg;。</p>
+<p>使用<code>pre</code>标签保留文本中的换行。</p>
+<h4 id="语义标记"><a href="#语义标记" class="headerlink" title="语义标记"></a>语义标记</h4><p>使用时间标签标记文档中的时间。</p>
+<p>使用缩写标签对文档中的缩写进行解释。</p>
+<p>使用强调标签对文中的某些短语做标记。</p>
+<p>使用引用标签标示文中的引文和出处，<code>q</code>和<code>blockquote</code>标签需要设置<code>cite</code>属性以表示出处（不显示），并且需要使用<code>cite</code>标签来显示出处。</p>
+
     
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2018-04-14-upgrade-hexo-and-next/" itemprop="url">本博客升级过程</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-04-14T08:52:37.000Z" itemprop="datePublished">4月 14 2018</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            3 分钟 读完 (约 433 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本文主要描述Hexo相关组件的升级方式和Next主题的升级方式。</p>
+<h3 id="Hexo升级"><a href="#Hexo升级" class="headerlink" title="Hexo升级"></a>Hexo升级</h3><p>本以为会比较复杂，其实非常简单，一条命令就能搞定。</p>
+<p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm update</span><br></pre></td></tr></table></figure></p>
+<p>这里解释一下这个命令的含义。npm是javascript的管理依赖的工具，会随着node.js一起安装。通过npm工具可以安装、更新、删除依赖，上面列出的命令即可以更新当前项目下的所有依赖。另外所有的依赖版本信息都会存储在项目的package.json中，可以直接到该文件中去查看依赖的版本是否是最新的。</p>
+<h3 id="Next升级"><a href="#Next升级" class="headerlink" title="Next升级"></a>Next升级</h3><p>Next的升级就没有Hexo那么简单了。为了安全起见，需要将新的Next仓库clone到本地的另外一个目录，一般直接新建一个名为next-reloaded的目录用来存放新版本的文件。然后将新版本的Next直接clone到该目录，并将项目的主题设置为Next-reloaded。</p>
+<p>剩余步骤：</p>
+<ol>
+<li>手动Merge _config.xml（需要注意，启用新版本特性时可能需要安装新的依赖）</li>
+<li>迁移静态资源： next/source/css/_custom/<em>、 next/source/css/_variables/*、 next/layout/_custom/</em></li>
+<li>迁移其他自定义资源：404页面、头像图片等</li>
+<li>检查language配置​</li>
+<li>利用<code>hexo server</code>命令进行本地调试，检查页面console中的报错，以及页面元素是否显示正常​</li>
+</ol>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://github.com/hexojs/hexo/issues/2508" target="_blank" rel="noopener">How to update hexo?</a><br><a href="https://github.com/theme-next/hexo-theme-next/blob/master/docs/zh-CN/UPDATE-FROM-5.1.X.md" target="_blank" rel="noopener">从 NexT v5.1.x 更新</a></p>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2018-04-07-cache-framework-research/" itemprop="url">缓存框架调研</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-04-07T08:33:33.000Z" itemprop="datePublished">4月 7 2018</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            6 分钟 读完 (约 834 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h3 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h3><p>简介：结构化数据存储服务。由客户端提供一系列api（command）来访问数据。支持分布式存储。</p>
+<p>开源：C语言</p>
+<p>jsr107：不支持</p>
+<p>ssl加密：支持</p>
+<p>sql查询：<a href="https://github.com/RedBeardLab/rediSQL" target="_blank" rel="noopener">rediSQL</a> – 500+ stars</p>
+<p>事务：MULTI 、 EXEC 、 DISCARD 和 WATCH 是 Redis 事务相关的命令。</p>
+<p>数据分区：固定为16384个slot</p>
+<p>java原生数据类型：redis只支持自己提供的数据类型，String，Hash，Set，List，Zset</p>
+<p>二级缓存支持：不支持</p>
+<p>事件通知：publish、subscribe命令</p>
+<p>持久化：rdb、aof</p>
+<p>客户端api：jedis、redisson</p>
+<h3 id="Ehcache"><a href="#Ehcache" class="headerlink" title="Ehcache"></a>Ehcache</h3><p>简介：进程内缓存框架，基于java开发，支持分布式存储，支持进程外存储。</p>
+<p>开源：Java</p>
+<p>jsr107：支持 <a href="http://blog.csdn.net/qq18998401056/article/details/53484739" target="_blank" rel="noopener">相关资料</a></p>
+<p>ssl加密：不支持</p>
+<p>sql查询：不支持</p>
+<p>事务：JTA事务支持</p>
+<p>数据分区：只存储local cache，分布式调用各自server上面的缓存数据</p>
+<p>java原生数据类型：与java原生数据类型兼容，本质上存储的都是Object</p>
+<p>二级缓存支持：无相关概念</p>
+<p>事件通知：CacheManagerEventListener和CacheEventListener接口</p>
+<p>持久化：磁盘</p>
+<p>客户端api：ehcache</p>
+<h3 id="Hazelcast"><a href="#Hazelcast" class="headerlink" title="Hazelcast"></a>Hazelcast</h3><p>简介：集群化分布式内存存储平台。</p>
+<p>开源：Java</p>
+<p>jsr107：支持</p>
+<p>ssl加密：商用版支持</p>
+<p>sql查询：仅提供有限的支持(只有几个关键字)</p>
+<p>事务：不支持</p>
+<p>数据分区：271个partition</p>
+<p>java原生数据类型：提供了set、map、list等数据类型</p>
+<p>二级缓存支持：无相关概念</p>
+<p>事件通知：CacheManagerEventListener和CacheEventListener接口</p>
+<p>持久化：商用版支持</p>
+<p>客户端api：hazelcast-client</p>
+<h3 id="Ignite"><a href="#Ignite" class="headerlink" title="Ignite"></a>Ignite</h3><p>简介：基于内存的分布式数据库，缓存，计算平台。</p>
+<p>开源：Java</p>
+<p>jsr107：支持</p>
+<p>ssl加密：支持</p>
+<p>sql查询：支持</p>
+<p>事务：支持</p>
+<p>数据分区：一致性hash</p>
+<p>java原生数据类型：支持</p>
+<p>二级缓存支持：客户端缓存</p>
+<p>事件通知：IgniteEvents</p>
+<p>持久化：可集成外部数据源（db、nosql等）</p>
+<p>客户端api：ignite</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>Redis使用最广泛，但是源码是C语言写的，修改原生功能相对困难。</p>
+<p>Ehcache的免费版仍然着眼于单机的缓存模式，集群化的实现相对困难，而收费版在集群化，堆外存储，持久化上面已经和市面上的大多数缓存框架功能一致了，远程调用和集群分片的模式较为成熟。</p>
+<p>Hazelcast和ehcache的收费版较为相像，但是更为灵活，数据同步的方式（同步/异步复制），副本集的数量，分片的存储方式都是可配置的。集群高可用的算法利用的是集群最老的节点保存的分区表。</p>
+<p>Ignite提供的功能更为强大，但是使用的公司相对较少。Ignite的设计是为了方便做内存计算，单纯的存储（尤其是持久化）会显得不太方便。比较亮眼的功能有对等类加载。</p>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2018-03-31-fickleness/" itemprop="url">浮躁、静不下心的解决方案</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-03-31T10:07:32.000Z" itemprop="datePublished">3月 31 2018</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            4 分钟 读完 (约 662 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近临近离职，空闲的时间比较多，但是也还是不知道如何静下心来去做一些一直都想去完成的事情。思考后的结果就是觉得太过于浮躁，需要改变些什么才能有动力去做，既然改变本身就是一种动力，那么就要思考一下怎么去改变了。</p>
+<h3 id="浮躁的来源"><a href="#浮躁的来源" class="headerlink" title="浮躁的来源"></a>浮躁的来源</h3><p>从人类本身的角度来看，奖励机制的过度使用才是浮躁的根本原因。这里的奖励机制就是小白鼠被点击后会产生多巴胺的机制。这种机制是感性的，被刺激到了就会觉得很开心，即使本身并没有什么意义。这种机制存在的意义是对人类的繁衍很有帮助，包括美食与性，都是这种奖励机制的正反馈。</p>
+<p>但是在人类社会中生存，这种机制很多时候都在帮倒忙。例如，游戏是奖励机制最好的例子，你忍不住就想把今天的任务做完，领了奖励美滋滋。但是做任务这事本身就对社会中的你的成长没有太大的帮助。包括现在的很多社区的文章，都是让大家看着很开心，很满足，但是对提升自己没有什么帮助。</p>
+<p>因此，如何在这个信息爆炸的时代过滤出有意义的信息就变得比较关键了。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>首先，没有意志力而去做出改变的都是空谈。</p>
+<p>解决方案的原理是将平时刺激奖励中枢的事情变成对其的负反馈。即想玩游戏刷手机的时候，还是可以去做，但是在玩之前，要思考玩游戏是没有意义的，玩之后，要思考玩游戏的时候很开心，之后也仍然会比较空虚。</p>
+<p>其次，也要相应地在生活中做出改变。比如，坚持运动和冥想，早睡早起，少刷手机，多学习多思考等等。坚持的技巧也是很重要的，比如，创造只有学习氛围的环境，多做笔记多把自己的想法记录下来等等。</p>
+<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>好了，我自己有一个改变的计划了。也许计划会再调整，但是我会让自己不再那么浮躁的。</p>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2018-03-24-java-memory-module/" itemprop="url">Java内存结构</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-03-24T07:43:07.000Z" itemprop="datePublished">3月 24 2018</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            9 分钟 读完 (约 1385 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>Java内存模型是JVM与计算机内存协同工作的规范与准则。Java虚拟机中的线程与内存结构和计算机的CPU与主存的架构并不相同，因此才需要一套规则来整合两种模型来协同工作。</p>
+<p>这套规则描述了线程间共享变量的可见性和多线程访问带来的冲突等问题。</p>
+<p>原始的Java内存模型天生存在一些不足之处，因此在JDK1.5之后做了重新修订。</p>
+<h3 id="多线程下的Java内存结构"><a href="#多线程下的Java内存结构" class="headerlink" title="多线程下的Java内存结构"></a>多线程下的Java内存结构</h3><p>我们已经了解了Java的内存结构主要被分为线程栈和堆。线程栈中存放的变量只在该线程内部可见，且各线程间均只可见自己线程栈中的变量。堆中存放的都是线程间共享的变量，对所有线程均可见。</p>
+<p>额外需要说明的是，如果线程中的变量是引用类型的，则被引用的对象是被分配在堆上的。同样地，对象所有的成员变量，包括静态的成员变量，都是被分配在堆上的。</p>
+<h3 id="硬件内存架构"><a href="#硬件内存架构" class="headerlink" title="硬件内存架构"></a>硬件内存架构</h3><p>硬件的内存架构与JVM的内存结构从设计上就是不同的。</p>
+<p>计算机的核心是CPU，通常一台计算机都会有多个CPU，那么多线程情况下，通过多个CPU的同时执行，线程将会出现并发的情况。</p>
+<p>计算机的运行时存储单元主要是主存，或者称为内存。主存与CPU之间的数据交互会通过多级缓存和CPU寄存器。在这些存储单元中的数据对CPU来说都是共享的。</p>
+<p>CPU执行任务时的典型数据流向通常是这样的：从主存读取部分数据到多级缓存中，再从多级缓存把数据写入CPU寄存器中，CPU从寄存器中取出数据进行计算，并将计算结果写入寄存器，寄存器再把数据刷回多级缓存中，多级缓存再把数据刷回主存。</p>
+<h3 id="Java内存结构与计算机硬件架构的协同工作"><a href="#Java内存结构与计算机硬件架构的协同工作" class="headerlink" title="Java内存结构与计算机硬件架构的协同工作"></a>Java内存结构与计算机硬件架构的协同工作</h3><p>两种架构的差异主要在于线程栈和堆在硬件架构中是混杂在主存、多级缓存和寄存器中的。</p>
+<p>接下来我们来看看这种架构上的差异会导致什么问题。</p>
+<h4 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h4><p>可见性问题的产生主要由多级缓存以及寄存器的存在引起。</p>
+<p>通常，CPU在读取数据时，会逐层检查数据是否存在在寄存器、多级缓存、主存中，如果存在，会直接获取。而CPU写入数据时，则只会把数据写入到寄存器中。寄存器到多级缓存以及主存的刷回是由操作系统来执行的，执行的频率不可预知。</p>
+<p>在多线程任务执行时，多个线程由多个CPU并发执行，数据的交互可能仅与各CPU的寄存器有关，此时就会出现可见性问题。</p>
+<p>举个例子，<code>count++</code>这样的代码在多线程执行时，由于可见性问题，会出现得到的结果比预期结果小的情况。这样的结果原因如下，一个线程从主存中取count的值时，另一个线程加一的结果还没有写回主存，这时，当前线程获取到的count原始值是比预期值小于1的。</p>
+<p>解决上述问题最合适的方案是使用volatile关键字。在Java 1.5以后，volatile关键字会保证用该关键字修饰的变量在写入时都会刷新到主存中，以保证任何时刻任何线程从主存中获取到的值都是正确的。</p>
+<h4 id="条件竞争（Race-Condition）"><a href="#条件竞争（Race-Condition）" class="headerlink" title="条件竞争（Race Condition）"></a>条件竞争（Race Condition）</h4><p>条件竞争是指多线程对某个资源的访问没有被正确同步，没有被正确同步的概念通常指多线程下对同一个资源的读写存在竞争，即读写的顺序没有在逻辑上被指定。</p>
+<p>同样举例<code>count++</code>这句代码，在多线程执行时，由于没有指定读写的顺序（这里的加一操作不是原子操作，编译后会产生读取和写入两个操作），我们考虑线程1读，线程2读，线程1写，线程2写这样的顺序。由于线程1和2都读到的是count的原始值，两个线程分别加一之后写入，得到的仅仅是加1之后的结果，而预期是加2之后的结果。这就是典型的条件竞争问题。</p>
+<p>解决条件竞争最基本的方案是使用synchronized关键字来修饰需要同步的代码块，该关键字能保证同一时刻只能有一个线程能执行该代码块中的操作，并且退出代码块时，所有被更新的变量都会刷新回主存。这样就能保证没有其他线程的代码会插在被同步的代码之间执行了。</p>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2018-03-17-emotion-management/" itemprop="url">对于情绪管理的思考</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-03-17T09:32:24.000Z" itemprop="datePublished">3月 17 2018</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            9 分钟 读完 (约 1286 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>一直以来，自己的情绪一直是个问题，很容易就大动肝火。不顾后果地发脾气很容易伤了身边的人又伤了自己。所以去找了一些资料，让自己学习如何管理自己的情绪。</p>
+<h3 id="认识情绪"><a href="#认识情绪" class="headerlink" title="认识情绪"></a>认识情绪</h3><p>情绪这东西甚至说不上是个抽象的概念，大概连个具体的定义也没有吧。但是普通人还是很容易理解什么是情绪，什么是开心的情绪或者是不开心的情绪。这大概就是理科和文科学习上的区别。</p>
+<p>我们表露出来的情绪，需要我们自己去正视它，不要把情绪理解为好与坏。情绪本身没有好坏之分，只是人对外部世界的某些刺激做出的正常反应而已。也许有些同学已经明白了，情绪就是应激的一部分。</p>
+<p>有的人会选择压抑情绪，有的人则会选择宣泄情绪。但是其实能把情绪表露出来，也算是某种程度上的自由意志的体现。渴望自由的人会倾向于表达，而崇尚节律的人会倾向于抑制。</p>
+<h3 id="情绪管理的必要性"><a href="#情绪管理的必要性" class="headerlink" title="情绪管理的必要性"></a>情绪管理的必要性</h3><p>情绪占据大脑的时候人总会做出一些超越理性的行为，而且往往事后会较为后悔。为了避免这种情况的发生，我们需要了解并学着管理自己的情绪，让理性占据上风。</p>
+<p>另外值得一提的是，情绪管理力的缺失还是和现代的教育有很大的关系。小孩子成长的过程中我们太重视理论知识的教育了，很多家长都忽视了要教小孩子怎么做人，怎么处理自己与社会的关系，怎么处理自己内心的感觉。</p>
+<h3 id="管理情绪"><a href="#管理情绪" class="headerlink" title="管理情绪"></a>管理情绪</h3><p>理论与实践有很大的差异，因此这里提供的方法仅作为参考，具体如何处理自己的情绪因人而异。</p>
+<h4 id="疏导"><a href="#疏导" class="headerlink" title="疏导"></a>疏导</h4><p>人每天都有冷静的时候和兴奋的时候。冷静的时候需要让自己保持冷静，兴奋的时候则要尽量让自己释放出内心的感觉。让情绪释放出来的管道疏通，就不太容易产生情绪上的问题。</p>
+<p>但也不能完全放纵自己的情绪释放，在很多时候也要适当地压抑自己的情绪，在合适的场景下再去释放。例如，在上班开会的时候，有一些会让你很兴奋的事情发生，这就需要抑制自己的情绪，等开完会以后再释放比较合适。要合理地与自己的情绪做斗争，让情绪保持松紧有度。</p>
+<h4 id="尝试改变认知"><a href="#尝试改变认知" class="headerlink" title="尝试改变认知"></a>尝试改变认知</h4><p>有时候情绪会误导我们，或者说某些错误的认知会让我们产生错误的情绪。这时候我们需要静下心来，让自己尝试从其他角度去窥的事情发展的真面目。简单地说，发脾气也要三思而后行。</p>
+<p>同样地，对环境的认知也是一样的，需要认真考虑所处的环境，不能不顾环境，对环境带有错误的认识而认为情绪的产生是环境的问题。</p>
+<p>在外界对自己产生情绪干预的时候，也要多想想自己产生情绪的原因，而不要把责任都归咎于外界，归咎于别人。在这个世界上活着，自己才是主体，需要自己来掌控属于自己的情绪。</p>
+<h4 id="静心"><a href="#静心" class="headerlink" title="静心"></a>静心</h4><p>如果有段时间觉得自己特别容易激动、情绪化，那么则需要考虑让自己多多静下心来做事，或者静下心来思考。也就是说，要保持一刻平常心。其实这世界上没有什么是不合理的，存在即合理，也就没有什么好不开心的，只是需要学着接受而已。</p>
+<p>当然，不仅仅要学着接受这个世界，也要学着接纳自己。自己产生的开心或不开心，都是自己的一部分，都是自己正常的生理心理反应。要正视自己，开心了就笑，不开心就哭，正常释放即可。</p>
+<p>如若觉得有特别强烈的情绪的时候，又不适合立即发泄，那么也可以考虑做一些其他事情暂时转移注意力。做的事情一定要可以让自己在一段之间内保持专注力，不考虑事情以外的情况，事后再来考虑如何宣泄情绪。</p>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2018-03-10-jvm-memory-structure/" itemprop="url">JVM内存结构</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-03-10T08:42:27.000Z" itemprop="datePublished">3月 10 2018</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            10 分钟 读完 (约 1560 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h3 id="JVM内存结构概述"><a href="#JVM内存结构概述" class="headerlink" title="JVM内存结构概述"></a>JVM内存结构概述</h3><p>在开发过程中经常会遇到的堆内存的概念具体是什么？常量池在JVM中的内存区域是怎么管理的？遇到OutOfMemory异常应该如何处理？</p>
+<p>平时对上述问题可能只有一个模糊的概念，本文将会详细地介绍JVM的内存结构，让上面问题的答案变得清晰明了。</p>
+<p>JVM的内存结构主要分为堆内存、方法区和栈三大块。而堆内存又分为新生代和老生代。方法区存储的信息为常量、类信息和静态变量等。栈分为程序计数器、JVM方法栈和本地方法栈。堆和方法区是线程共享的内存区域，而栈是线程的私有内存区域。</p>
+<h3 id="JVM内存参数"><a href="#JVM内存参数" class="headerlink" title="JVM内存参数"></a>JVM内存参数</h3><p>这里盗用一张图来展示JVM的内存结构和参数信息。</p>
+<p><img src="/.io//jvm-memory-structure.png" alt=""></p>
+<p>-Xms：堆的最小占用空间<br>-Xmx：堆的最大占用空间<br>-XX:NewSize：新生代的最小占用空间<br>-XX:MaxNewSize：新生代的最大占用空间<br>-XX:PermSize：永久代（方法区）的最小占用空间<br>-XX:MaxPermSize：永久代（方法区）的最大占用空间<br>-Xss：每个线程的栈的占用空间</p>
+<h3 id="堆空间"><a href="#堆空间" class="headerlink" title="堆空间"></a>堆空间</h3><p>堆是JVM管理的最大的一块内存区域，几乎所有的对象在创建的时候，都会在这里进行内存分配。平时我们所说的垃圾回收的工作就是在这里进行的，常用的垃圾回收算法都是基于分代回收的算法，因此堆空间可以分为新生代和老生代，新生代还可以分为Eden区、From Survive区和To Survive区。</p>
+<p>堆可以处于物理不连续的内存空间上，和磁盘的管理一样，只需要保证逻辑上的连续就可以。并且堆的大小是可扩展的，以保证操作系统内存分配的灵活性。</p>
+<h4 id="新生代"><a href="#新生代" class="headerlink" title="新生代"></a>新生代</h4><p>新生代是所有对象被初始化分配内存的地方，当有对象不再被引用的时候，Minor GC线程就会来把这一块内存回收掉。</p>
+<h4 id="老生代"><a href="#老生代" class="headerlink" title="老生代"></a>老生代</h4><p>当有对象在经历了几次Minor GC之后仍然存活，就会被移动到老生代中。或者虚拟机在分配占用内存较大的对象的时候，会直接在老生代中分配内存。Full GC会清理并回收老生代的内存。</p>
+<h3 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h3><p>方法区用于存储JVM的类信息、编译后的代码、常量和静态变量等数据。方法区和堆空间一样，都是内存共享的区域，也同样不需要连续的内存，大小也可扩展。</p>
+<p>方法区的特殊性在于，用户可以选择不在该区域进行垃圾回收，因此该区域也可被称为永久代。但通常来说，该区域的垃圾回收仍然是必要的，只是如何提升该区域的垃圾回收效果至今仍是一个较为困难的问题。</p>
+<h4 id="常量池"><a href="#常量池" class="headerlink" title="常量池"></a>常量池</h4><p>在class文件被加载到JVM中时，基础数据类型的常量会被加载到运行时常量池中。</p>
+<h4 id="静态数据池"><a href="#静态数据池" class="headerlink" title="静态数据池"></a>静态数据池</h4><p>静态数据池包括静态的变量和方法，以及静态的代码块。</p>
+<h4 id="编译后的代码池"><a href="#编译后的代码池" class="headerlink" title="编译后的代码池"></a>编译后的代码池</h4><p>这里保存着class文件的内容。</p>
+<h3 id="本地内存区"><a href="#本地内存区" class="headerlink" title="本地内存区"></a>本地内存区</h3><p>本地内存区由程序计数器、虚拟机栈和本地方法栈组成。这块区域是线程私有的。</p>
+<h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h4><p>顾名思义，程序计数器是程序运行的行号指示器。线程在执行时的逻辑循环、分支与跳转都通过程序计数器所标记的数据来执行。在多线程工作时，每个线程都有自己独立的程序计数器，保证一个CPU在同一时刻只会执行一个线程中的一个指令。</p>
+<p>如果线程执行的是Java方法，程序计数器记录的是编译后的虚拟机字节码指令的地址，而如果执行的是Native的方法，则计数器记录空值。</p>
+<p>这是JVM中唯一不会抛出OutOfMemory异常的区域。</p>
+<h4 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h4><p>与程序计数器相同，虚拟机栈也是线程私有的，生命周期与线程相同。虚拟机栈存储的是线程中的方法的局部变量、方法出入口等信息。</p>
+<p>虚拟机栈会抛出两种异常。当栈的深度超出JVM所规定的深度时，会抛出StackOverFlow异常。当请求栈的大小超出JVM所规定的内存大小时，会抛出OutOfMemory异常。</p>
+<h4 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h4><p>本地方法栈与虚拟机栈基本是类似的，只是本地方法栈存储的是Native方法的局部变量和方法信息。</p>
+<h3 id="堆外内存"><a href="#堆外内存" class="headerlink" title="堆外内存"></a>堆外内存</h3><p>除了JVM所管理的内存区域之外，JVM也可以访问操作系统直接管理的内存区域，这被称为堆外内存或者直接内存。使用堆外内存的好处在于，脱离了JVM的管理，不受GC线程的影响，并且在IO操作时会有更好的性能。</p>
+<p>堆外内存可以通过java.nio.ByteBuffer的allocateDirect方法来创建。但是在不使用后需要及时回收，否则造成内存泄漏会难以排查。使用时也要注意存储的数据不要过于复杂，或者数据仍然需要参与内存计算。堆外内存性能好在于可以少拷贝一次内存，直接进行IO，如果需要参与内存计算，则还需要把数据拷贝到JVM中，增加开销。</p>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2018-03-03-practice-scrum/" itemprop="url">Scrum实践</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-03-03T07:17:56.000Z" itemprop="datePublished">3月 3 2018</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            8 分钟 读完 (约 1145 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h3 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h3><h4 id="Agile"><a href="#Agile" class="headerlink" title="Agile"></a>Agile</h4><p>敏捷的概念与瀑布模型是相对的，敏捷是一种以人为核心，不断迭代的技术团队管理方式。</p>
+<h4 id="以人为核心"><a href="#以人为核心" class="headerlink" title="以人为核心"></a>以人为核心</h4><p>瀑布模型是以文档驱动的，而敏捷模式强调人与人之间的交流。</p>
+<h4 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h4><p>瀑布模型通常用来管理一个比较大、比较完整的产品的开发周期，而敏捷则倾向于将产品分割为多个可交付的小周期开发任务，不断地迭代开发周期，以使产品渐渐趋于完善。</p>
+<h4 id="Scrum"><a href="#Scrum" class="headerlink" title="Scrum"></a>Scrum</h4><p>Scrum是一种敏捷的模型，它注重过程，适应需求的变化，针对功能的发布强调快速迭代。</p>
+<h3 id="Scrum角色介绍"><a href="#Scrum角色介绍" class="headerlink" title="Scrum角色介绍"></a>Scrum角色介绍</h3><h4 id="Product-Owner"><a href="#Product-Owner" class="headerlink" title="Product Owner"></a>Product Owner</h4><p>产品的拥有者，负责确定产品需求，交付日期。周期结束时，产品将交付给Product Owner。</p>
+<h4 id="Scrum-Master"><a href="#Scrum-Master" class="headerlink" title="Scrum Master"></a>Scrum Master</h4><p>Scrum Master是整个模式中最重要的管理人员，他将主导整个Scrum流程，协调Scrum Member和Product Owner ，确保流程正确，阻止成员以非Scrum思想进行工作，制止官僚主义，使成员专注于Sprint内的任务，停止无意义的争辩，构建交叉知识树，补充全局文档，让所有成员对整个系统，包括开发和测试都有良好的理解，承担小部分开发和测试，专注于每一个成员的个人诉求。如何做好Scrum Master是一个非常值得在实践中探讨的问题。</p>
+<h4 id="Scrum-Team"><a href="#Scrum-Team" class="headerlink" title="Scrum Team"></a>Scrum Team</h4><p>团队成员包括开发与测试人员，一般情况下人数在3到10人之间。</p>
+<h3 id="Scrum流程实践"><a href="#Scrum流程实践" class="headerlink" title="Scrum流程实践"></a>Scrum流程实践</h3><h4 id="Product-Backlog"><a href="#Product-Backlog" class="headerlink" title="Product Backlog"></a>Product Backlog</h4><p>Sprint中所有的需求都来自于需求池，需求池的维护需要靠Product Owner和Scrum Master共同承担。</p>
+<h4 id="Sprint-Backlog"><a href="#Sprint-Backlog" class="headerlink" title="Sprint Backlog"></a>Sprint Backlog</h4><p>在Sprint开始前，需要从需求池中挑选出不同重要程度的Product Backlog来作为本次迭代的任务。</p>
+<h4 id="Refine-Meeting"><a href="#Refine-Meeting" class="headerlink" title="Refine Meeting"></a>Refine Meeting</h4><p>Refine Meeting标志着一次迭代的开始，在会议中，Product Owner会介绍挑选出来的需求任务。而团队成员则会就需求细节方面向Product Owner提问并确认。</p>
+<h4 id="Plan-Meeting"><a href="#Plan-Meeting" class="headerlink" title="Plan Meeting"></a>Plan Meeting</h4><p>在所有人都对挑选出来的需求了解以后，需要进行故事点（需求难易程度）的估算、需求的拆分、子任务的工时估算、以及任务的分配。</p>
+<h4 id="Daily-Stand-Meeting"><a href="#Daily-Stand-Meeting" class="headerlink" title="Daily Stand Meeting"></a>Daily Stand Meeting</h4><p>整个Sprint周期一般为2到4周。在每日工作的过程中，需要进行Daily Stand Meeting，站会一般在早晨，所有团队成员总结昨日的工作，计划今日的工作，并提出遇到的问题。每日站会非常重要，他是Scrum以人为核心的基础，理想状态下能够让所有团队成员都了解所有需求的完成情况。</p>
+<h4 id="Code-Review"><a href="#Code-Review" class="headerlink" title="Code Review"></a>Code Review</h4><p>Code Review需要所有团队中的开发人员参加，以能够更好地找出代码中隐藏的问题，和让所有成员都对代码有所了解。</p>
+<h4 id="Demo-Meeting"><a href="#Demo-Meeting" class="headerlink" title="Demo Meeting"></a>Demo Meeting</h4><p>产品演示一般安排在Sprint的倒数第二天，以防Product Owner对产品质疑后需要对产品打补丁。</p>
+<h4 id="Release-amp-Launch"><a href="#Release-amp-Launch" class="headerlink" title="Release &amp; Launch"></a>Release &amp; Launch</h4><p>产品的发布一般安排在Sprint的倒数第二天，部署上线一般安排在最后一天。</p>
+<h4 id="Review-Meeting"><a href="#Review-Meeting" class="headerlink" title="Review Meeting"></a>Review Meeting</h4><p>回顾会议标志着一个Sprint的结束。回顾会议由Scrum Master主持，需要确认产品文档的产出是否正常，每个成员消耗的工时与预估的工时的对比，以及Sprint的健康程度。</p>
+<h3 id="实践建议"><a href="#实践建议" class="headerlink" title="实践建议"></a>实践建议</h3><p>Scrum Master的任务是非常重要的，也是非常繁重的，一个优秀的Scrum Master会处理好产品与成员的关系，并推动整个团队健康地完成迭代 。建议Scrum Master由成熟的团队成员轮流承担以减轻领导者压力，并培养团队成员的责任感。建议Scrum Master任要兼任小部分开发或者测试工作，以了解团队工作内容，防止官僚主义的发生。</p>
+<p>另外，Sprint过程中每日的持续化集成报告也是很有价值的材料，可以借此敦促团队成员完成所需任务，以及及时了解项目情况。</p>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2018-02-24-json-parser-performance/" itemprop="url">Json解析器性能对比</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-02-24T07:31:19.000Z" itemprop="datePublished">2月 24 2018</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            5 分钟 读完 (约 680 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在两年前曾经做过四种Json解析器的性能对比，现在回头看当时的结果，跟当时的想法还是有很大差异的。</p>
+<h3 id="Json-lib、Gson、Jackson、Fastjson性能对比"><a href="#Json-lib、Gson、Jackson、Fastjson性能对比" class="headerlink" title="Json-lib、Gson、Jackson、Fastjson性能对比"></a>Json-lib、Gson、Jackson、Fastjson性能对比</h3><p>测试环境如下：</p>
+<p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">操作系统：Windows 7 专业版 64位</span><br><span class="line">CPU：Intel(R) Core(TM) i5-6200U CPU @2.30GHz</span><br><span class="line">内存：16G</span><br><span class="line">Java：1.7.0_13</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://github.com/JackEggie/json-parser-performance" target="_blank" rel="noopener">测试代码</a></p>
+<p>测试结果：</p>
+<div id="echarts6504" style="width: 100%;height: 400px;margin: 0 auto"></div>
+<script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
+<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('echarts6504'));
+        // 指定图表的配置项和数据
+        var option = {
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['json-lib parse','json-lib serialize','gson parse','gson serialize','jackson parse','jackson serialize','fastjson parse','fastjson serialize']
+    },
+    calculable : true,
+    xAxis: {
+        name: '解析次数',
+        type: 'category',
+        data: ['100', '10000', '1000000']
+    },
+    yAxis: {
+        name: '平均耗时（纳秒）',
+        type: 'value'
+    },
+    series : [
+        {
+            name:'json-lib parse',
+            type:'line',
+            data:[1150503, 134553, 23120]
+        },
+        {
+            name:'json-lib serialize',
+            type:'line',
+            data:[2457357, 76311, 8265]
+        },
+        {
+            name:'gson parse',
+            type:'line',
+            data:[93331, 10460, 1507]
+        },
+        {
+            name:'gson serialize',
+            type:'line',
+            data:[478135, 13784, 1827]
+        },
+        {
+            name:'jackson parse',
+            type:'line',
+            data:[529801, 19331, 1257]
+        },
+        {
+            name:'jackson serialize',
+            type:'line',
+            data:[592914, 20638, 757]
+        },
+        {
+            name:'fastjson parse',
+            type:'line',
+            data:[165378, 12620, 1098]
+        },
+        {
+            name:'fastjson serialize',
+            type:'line',
+            data:[1206866, 13132, 798]
+        }
+    ]
+};
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+</script>
+
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>就测试结果来看，性能上Fastjson和Jackson是胜出的，同时也能印证序列化和反序列化的性能不能同时达到最优，要提升其中之一的性能，就必然会牺牲另外一方。</p>
+<p>但是json解析的性能就这么重要吗？让我们再从使用的角度比较一下这两家的产品。</p>
+<h4 id="编码风格"><a href="#编码风格" class="headerlink" title="编码风格"></a>编码风格</h4><p>Jackson出自FasterXML，并且广泛被老外使用，编码风格不用多说。</p>
+<p>Fastjson相对来说，使用没有那么广泛，隐藏bug较多。另外类似于<a href="https://github.com/alibaba/fastjson/blob/master/src/main/java/com/alibaba/fastjson/serializer/SerializeConfig.java" target="_blank" rel="noopener">序列化配置</a>中出现的硬编码较多。最重要的一点是，Fastjson所推崇的通过大量使用String.substring()方法来避免内存分配，以提高性能的方式，有内存泄露的隐患，而且在JDK1.7以后，该方法仍然会重新申请内存，性能优势不再。</p>
+<h4 id="可定制性"><a href="#可定制性" class="headerlink" title="可定制性"></a>可定制性</h4><p>仍然是由于使用广泛度的原因，Jackson的可定制性相当强，可以说什么奇奇怪怪的要求都能满足，或者说都有前人已经做好了工作给后人了。而Fastjson仅仅只能通过SerializeFilter类来新增自己的扩展功能，相对来说较为麻烦。</p>
+<h4 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h4><p>这一点就不吐槽了，阿里开源的产品貌似文档都一般，比较简单不够详细。这可能和阿里对开源的产品还不够重视有关。</p>
+<p>在Json解析器的使用上，性能通常不是最关键的因素，但仅仅性能优秀肯定是不够的。总之，这番对比下来，还是选择Jackson最为靠谱。</p>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            <a href="/2018-02-17-string-search/" itemprop="url">字符串匹配算法</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-02-17T08:12:48.000Z" itemprop="datePublished">2月 17 2018</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            4 分钟 读完 (约 635 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h3 id="问题引入"><a href="#问题引入" class="headerlink" title="问题引入"></a>问题引入</h3><p>有一个长字符串string，现在需要在该字符串中查找到一个特定短字符串pattern，并返回其位置。</p>
+<p>上述问题为经典的字符串查找问题，这类问题数据算法的基础问题，应当熟记解决方法。</p>
+<h3 id="Brute-Force算法"><a href="#Brute-Force算法" class="headerlink" title="Brute-Force算法"></a>Brute-Force算法</h3><p>最简单的方案就是分别对string和pattern的每个位置进行依次比较。这样就会产生两个循环体分别对string和pattern进行遍历，很容易得出时间复杂度为string长度的二次幂。</p>
+<p>核心代码：</p>
+<p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">boolean match = false;</span><br><span class="line">int index = -1;</span><br><span class="line">for (int i = 0; i &lt; source.length(); i++) &#123;</span><br><span class="line">    for (int j = 0; j &lt; pattern.length(); j++) &#123;</span><br><span class="line">        if (source.charAt(i + j) != pattern.charAt(j)) &#123;</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">        if (j == pattern.length() - 1) &#123;</span><br><span class="line">            match = true;</span><br><span class="line">            index = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if (match) &#123;</span><br><span class="line">        break;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="KMP算法"><a href="#KMP算法" class="headerlink" title="KMP算法"></a>KMP算法</h3><p>KMP算法是经典的字符串匹配的改进算法。该算法利用pattern的最大重复子串长度表来减少循环次数。</p>
+<p>最大重复子串长度表，即next表的计算方式：</p>
+<p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * eg. A B C A B D</span><br><span class="line"> *    -1 0 0 0 1 2</span><br><span class="line"> * @param pattern pattern string</span><br><span class="line"> * @return next table of pattern string</span><br><span class="line"> */</span><br><span class="line">private int[] calculateNext(String pattern) &#123;</span><br><span class="line">    int[] next = new int[pattern.length()];</span><br><span class="line"></span><br><span class="line">    int j = 0;</span><br><span class="line">    for (int i = 0; i &lt; next.length; i++) &#123;</span><br><span class="line">        if (i &lt; 2) &#123;</span><br><span class="line">            next[i] = i - 1;</span><br><span class="line">            continue;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (pattern.charAt(j) == pattern.charAt(i - 1)) &#123;</span><br><span class="line">            next[i] = j + 1;</span><br><span class="line">            j++;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            j = 0;</span><br><span class="line">            next[i] = j;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>只看代码可能难于理解，我们来看next表的计算意义。</p>
+<table>
+<thead>
+<tr>
+<th>pattern的子串</th>
+<th>前缀</th>
+<th>后缀</th>
+<th>最大重复子串长度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>无</td>
+<td>无</td>
+<td>0</td>
+</tr>
+<tr>
+<td>AB</td>
+<td>A</td>
+<td>B</td>
+<td>0</td>
+</tr>
+<tr>
+<td>ABC</td>
+<td>A，AB</td>
+<td>C，BC</td>
+<td>0</td>
+</tr>
+<tr>
+<td>ABCA</td>
+<td>A，AB，ABC</td>
+<td>A，CA，BCA</td>
+<td>1</td>
+</tr>
+<tr>
+<td>ABCAB</td>
+<td>A，AB，ABC，ABCA</td>
+<td>B，AB，CAB，BCAB</td>
+<td>2</td>
+</tr>
+<tr>
+<td>ABCABD</td>
+<td>A，AB，ABC，ABCA，ABCAB</td>
+<td>D，BD，ABD，CABD，BCABD</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>很明显，next表来自于最大重复子串长度表整体后移一位，并在第一位补-1。到这里，也就清楚了，KMP算法就是利用pattern的重复部分来减少查找的循环次数。</p>
+<p>通过next表来进行匹配的核心代码：</p>
+<p><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">int i = 0;</span><br><span class="line">int j = 0;</span><br><span class="line">while (i &lt; source.length() &amp;&amp; j &lt; pattern.length()) &#123;</span><br><span class="line">    if (source.charAt(i) == pattern.charAt(j)) &#123;</span><br><span class="line">        i++;</span><br><span class="line">        j++;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        j = next[j];</span><br><span class="line">        if (j &lt; 0) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if (j == pattern.length()) &#123;</span><br><span class="line">    return i - pattern.length();</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>通过代码应该很容易就能看出来，循环次数只与string的长度有关，KMP算法的时间复杂度为string长度的一次幂。也就是说，next表的结果指导了在匹配时pattern的移位长度。如果pattern没有任何重复的子串，KMP算法也将会退化为Brute-Force算法。</p>
+
+    
+    </div>
+    
+    
+</article>
+
 
 
 
     
     
         
-    
-
-
-</head>
-<body>
-    <div class="wrapper">
-        <header>
-    <nav class="navbar">
-        <div class="container">
-            <div class="navbar-header header-logo"><a href="/">Jack&#39;s Blog</a></div>
-            <div class="menu navbar-right">
-                
-                    <a class="menu-item" href="/archives">Posts</a>
-                
-                    <a class="menu-item" href="/tags">Tags</a>
-                
-                    <a class="menu-item" href="/about">About</a>
-                
-                <input id="switch_default" type="checkbox" class="switch_default">
-                <label for="switch_default" class="toggleBtn"></label>
-            </div>
-
-        </div>
-    </nav>
-
-    
-    <nav class="navbar-mobile" id="nav-mobile">
-        <div class="container">
-            <div class="navbar-header">
-                <div>
-                    <a href="/">Jack&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
-                </div>
-                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
-            </div>
-            <div class="menu" id="mobile-menu">
-                
-                    <a class="menu-item" href="/archives">Posts</a>
-                
-                    <a class="menu-item" href="/tags">Tags</a>
-                
-                    <a class="menu-item" href="/about">About</a>
-                
-            </div>
-        </div>
-    </nav>
-
-</header>
-<script>
-    var mobileBtn = function f() {
-        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
-        var mobileMenu = document.getElementById("mobile-menu");
-        if(toggleMenu.classList.contains("active")){
-           toggleMenu.classList.remove("active")
-            mobileMenu.classList.remove("active")
-        }else{
-            toggleMenu.classList.add("active")
-            mobileMenu.classList.add("active")
-        }
-    }
-</script>
-        <div class="main">
-            
-    <div class="container">
-    <div class="intro">
-        <div class="avatar">
-            <a href="/archives"><img src="/image/avatar.jpeg"></a>
-        </div>
-        <div class="nickname">Jack Tang</div>
-        <div class="description"><p>Be a good man…</p>
-</div>
-        <div class="links">
-            
-                
-                    <a class="link-item" title="Blog" href="/archives">
-                        
-                        
-                            <i class="iconfont icon-blog"></i>
-                        
-                    </a>
-                
-                    <a class="link-item" title="RSS" href="/atom.xml">
-                        
-                        
-                            <i class="iconfont icon-rss"></i>
-                        
-                    </a>
-                
-                    <a class="link-item" title="Github" href="https://github.com/JackEggie">
-                        
-                        
-                            <i class="iconfont icon-github"></i>
-                        
-                    </a>
-                
-            
-        </div>
+<nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
+    <div class="pagination-previous">
+        <a href="/">上一页</a>
     </div>
-</div>
+    <div class="pagination-next">
+        <a href="/page/3/">下一页</a>
+    </div>
+    <ul class="pagination-list is-hidden-mobile">
+        
+        <li><a class="pagination-link" href="/">1</a></li>
+        
+        <li><a class="pagination-link is-current" href="/page/2/">2</a></li>
+        
+        <li><a class="pagination-link" href="/page/3/">3</a></li>
+        
+    </ul>
+</nav>
+    
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2019 Jack Tang&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
 
-
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/JackEggie" target="_blank" rel="noopener">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
         </div>
-        <footer id="footer" class="footer">
-    <div class="copyright">
-        <span>© Jack Tang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
     </div>
 </footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
 
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+<script src="/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
     </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js"></script>
+    
 </body>
 </html>

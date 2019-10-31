@@ -1,189 +1,204 @@
 <!DOCTYPE html>
-<html lang="en">
-<head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>【译】如何用 Python 从零开始构建你自己的神经网络 - Jack&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-
-
-<title>【译】如何用 Python 从零开始构建你自己的神经网络 | Jack&#39;s Blog</title>
-
-
-
-    <link rel="icon" href="/image/avatar.jpeg">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
 
 
 
-    <!-- stylesheets list from _config.yml -->
+
+
+
+
+    <meta name="description" content="原文地址：How to build your own Neural Network from scratch in Python 原文作者：James Loy 译文出自：掘金翻译计划 本文永久链接：https:&#x2F;&#x2F;github.com&#x2F;xitu&#x2F;gold-miner&#x2F;blob&#x2F;master&#x2F;TODO1&#x2F;how-to-build-your-own-neural-network-from-scra">
+<meta name="keywords" content="gold-miner,translation,python,ai">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【译】如何用 Python 从零开始构建你自己的神经网络">
+<meta property="og:url" content="http:&#x2F;&#x2F;jackeggie.github.io&#x2F;2019-03-02-how-to-build-your-own-neural-network-from-scratch-in-python&#x2F;index.html">
+<meta property="og:site_name" content="Jack&#39;s Blog">
+<meta property="og:description" content="原文地址：How to build your own Neural Network from scratch in Python 原文作者：James Loy 译文出自：掘金翻译计划 本文永久链接：https:&#x2F;&#x2F;github.com&#x2F;xitu&#x2F;gold-miner&#x2F;blob&#x2F;master&#x2F;TODO1&#x2F;how-to-build-your-own-neural-network-from-scra">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;1600&#x2F;1*sX6T0Y4aa3ARh7IBS_sdqw.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;1600&#x2F;1*E1_l8PGamc2xTNS87XGNcA.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;1600&#x2F;1*CEtt0h8Rss_qPu7CyqMTdQ.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;1600&#x2F;1*E1_l8PGamc2xTNS87XGNcA.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;1600&#x2F;1*iNa1VLdaeqwUAxpNXs3jwQ.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;1600&#x2F;1*3FgDOt4kJxK2QZlb9T0cpg.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;1600&#x2F;1*7zxb2lfWWKaVxnmq2o69Mw.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;1600&#x2F;1*HaC4iILh2t0oOKi6S6FwtA.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;1600&#x2F;1*fWNNA2YbsLSoA104K3Z3RA.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;1600&#x2F;1*9oOlYhhOSdCUqUJ0dQ_KxA.png">
+<meta property="og:updated_time" content="2019-08-01T09:37:11.887Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;1600&#x2F;1*sX6T0Y4aa3ARh7IBS_sdqw.png">
+
+
+
+
+
+<link rel="icon" href="/images/avatar.jpeg">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
     
-    <link rel="stylesheet" href="/css/style.css">
-    
-
-
-
-    <!-- scripts list from _config.yml -->
-    
-    <script src="/js/script.js"></script>
-    
-    <script src="/js/tocbot.min.js"></script>
-    
-
-
-
     
     
-        
+    
+    
+    
+    
+    
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108548768-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-108548768-1');
+</script>
+
+
     
 
 
 </head>
 <body>
-    <div class="wrapper">
-        <header>
-    <nav class="navbar">
-        <div class="container">
-            <div class="navbar-header header-logo"><a href="/">Jack&#39;s Blog</a></div>
-            <div class="menu navbar-right">
-                
-                    <a class="menu-item" href="/archives">Posts</a>
-                
-                    <a class="menu-item" href="/tags">Tags</a>
-                
-                    <a class="menu-item" href="/about">About</a>
-                
-                <input id="switch_default" type="checkbox" class="switch_default">
-                <label for="switch_default" class="toggleBtn"></label>
-            </div>
-
-        </div>
-    </nav>
-
     
-    <nav class="navbar-mobile" id="nav-mobile">
-        <div class="container">
-            <div class="navbar-header">
-                <div>
-                    <a href="/">Jack&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
-                </div>
-                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
-            </div>
-            <div class="menu" id="mobile-menu">
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
                 
-                    <a class="menu-item" href="/archives">Posts</a>
+                    
+                    Jack&#39;s Blog
+                    
                 
-                    <a class="menu-item" href="/tags">Tags</a>
-                
-                    <a class="menu-item" href="/about">About</a>
-                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
-    </nav>
-
-</header>
-<script>
-    var mobileBtn = function f() {
-        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
-        var mobileMenu = document.getElementById("mobile-menu");
-        if(toggleMenu.classList.contains("active")){
-           toggleMenu.classList.remove("active")
-            mobileMenu.classList.remove("active")
-        }else{
-            toggleMenu.classList.add("active")
-            mobileMenu.classList.add("active")
-        }
-    }
-</script>
-        <div class="main">
-            <div class="container">
-    
-    
-        <div class="post-toc">
-    <div class="tocbot-list">
-    </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
-    </div>
-</div>
-
-<script>
-    document.ready(
-        function () {
-            tocbot.init({
-                tocSelector: '.tocbot-list',
-                contentSelector: '.post-content',
-                headingSelector: 'h1, h2, h3, h4, h5',
-                collapseDepth: 1,
-                orderedList: false,
-                scrollSmooth: true,
-            })
-        }
-    )
-
-    function expand_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 6,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "collapse_toc()");
-        b.innerHTML = "Collapse all"
-    }
-
-    function collapse_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 1,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "expand_toc()");
-        b.innerHTML = "Expand all"
-    }
-
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
-
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-</script>
-    
-
-    
-    <article class="post-wrap">
-        <header class="post-header">
-            <h1 class="post-title">【译】如何用 Python 从零开始构建你自己的神经网络</h1>
+        
+        <div class="navbar-menu navbar-start">
             
-                <div class="post-meta">
+            <a class="navbar-item "
+               href="/archives">Archives</a>
+            
+            <a class="navbar-item "
+               href="/tags">Tags</a>
+            
+            <a class="navbar-item "
+               href="/about">About</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
                     
-                        Author: <a itemprop="author" rel="author" href="/">Jack Tang</a>
                     
-
                     
-                        <span class="post-time">
-                        Date: <a href="#">2019-03-02&nbsp;&nbsp;10:34:00</a>
-                        </span>
                     
+                    <a class="navbar-item" href="#如何用-Python-从零开始构建你自己的神经网络">1&nbsp;&nbsp;<b>如何用 Python 从零开始构建你自己的神经网络</b></a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#什么是神经网络？">1.1&nbsp;&nbsp;什么是神经网络？</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#前馈过程">1.1.1&nbsp;&nbsp;前馈过程</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#损失函数">1.1.2&nbsp;&nbsp;损失函数</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#反向传播过程">1.1.3&nbsp;&nbsp;反向传播过程</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#融会贯通">1.2&nbsp;&nbsp;融会贯通</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#后续的学习任务">1.3&nbsp;&nbsp;后续的学习任务</a>
+                    
+                    
+                    
+                    <a class="navbar-item" href="#结语">1.4&nbsp;&nbsp;结语</a>
                     
                 </div>
+            </div>
             
-        </header>
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/JackEggie" target="_blank" rel="noopener">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
 
-        <div class="post-content">
-            <blockquote>
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            【译】如何用 Python 从零开始构建你自己的神经网络
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2019-03-02T02:34:00.000Z" itemprop="datePublished">3月 2 2019</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            18 分钟 读完 (约 2651 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <blockquote>
 <ul>
 <li>原文地址：<a href="https://towardsdatascience.com/how-to-build-your-own-neural-network-from-scratch-in-python-68998a08e4f6" target="_blank" rel="noopener">How to build your own Neural Network from scratch in Python</a></li>
 <li>原文作者：<a href="https://towardsdatascience.com/@jamesloyys" target="_blank" rel="noopener">James Loy</a></li>
@@ -201,25 +216,25 @@
 <h2 id="什么是神经网络？"><a href="#什么是神经网络？" class="headerlink" title="什么是神经网络？"></a>什么是神经网络？</h2><p>大多数介绍神经网络的文章在描述它们时都会与大脑做类比。在不深入研究与大脑类似之处的情况下，我发现将神经网络简单地描述为给定输入映射到期望输出的数学函数更容易理解一些。</p>
 <p>神经网络由以下几个部分组成：</p>
 <ul>
-<li>一个<strong>输入层</strong>，<strong>_x_</strong></li>
+<li>一个<strong>输入层</strong>，<strong><em>x</em></strong></li>
 <li>任意数量的<strong>隐含层</strong></li>
-<li>一个<strong>输出层</strong>，<strong>_ŷ_</strong></li>
-<li>层与层之间的一组<strong>权重</strong>和<strong>偏差</strong>，<strong>_W_ 和 _b_</strong></li>
-<li>每个隐含层中所包含的一个可选的<strong>激活函数</strong>，<strong>_σ_</strong>。在本教程中，我们将使用 Sigmoid 激活函数。</li>
+<li>一个<strong>输出层</strong>，<strong><em>ŷ</em></strong></li>
+<li>层与层之间的一组<strong>权重</strong>和<strong>偏差</strong>，<strong><em>W</em> 和 <em>b</em></strong></li>
+<li>每个隐含层中所包含的一个可选的<strong>激活函数</strong>，<strong><em>σ</em></strong>。在本教程中，我们将使用 Sigmoid 激活函数。</li>
 </ul>
 <p>下图展示了 2 层神经网络的架构（<strong>注：在计算神经网络中的层数时，输入层通常被排除在外</strong>）</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*sX6T0Y4aa3ARh7IBS_sdqw.png" alt=""></p>
 <p>2 层神经网络的架构</p>
 <p>在 Python 中创建一个神经网络的类很简单。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NeuralNetwork</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x, y)</span>:</span></span><br><span class="line">        self.input      = x</span><br><span class="line">        self.weights1   = np.random.rand(self.input.shape[<span class="number">1</span>],<span class="number">4</span>) </span><br><span class="line">        self.weights2   = np.random.rand(<span class="number">4</span>,<span class="number">1</span>)                 </span><br><span class="line">        self.y          = y</span><br><span class="line">        self.output     = np.zeros(y.shape)</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NeuralNetwork</span>:</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, x, y)</span>:</span></span><br><span class="line">        self.input      = x</span><br><span class="line">        self.weights1   = np.random.rand(self.input.shape[<span class="hljs-number">1</span>],<span class="hljs-number">4</span>) </span><br><span class="line">        self.weights2   = np.random.rand(<span class="hljs-number">4</span>,<span class="hljs-number">1</span>)                 </span><br><span class="line">        self.y          = y</span><br><span class="line">        self.output     = np.zeros(y.shape)</span><br></pre></td></tr></table></figure></p>
 <p><strong>训练神经网络</strong></p>
-<p>一个简单的 2 层神经网络的输出 <strong>_ŷ_</strong> 如下：</p>
+<p>一个简单的 2 层神经网络的输出 <strong><em>ŷ</em></strong> 如下：</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*E1_l8PGamc2xTNS87XGNcA.png" alt=""></p>
-<p>你可能注意到了，在上面的等式中，只有权重 <strong>_W_</strong> 和偏差 <strong>_b_</strong> 这两个变量会对输出 <strong>_ŷ_</strong> 产生影响。</p>
+<p>你可能注意到了，在上面的等式中，只有权重 <strong><em>W</em></strong> 和偏差 <strong><em>b</em></strong> 这两个变量会对输出 <strong><em>ŷ</em></strong> 产生影响。</p>
 <p>当然，合理的权重和偏差会决定预测的准确程度。将针对输入数据的权重和偏差进行微调的过程就是<strong>训练神经网络</strong>的过程。</p>
 <p>训练过程的每次迭代包括以下步骤：</p>
 <ul>
-<li>计算预测输出的值 <strong>_ŷ_</strong>，即<strong>前馈</strong></li>
+<li>计算预测输出的值 <strong><em>ŷ</em></strong>，即<strong>前馈</strong></li>
 <li>更新权重和偏差，即<strong>反向传播</strong></li>
 </ul>
 <p>下面的序列图展示了这个过程。</p>
@@ -227,7 +242,7 @@
 <h3 id="前馈过程"><a href="#前馈过程" class="headerlink" title="前馈过程"></a>前馈过程</h3><p>正如我们在上面的序列图中看到的，前馈只是一个简单的计算过程，对于一个基本的 2 层神经网络，它的输出是：</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*E1_l8PGamc2xTNS87XGNcA.png" alt=""></p>
 <p>让我们在 Python 代码中添加一个前馈函数来实现这一点。注意，为了简单起见，我们假设偏差为 0。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NeuralNetwork</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x, y)</span>:</span></span><br><span class="line">        self.input      = x</span><br><span class="line">        self.weights1   = np.random.rand(self.input.shape[<span class="number">1</span>],<span class="number">4</span>) </span><br><span class="line">        self.weights2   = np.random.rand(<span class="number">4</span>,<span class="number">1</span>)                 </span><br><span class="line">        self.y          = y</span><br><span class="line">        self.output     = np.zeros(self.y.shape)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">feedforward</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.layer1 = sigmoid(np.dot(self.input, self.weights1))</span><br><span class="line">        self.output = sigmoid(np.dot(self.layer1, self.weights2))</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NeuralNetwork</span>:</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, x, y)</span>:</span></span><br><span class="line">        self.input      = x</span><br><span class="line">        self.weights1   = np.random.rand(self.input.shape[<span class="hljs-number">1</span>],<span class="hljs-number">4</span>) </span><br><span class="line">        self.weights2   = np.random.rand(<span class="hljs-number">4</span>,<span class="hljs-number">1</span>)                 </span><br><span class="line">        self.y          = y</span><br><span class="line">        self.output     = np.zeros(self.y.shape)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">feedforward</span><span class="hljs-params">(self)</span>:</span></span><br><span class="line">        self.layer1 = sigmoid(np.dot(self.input, self.weights1))</span><br><span class="line">        self.output = sigmoid(np.dot(self.layer1, self.weights2))</span><br></pre></td></tr></table></figure></p>
 <p>但是，我们仍然需要一种方法来评估预测的“精准程度”（即我们的预测有多好）？而<strong>损失函数</strong>能让我们做到这一点。</p>
 <h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p>可用的损失函数有很多，而我们对损失函数的选择应该由问题本身的性质决定。在本教程中，我们将使用简单的<strong>平方和误差</strong>作为我们的损失函数。</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/1*iNa1VLdaeqwUAxpNXs3jwQ.png" alt=""></p>
@@ -244,7 +259,7 @@
 <p>为了更新权重使用链式法则求解函数的导数。注意，为了简单起见，我们只展示了假设为 1 层的神经网络的偏导数。</p>
 <p>哦！这真难看，但它让我们得到了我们需要的东西 —— 损失函数对于权重的导数（斜率），这样我们就可以相应地调整权重。</p>
 <p>现在我们知道要怎么做了，让我们向 Pyhton 代码中添加反向传播函数。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NeuralNetwork</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x, y)</span>:</span></span><br><span class="line">        self.input      = x</span><br><span class="line">        self.weights1   = np.random.rand(self.input.shape[<span class="number">1</span>],<span class="number">4</span>) </span><br><span class="line">        self.weights2   = np.random.rand(<span class="number">4</span>,<span class="number">1</span>)                 </span><br><span class="line">        self.y          = y</span><br><span class="line">        self.output     = np.zeros(self.y.shape)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">feedforward</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.layer1 = sigmoid(np.dot(self.input, self.weights1))</span><br><span class="line">        self.output = sigmoid(np.dot(self.layer1, self.weights2))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">backprop</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># 应用链式法则求出损失函数对于 weights2 和 weights1 的导数</span></span><br><span class="line">        d_weights2 = np.dot(self.layer1.T, (<span class="number">2</span>*(self.y - self.output) * sigmoid_derivative(self.output)))</span><br><span class="line">        d_weights1 = np.dot(self.input.T,  (np.dot(<span class="number">2</span>*(self.y - self.output) * sigmoid_derivative(self.output), self.weights2.T) * sigmoid_derivative(self.layer1)))</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 用损失函数的导数(斜率)更新权重</span></span><br><span class="line">        self.weights1 += d_weights1</span><br><span class="line">        self.weights2 += d_weights2</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NeuralNetwork</span>:</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, x, y)</span>:</span></span><br><span class="line">        self.input      = x</span><br><span class="line">        self.weights1   = np.random.rand(self.input.shape[<span class="hljs-number">1</span>],<span class="hljs-number">4</span>) </span><br><span class="line">        self.weights2   = np.random.rand(<span class="hljs-number">4</span>,<span class="hljs-number">1</span>)                 </span><br><span class="line">        self.y          = y</span><br><span class="line">        self.output     = np.zeros(self.y.shape)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">feedforward</span><span class="hljs-params">(self)</span>:</span></span><br><span class="line">        self.layer1 = sigmoid(np.dot(self.input, self.weights1))</span><br><span class="line">        self.output = sigmoid(np.dot(self.layer1, self.weights2))</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">backprop</span><span class="hljs-params">(self)</span>:</span></span><br><span class="line">        <span class="hljs-comment"># 应用链式法则求出损失函数对于 weights2 和 weights1 的导数</span></span><br><span class="line">        d_weights2 = np.dot(self.layer1.T, (<span class="hljs-number">2</span>*(self.y - self.output) * sigmoid_derivative(self.output)))</span><br><span class="line">        d_weights1 = np.dot(self.input.T,  (np.dot(<span class="hljs-number">2</span>*(self.y - self.output) * sigmoid_derivative(self.output), self.weights2.T) * sigmoid_derivative(self.layer1)))</span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment"># 用损失函数的导数(斜率)更新权重</span></span><br><span class="line">        self.weights1 += d_weights1</span><br><span class="line">        self.weights2 += d_weights2</span><br></pre></td></tr></table></figure></p>
 <p>如果你需要更深入地理解微积分和链式法则在反向传播中的应用，我强烈推荐 3Blue1Brown 的教程。</p>
 <p>观看<a href="https://youtu.be/tIeHLnjs5U8" target="_blank" rel="noopener">视频教程</a></p>
 <h2 id="融会贯通"><a href="#融会贯通" class="headerlink" title="融会贯通"></a>融会贯通</h2><p>现在我们已经有了前馈和反向传播的完整 Python 代码，让我们将神经网络应用到一个示例中，看看效果如何。</p>
@@ -275,75 +290,272 @@
 <p><a href="https://github.com/xitu/gold-miner" target="_blank" rel="noopener">掘金翻译计划</a> 是一个翻译优质互联网技术文章的社区，文章来源为 <a href="https://juejin.im" target="_blank" rel="noopener">掘金</a> 上的英文分享文章。内容覆盖 <a href="https://github.com/xitu/gold-miner#android" target="_blank" rel="noopener">Android</a>、<a href="https://github.com/xitu/gold-miner#ios" target="_blank" rel="noopener">iOS</a>、<a href="https://github.com/xitu/gold-miner#前端" target="_blank" rel="noopener">前端</a>、<a href="https://github.com/xitu/gold-miner#后端" target="_blank" rel="noopener">后端</a>、<a href="https://github.com/xitu/gold-miner#区块链" target="_blank" rel="noopener">区块链</a>、<a href="https://github.com/xitu/gold-miner#产品" target="_blank" rel="noopener">产品</a>、<a href="https://github.com/xitu/gold-miner#设计" target="_blank" rel="noopener">设计</a>、<a href="https://github.com/xitu/gold-miner#人工智能" target="_blank" rel="noopener">人工智能</a>等领域，想要查看更多优质译文请持续关注 <a href="https://github.com/xitu/gold-miner" target="_blank" rel="noopener">掘金翻译计划</a>、<a href="http://weibo.com/juejinfanyi" target="_blank" rel="noopener">官方微博</a>、<a href="https://zhuanlan.zhihu.com/juejinfanyi" target="_blank" rel="noopener">知乎专栏</a>。</p>
 </blockquote>
 
-        </div>
-
-        
-            <section class="post-copyright">
-                
-                    <p class="copyright-item">
-                        <span>Author:</span>
-                        <span>Jack Tang</span>
-                    </p>
-                
-                
-                    <p class="copyright-item">
-                        <span>Permalink:</span>
-                        <span><a href="http://jackeggie.github.io/2019-03-02-how-to-build-your-own-neural-network-from-scratch-in-python/">http://jackeggie.github.io/2019-03-02-how-to-build-your-own-neural-network-from-scratch-in-python/</a></span>
-                    </p>
-                
-                
-                    <p class="copyright-item">
-                        <span>License:</span>
-                        <span>Copyright (c) <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="external nofollow" target="_blank">CC BY-NC-ND 4.0</a> LICENSE</span>
-                    </p>
-                
-                
-
-            </section>
-        
-        <section class="post-tags">
-            <div>
-                <span>Tag(s):</span>
-                <span class="tag">
-                    
-                    
-                        <a href="/tags/gold-miner/"># gold-miner</a>
-                    
-                        <a href="/tags/translation/"># translation</a>
-                    
-                        <a href="/tags/python/"># python</a>
-                    
-                        <a href="/tags/ai/"># ai</a>
-                    
-                        
-                </span>
-            </div>
-            <div>
-                <a href="javascript:window.history.back();">back</a>
-                <span>· </span>
-                <a href="/">home</a>
-            </div>
-        </section>
-        <section class="post-nav">
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/gold-miner/">#gold-miner</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/translation/">#translation</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/python/">#python</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/ai/">#ai</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
             
-                <a class="prev" rel="prev" href="/2019-04-14-your-first-cli-tool-with-rust/">【译】用 Rust 打造你的第一个命令行工具</a>
+            <a href="/2019-04-14-your-first-cli-tool-with-rust/">【译】用 Rust 打造你的第一个命令行工具</a>
             
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
             
-            <a class="next" rel="next" href="/2018-10-08-talk-about-double-locking-problem/">Java 中的双重检查锁(Double-Checked Locking)的问题</a>
+            <a href="/2018-10-08-talk-about-double-locking-problem/">Java 中的双重检查锁(Double-Checked Locking)的问题</a>
             
-        </section>
+        </span>
+    </div>
+    
+</article>
 
 
-    </article>
+<div class="sharebox">
+    
+<div class="notification is-danger">
+    You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.
 </div>
 
-        </div>
-        <footer id="footer" class="footer">
-    <div class="copyright">
-        <span>© Jack Tang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
-    </div>
-</footer>
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		id: '2019-03-02-how-to-build-your-own-neural-network-from-scratch-in-python/',
+		owner: 'JackEggie',
+		repo: 'jackeggie.github.io',
+		oauth: {
+			client_id: '18f330dcf69901af7b83',
+			client_secret: '9015cbae380288ebbb49a3c8140302e2a9c7de43',
+		},
+	})
+	gitment.render('comment-container')
+</script>
+
+</div>
 
     </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2019 Jack Tang&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/JackEggie" target="_blank" rel="noopener">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+<script src="/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js"></script>
+    
 </body>
 </html>
