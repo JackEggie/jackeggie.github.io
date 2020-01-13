@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Jack&#39;s Blog</title>
+  <title>蛋卷的博客</title>
   
   
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jackeggie.github.io/"/>
-  <updated>2019-10-31T07:50:02.470Z</updated>
+  <updated>2020-01-13T05:44:58.061Z</updated>
   <id>http://jackeggie.github.io/</id>
   
   <author>
-    <name>Jack Tang</name>
+    <name>蛋卷</name>
     
   </author>
   
@@ -18,10 +18,10 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://jackeggie.github.io/hello-world/"/>
-    <id>http://jackeggie.github.io/hello-world/</id>
+    <link href="http://jackeggie.github.io/en/hello-world/"/>
+    <id>http://jackeggie.github.io/en/hello-world/</id>
     <published>2019-10-31T07:48:35.000Z</published>
-    <updated>2019-10-31T07:50:02.470Z</updated>
+    <updated>2020-01-13T05:44:58.061Z</updated>
     
     <summary type="html">
     
@@ -43,10 +43,10 @@
   
   <entry>
     <title>【译】Go 语言概览</title>
-    <link href="http://jackeggie.github.io/zh-cn/a-bird-s-eye-view-of-go/"/>
-    <id>http://jackeggie.github.io/zh-cn/a-bird-s-eye-view-of-go/</id>
+    <link href="http://jackeggie.github.io/a-bird-s-eye-view-of-go/"/>
+    <id>http://jackeggie.github.io/a-bird-s-eye-view-of-go/</id>
     <published>2019-07-25T10:49:21.000Z</published>
-    <updated>2019-10-31T06:16:22.553Z</updated>
+    <updated>2020-01-13T05:45:14.175Z</updated>
     
     <summary type="html">
     
@@ -77,10 +77,10 @@
   
   <entry>
     <title>Java 中 int 类型的二进制表示</title>
-    <link href="http://jackeggie.github.io/zh-cn/binary-form-of-int-in-java/"/>
-    <id>http://jackeggie.github.io/zh-cn/binary-form-of-int-in-java/</id>
+    <link href="http://jackeggie.github.io/binary-form-of-int-in-java/"/>
+    <id>http://jackeggie.github.io/binary-form-of-int-in-java/</id>
     <published>2019-07-21T09:55:51.000Z</published>
-    <updated>2019-10-31T06:19:25.215Z</updated>
+    <updated>2020-01-13T05:45:14.175Z</updated>
     
     <summary type="html">
     
@@ -98,10 +98,10 @@
   
   <entry>
     <title>【译】我们从招聘技术经理的过程中学到了什么</title>
-    <link href="http://jackeggie.github.io/zh-cn/what-we-ve-learned-about-hiring-engineering-managers/"/>
-    <id>http://jackeggie.github.io/zh-cn/what-we-ve-learned-about-hiring-engineering-managers/</id>
+    <link href="http://jackeggie.github.io/what-we-ve-learned-about-hiring-engineering-managers/"/>
+    <id>http://jackeggie.github.io/what-we-ve-learned-about-hiring-engineering-managers/</id>
     <published>2019-05-16T05:32:55.000Z</published>
-    <updated>2019-10-31T06:19:25.120Z</updated>
+    <updated>2020-01-13T05:45:14.352Z</updated>
     
     <summary type="html">
     
@@ -132,10 +132,10 @@
   
   <entry>
     <title>【译】Spring 的分布式事务实现 — 使用和不使用 XA — 第一部分</title>
-    <link href="http://jackeggie.github.io/zh-cn/distributed-transactions-in-spring-with-and-without-xa-part-1/"/>
-    <id>http://jackeggie.github.io/zh-cn/distributed-transactions-in-spring-with-and-without-xa-part-1/</id>
+    <link href="http://jackeggie.github.io/distributed-transactions-in-spring-with-and-without-xa-part-1/"/>
+    <id>http://jackeggie.github.io/distributed-transactions-in-spring-with-and-without-xa-part-1/</id>
     <published>2019-05-04T02:24:09.000Z</published>
-    <updated>2019-10-31T06:19:25.253Z</updated>
+    <updated>2020-01-13T05:45:14.176Z</updated>
     
     <summary type="html">
     
@@ -175,10 +175,10 @@
   
   <entry>
     <title>聊聊我的第一次心理咨询体验</title>
-    <link href="http://jackeggie.github.io/zh-cn/my-first-psychological-counseling/"/>
-    <id>http://jackeggie.github.io/zh-cn/my-first-psychological-counseling/</id>
+    <link href="http://jackeggie.github.io/my-first-psychological-counseling/"/>
+    <id>http://jackeggie.github.io/my-first-psychological-counseling/</id>
     <published>2019-04-22T05:01:04.000Z</published>
-    <updated>2019-10-31T06:19:25.276Z</updated>
+    <updated>2020-01-13T05:45:14.177Z</updated>
     
     <summary type="html">
     
@@ -195,10 +195,10 @@
   
   <entry>
     <title>【译】用 Rust 打造你的第一个命令行工具</title>
-    <link href="http://jackeggie.github.io/zh-cn/your-first-cli-tool-with-rust/"/>
-    <id>http://jackeggie.github.io/zh-cn/your-first-cli-tool-with-rust/</id>
+    <link href="http://jackeggie.github.io/your-first-cli-tool-with-rust/"/>
+    <id>http://jackeggie.github.io/your-first-cli-tool-with-rust/</id>
     <published>2019-04-14T02:40:13.000Z</published>
-    <updated>2019-10-31T06:19:25.238Z</updated>
+    <updated>2020-01-13T05:45:14.926Z</updated>
     
     <summary type="html">
     
@@ -230,10 +230,10 @@
   
   <entry>
     <title>【译】如何用 Python 从零开始构建你自己的神经网络</title>
-    <link href="http://jackeggie.github.io/zh-cn/how-to-build-your-own-neural-network-from-scratch-in-python/"/>
-    <id>http://jackeggie.github.io/zh-cn/how-to-build-your-own-neural-network-from-scratch-in-python/</id>
+    <link href="http://jackeggie.github.io/how-to-build-your-own-neural-network-from-scratch-in-python/"/>
+    <id>http://jackeggie.github.io/how-to-build-your-own-neural-network-from-scratch-in-python/</id>
     <published>2019-03-02T02:34:00.000Z</published>
-    <updated>2019-10-31T06:19:25.156Z</updated>
+    <updated>2020-01-13T05:45:14.176Z</updated>
     
     <summary type="html">
     
@@ -269,10 +269,10 @@
   
   <entry>
     <title>Java 中的双重检查锁(Double-Checked Locking)的问题</title>
-    <link href="http://jackeggie.github.io/zh-cn/talk-about-double-locking-problem/"/>
-    <id>http://jackeggie.github.io/zh-cn/talk-about-double-locking-problem/</id>
+    <link href="http://jackeggie.github.io/talk-about-double-locking-problem/"/>
+    <id>http://jackeggie.github.io/talk-about-double-locking-problem/</id>
     <published>2018-10-08T05:22:54.000Z</published>
-    <updated>2019-10-31T06:19:25.011Z</updated>
+    <updated>2020-01-13T05:45:14.179Z</updated>
     
     <summary type="html">
     
@@ -292,10 +292,10 @@
   
   <entry>
     <title>搜索引擎技术的简介</title>
-    <link href="http://jackeggie.github.io/zh-cn/intro-to-search-engine/"/>
-    <id>http://jackeggie.github.io/zh-cn/intro-to-search-engine/</id>
+    <link href="http://jackeggie.github.io/intro-to-search-engine/"/>
+    <id>http://jackeggie.github.io/intro-to-search-engine/</id>
     <published>2018-05-17T05:20:34.000Z</published>
-    <updated>2019-10-31T06:19:25.185Z</updated>
+    <updated>2020-01-13T05:45:14.176Z</updated>
     
     <summary type="html">
     
@@ -312,10 +312,10 @@
   
   <entry>
     <title>结构化一个页面的内容 - MDN html 作业</title>
-    <link href="http://jackeggie.github.io/zh-cn/structuring-a-page-of-content/"/>
-    <id>http://jackeggie.github.io/zh-cn/structuring-a-page-of-content/</id>
+    <link href="http://jackeggie.github.io/structuring-a-page-of-content/"/>
+    <id>http://jackeggie.github.io/structuring-a-page-of-content/</id>
     <published>2018-04-28T06:03:24.000Z</published>
-    <updated>2019-10-31T06:19:24.988Z</updated>
+    <updated>2020-01-13T05:45:14.177Z</updated>
     
     <summary type="html">
     
@@ -335,10 +335,10 @@
   
   <entry>
     <title>标记一封信 - MDN html 作业</title>
-    <link href="http://jackeggie.github.io/zh-cn/marking-up-a-letter/"/>
-    <id>http://jackeggie.github.io/zh-cn/marking-up-a-letter/</id>
+    <link href="http://jackeggie.github.io/marking-up-a-letter/"/>
+    <id>http://jackeggie.github.io/marking-up-a-letter/</id>
     <published>2018-04-21T02:02:18.000Z</published>
-    <updated>2019-10-31T06:19:25.338Z</updated>
+    <updated>2020-01-13T05:45:14.176Z</updated>
     
     <summary type="html">
     
@@ -358,10 +358,10 @@
   
   <entry>
     <title>本博客升级过程</title>
-    <link href="http://jackeggie.github.io/zh-cn/upgrade-hexo-and-next/"/>
-    <id>http://jackeggie.github.io/zh-cn/upgrade-hexo-and-next/</id>
+    <link href="http://jackeggie.github.io/upgrade-hexo-and-next/"/>
+    <id>http://jackeggie.github.io/upgrade-hexo-and-next/</id>
     <published>2018-04-14T08:52:37.000Z</published>
-    <updated>2019-10-31T06:19:25.032Z</updated>
+    <updated>2020-01-13T05:45:14.353Z</updated>
     
     <summary type="html">
     
@@ -380,10 +380,10 @@
   
   <entry>
     <title>缓存框架调研</title>
-    <link href="http://jackeggie.github.io/zh-cn/cache-framework-research/"/>
-    <id>http://jackeggie.github.io/zh-cn/cache-framework-research/</id>
+    <link href="http://jackeggie.github.io/cache-framework-research/"/>
+    <id>http://jackeggie.github.io/cache-framework-research/</id>
     <published>2018-04-07T08:33:33.000Z</published>
-    <updated>2019-10-31T06:19:24.999Z</updated>
+    <updated>2020-01-13T05:45:14.175Z</updated>
     
     <summary type="html">
     
@@ -412,10 +412,10 @@
   
   <entry>
     <title>浮躁、静不下心的解决方案</title>
-    <link href="http://jackeggie.github.io/zh-cn/fickleness/"/>
-    <id>http://jackeggie.github.io/zh-cn/fickleness/</id>
+    <link href="http://jackeggie.github.io/fickleness/"/>
+    <id>http://jackeggie.github.io/fickleness/</id>
     <published>2018-03-31T10:07:32.000Z</published>
-    <updated>2019-10-31T06:19:25.327Z</updated>
+    <updated>2020-01-13T05:45:14.176Z</updated>
     
     <summary type="html">
     
@@ -434,10 +434,10 @@
   
   <entry>
     <title>Java内存结构</title>
-    <link href="http://jackeggie.github.io/zh-cn/java-memory-module/"/>
-    <id>http://jackeggie.github.io/zh-cn/java-memory-module/</id>
+    <link href="http://jackeggie.github.io/java-memory-module/"/>
+    <id>http://jackeggie.github.io/java-memory-module/</id>
     <published>2018-03-24T07:43:07.000Z</published>
-    <updated>2019-10-31T06:19:25.289Z</updated>
+    <updated>2020-01-13T05:45:14.176Z</updated>
     
     <summary type="html">
     
@@ -455,10 +455,10 @@
   
   <entry>
     <title>对于情绪管理的思考</title>
-    <link href="http://jackeggie.github.io/zh-cn/emotion-management/"/>
-    <id>http://jackeggie.github.io/zh-cn/emotion-management/</id>
+    <link href="http://jackeggie.github.io/emotion-management/"/>
+    <id>http://jackeggie.github.io/emotion-management/</id>
     <published>2018-03-17T09:32:24.000Z</published>
-    <updated>2019-10-31T06:19:25.266Z</updated>
+    <updated>2020-01-13T05:45:14.177Z</updated>
     
     <summary type="html">
     
@@ -477,10 +477,10 @@
   
   <entry>
     <title>JVM内存结构</title>
-    <link href="http://jackeggie.github.io/zh-cn/jvm-memory-structure/"/>
-    <id>http://jackeggie.github.io/zh-cn/jvm-memory-structure/</id>
+    <link href="http://jackeggie.github.io/jvm-memory-structure/"/>
+    <id>http://jackeggie.github.io/jvm-memory-structure/</id>
     <published>2018-03-10T08:42:27.000Z</published>
-    <updated>2019-10-31T06:19:24.968Z</updated>
+    <updated>2020-01-13T05:45:14.177Z</updated>
     
     <summary type="html">
     
@@ -498,10 +498,10 @@
   
   <entry>
     <title>Scrum实践</title>
-    <link href="http://jackeggie.github.io/zh-cn/practice-scrum/"/>
-    <id>http://jackeggie.github.io/zh-cn/practice-scrum/</id>
+    <link href="http://jackeggie.github.io/practice-scrum/"/>
+    <id>http://jackeggie.github.io/practice-scrum/</id>
     <published>2018-03-03T07:17:56.000Z</published>
-    <updated>2019-10-31T06:19:25.227Z</updated>
+    <updated>2020-01-13T05:45:14.177Z</updated>
     
     <summary type="html">
     
@@ -520,10 +520,10 @@
   
   <entry>
     <title>Json解析器性能对比</title>
-    <link href="http://jackeggie.github.io/zh-cn/json-parser-performance/"/>
-    <id>http://jackeggie.github.io/zh-cn/json-parser-performance/</id>
+    <link href="http://jackeggie.github.io/json-parser-performance/"/>
+    <id>http://jackeggie.github.io/json-parser-performance/</id>
     <published>2018-02-24T07:31:19.000Z</published>
-    <updated>2019-10-31T06:19:25.313Z</updated>
+    <updated>2020-01-13T05:45:14.176Z</updated>
     
     <summary type="html">
     

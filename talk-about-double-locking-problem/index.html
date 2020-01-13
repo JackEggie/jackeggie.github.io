@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>Java 中的双重检查锁(Double-Checked Locking)的问题 - 蛋卷的博客</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+<link href="/en/talk-about-double-locking-problem/" rel="alternate" hreflang="en" />
+    
+
+
+
+
+
+
+    <meta name="description" content="Java 中的双重检查锁不知道从什么时候开始，双重锁检机制开始在 Java 程序员中流传开来，并被一些不成熟的程序员所称道。然而，双重锁检机制无论在 Java 的什么年代，都是一个不折不扣的代码陷阱。 19 这段代码粗看上去使用了很“神奇”的 Java 多线程技巧，“巧妙”利用重复地两次检查对象是否为空来避免了大部分情况下 synchronized 关键字的性能消耗。">
+<meta name="keywords" content="jvm,multi-thread">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 中的双重检查锁(Double-Checked Locking)的问题">
+<meta property="og:url" content="http:&#x2F;&#x2F;jackeggie.github.io&#x2F;talk-about-double-locking-problem&#x2F;index.html">
+<meta property="og:site_name" content="蛋卷的博客">
+<meta property="og:description" content="Java 中的双重检查锁不知道从什么时候开始，双重锁检机制开始在 Java 程序员中流传开来，并被一些不成熟的程序员所称道。然而，双重锁检机制无论在 Java 的什么年代，都是一个不折不扣的代码陷阱。 19 这段代码粗看上去使用了很“神奇”的 Java 多线程技巧，“巧妙”利用重复地两次检查对象是否为空来避免了大部分情况下 synchronized 关键字的性能消耗。">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2020-01-13T05:45:14.179Z">
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+<link rel="icon" href="/images/avatar.jpeg">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108548768-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-108548768-1');
+</script>
+
+
+    
+
+
+</head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    蛋卷的博客
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">归档</a>
+            
+            <a class="navbar-item "
+               href="/tags">标签</a>
+            
+            <a class="navbar-item "
+               href="/about">关于</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item" title="目录">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                    
+                    
+                    
+                    
+                    <a class="navbar-item" href="#Java-中的双重检查锁">1&nbsp;&nbsp;<b>Java 中的双重检查锁</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#双重锁检的一种优化方案">2&nbsp;&nbsp;<b>双重锁检的一种优化方案</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#synchronized-性能很差？">3&nbsp;&nbsp;<b>synchronized 性能很差？</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#不要再使用双重锁检了">4&nbsp;&nbsp;<b>不要再使用双重锁检了</b></a>
+                    
+                    
+                    <hr class="navbar-divider">
+                    
+                    
+                    <a class="navbar-item" href="#参考资料">5&nbsp;&nbsp;<b>参考资料</b></a>
+                    
+                </div>
+            </div>
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/JackEggie" target="_blank" rel="noopener">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            <a class="navbar-item" title="掘金" href="https://juejin.im/user/5c6b743651882562691184ef" target="_blank" rel="noopener">
+                
+                掘金
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            Java 中的双重检查锁(Double-Checked Locking)的问题
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-10-08T05:22:54.000Z" itemprop="datePublished">10月 8 2018</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            8 分钟 读完 (约 1272 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <h3 id="Java-中的双重检查锁"><a href="#Java-中的双重检查锁" class="headerlink" title="Java 中的双重检查锁"></a>Java 中的双重检查锁</h3><p>不知道从什么时候开始，双重锁检机制开始在 Java 程序员中流传开来，并被一些不成熟的程序员所称道。然而，双重锁检机制无论在 Java 的什么年代，都是一个不折不扣的代码陷阱。</p>
+<p><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// double-checked-locking - don't do this!</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Something instance = <span class="hljs-keyword">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> Something <span class="hljs-title">getInstance</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">if</span> (instance == <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">    <span class="hljs-keyword">synchronized</span> (<span class="hljs-keyword">this</span>) &#123;</span><br><span class="line">      <span class="hljs-keyword">if</span> (instance == <span class="hljs-keyword">null</span>)</span><br><span class="line">        instance = <span class="hljs-keyword">new</span> Something();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="hljs-keyword">return</span> instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这段代码粗看上去使用了很“神奇”的 Java 多线程技巧，“巧妙”利用重复地两次检查对象是否为空来避免了大部分情况下 synchronized 关键字的性能消耗。</p>
+<a id="more"></a>
+
+<h3 id="双重锁检的一种优化方案"><a href="#双重锁检的一种优化方案" class="headerlink" title="双重锁检的一种优化方案"></a>双重锁检的一种优化方案</h3><p>有很多人对上述代码提出了异议，他们认为，对象的初始化和对象的赋值操作之间可能存在重排序，有一定的可能性 getInstance 方法返回的对象不是完全初始化完成的，因此解决方案是需要为 instance 变量添加 volatile 修饰。看上去这就是完美的解决方案了，volatile 关键字在对象的初始化和对象的赋值操作之间添加了 Happen-before 关系，因此也就不存在重排序的问题了。</p>
+<p>然而，首先，volatile 关键字在 Java 1.5 以前不能保证线程获取到的对象是最新的。其次，对象的初始化和对象的赋值操作之间的 Happen-before 关系是在 JMM 被重新修订之后（JSR-133）才出现的。也就是说，在 Java 1.5 以前，添加 volatile 与否对这段代码来说都是一样的效果，volatile 并不能解决任何问题。在 Java 1.5 以后，添加 volatile 与否对这段代码来说也都是一样的效果，因为新的 JMM 已经可以保证对象的初始化和对象的赋值操作之间存在 Happen-before 关系。</p>
+<blockquote>
+<p>扩展阅读：<a href="https://stackoverflow.com/questions/4633866/is-volatile-expensive" target="_blank" rel="noopener">Is volatile expensive?</a></p>
+</blockquote>
+<h3 id="synchronized-性能很差？"><a href="#synchronized-性能很差？" class="headerlink" title="synchronized 性能很差？"></a>synchronized 性能很差？</h3><p>最重要的问题是，为什么用这种方式去写代码？大部分人都会说，因为 synchronized 关键字的性能很差，所以需要用一些技巧来避免大量使用它。那么 synchronized 关键字的性能真的很差吗？</p>
+<p>早在 2001 年就有 IBM 的研究员做了相关的调查。</p>
+<blockquote>
+<p>由于同步机制涉及缓存的刷新和失效,Java 中的同步块通常比其他关键机制更为消耗性能,其他机制通常只用“检查并赋值”的机器级别的原子指令来执行。并且，就算只在单核上运行单线程的代码，同步块仍然比非同步的代码要慢。而如果同步需要对锁进行竞争,那么性能就会大大下降。</p>
+</blockquote>
+<blockquote>
+<p>幸运的是,JVM 的持续改进既改进了整个 Java 程序的性能,也降低了每个版本使用同步的相对成本。此外,同步的性能成本往往被夸大了。众所周知，一个同步的方法调用比不同步的方法调用慢50倍。虽然该声明可能是正确的,但它也具有误导性,并导致许多开发人员在需要的情况下仍想要避免同步。</p>
+</blockquote>
+<p>在<a href="https://www.ibm.com/developerworks/library/j-threads1/index.html" target="_blank" rel="noopener">这篇文章</a>里你能找到对于 synchronized 关键字的一份简单的性能报告，这也许能帮助你理解，synchronized 关键字的性能在大部分情况下并不如你想象中的消耗那么大。并且，不同版本间的比较可以看出，JDK 的持续优化对于同步块的性能提升有多大。</p>
+<h3 id="不要再使用双重锁检了"><a href="#不要再使用双重锁检了" class="headerlink" title="不要再使用双重锁检了"></a>不要再使用双重锁检了</h3><p>既然双重锁检是错误的写法，并且 synchronized 关键字的性能消耗也不大，那么如果能避免 synchronized 关键字的话，最优的写法是什么呢？</p>
+<p>仍然以单例为例：</p>
+<p><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LazySomethingHolder</span> </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Something something = <span class="hljs-keyword">new</span> Something();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Something <span class="hljs-title">getInstance</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> LazySomethingHolder.something;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样编写单例的好处有：</p>
+<ol>
+<li>避免了 synchronized 关键字的性能消耗</li>
+<li>在加载 LazySomethingHolder 类的时候才会初始化单例，懒加载</li>
+<li>代码简洁明了</li>
+</ol>
+<blockquote>
+<p>如果深究的话你会注意到，能够保证对象初始化和赋值之间存在 Happen-before 关系是由于 static 关键字的原因。在最新的 JLS 中有具体说明 JVM 是如何处理这里的逻辑的：<a href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-12.html#jls-12.4.2" target="_blank" rel="noopener">JLS 12.4.2</a>。</p>
+</blockquote>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol>
+<li><a href="http://www.cs.umd.edu/~pugh/java/memoryModel/jsr-133-faq.html" target="_blank" rel="noopener">JSR 133 FAQ</a></li>
+<li><a href="https://www.ibm.com/developerworks/library/j-jtp03304/index.html" target="_blank" rel="noopener">Fixing the Java Memory Model, Part 2</a></li>
+<li><a href="https://stackoverflow.com/questions/38839456/java-what-is-the-correct-way-to-guarantee-a-non-final-reference-field-will-neve/38840256" target="_blank" rel="noopener">what is the correct way to guarantee a non-final reference field will never be read as null?</a></li>
+</ol>
+
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/jvm/">#jvm</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/multi-thread/">#multi-thread</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/how-to-build-your-own-neural-network-from-scratch-in-python/">【译】如何用 Python 从零开始构建你自己的神经网络</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/intro-to-search-engine/">搜索引擎技术的简介</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="notification is-danger">
+    You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.
+</div>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">评论</h3>
+    
+<div id="valine-thread"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#valine-thread',
+        appId: 'WLQY706vpvTaxFWErwryK5Do-gzGzoHsz',
+        appKey: 'RM1rBSv25YYfFrtQnPy8oRQa',
+        notify: false,
+        verify: false,
+        avatar: '',
+        placeholder: 'Say something...',
+        meta: ['nick', 'mail'],
+        visitor: true,
+        lang: 'zh-cn'
+    })
+</script>
+
+
+</div>
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2020 蛋卷&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/JackEggie" target="_blank" rel="noopener">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-up is-right is-hoverable" style="margin-top: -0.2em;">
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>简体中文</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/talk-about-double-locking-problem/" class="dropdown-item">
+                    简体中文
+                </a>
+            
+                <a href="/en/talk-about-double-locking-problem/" class="dropdown-item">
+                    English
+                </a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+<script src="/js/script.js"></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+</body>
+</html>
