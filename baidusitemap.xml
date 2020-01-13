@@ -1,40 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://jackeggie.github.io/your-first-cli-tool-with-rust/</loc>
+    <loc>http://jackeggie.github.io/my-2019-summary/</loc>
     <lastmod>2020-01-13</lastmod>
   </url>  <url>
-    <loc>http://jackeggie.github.io/upgrade-hexo-and-next/</loc>
+    <loc>http://jackeggie.github.io/intro-to-search-engine/</loc>
     <lastmod>2020-01-13</lastmod>
   </url>  <url>
     <loc>http://jackeggie.github.io/what-we-ve-learned-about-hiring-engineering-managers/</loc>
     <lastmod>2020-01-13</lastmod>
   </url>  <url>
-    <loc>http://jackeggie.github.io/talk-about-double-locking-problem/</loc>
+    <loc>http://jackeggie.github.io/your-first-cli-tool-with-rust/</loc>
     <lastmod>2020-01-13</lastmod>
   </url>  <url>
-    <loc>http://jackeggie.github.io/string-search/</loc>
+    <loc>http://jackeggie.github.io/how-to-build-your-own-neural-network-from-scratch-in-python/</loc>
     <lastmod>2020-01-13</lastmod>
   </url>  <url>
-    <loc>http://jackeggie.github.io/emotion-management/</loc>
+    <loc>http://jackeggie.github.io/distributed-transactions-in-spring-with-and-without-xa-part-1/</loc>
     <lastmod>2020-01-13</lastmod>
   </url>  <url>
-    <loc>http://jackeggie.github.io/structuring-a-page-of-content/</loc>
+    <loc>http://jackeggie.github.io/a-bird-s-eye-view-of-go/</loc>
     <lastmod>2020-01-13</lastmod>
   </url>  <url>
     <loc>http://jackeggie.github.io/practice-scrum/</loc>
     <lastmod>2020-01-13</lastmod>
   </url>  <url>
-    <loc>http://jackeggie.github.io/jvm-memory-structure/</loc>
+    <loc>http://jackeggie.github.io/structuring-a-page-of-content/</loc>
     <lastmod>2020-01-13</lastmod>
   </url>  <url>
-    <loc>http://jackeggie.github.io/open-source-license/</loc>
-    <lastmod>2020-01-13</lastmod>
-  </url>  <url>
-    <loc>http://jackeggie.github.io/my-first-psychological-counseling/</loc>
-    <lastmod>2020-01-13</lastmod>
-  </url>  <url>
-    <loc>http://jackeggie.github.io/gitflow-example/</loc>
+    <loc>http://jackeggie.github.io/hexo-pic/</loc>
     <lastmod>2020-01-13</lastmod>
   </url>  <url>
     <loc>http://jackeggie.github.io/marking-up-a-letter/</loc>
@@ -43,31 +37,40 @@
     <loc>http://jackeggie.github.io/fickleness/</loc>
     <lastmod>2020-01-13</lastmod>
   </url>  <url>
+    <loc>http://jackeggie.github.io/upgrade-hexo-and-next/</loc>
+    <lastmod>2020-01-13</lastmod>
+  </url>  <url>
+    <loc>http://jackeggie.github.io/talk-about-double-locking-problem/</loc>
+    <lastmod>2020-01-13</lastmod>
+  </url>  <url>
+    <loc>http://jackeggie.github.io/open-source-license/</loc>
+    <lastmod>2020-01-13</lastmod>
+  </url>  <url>
+    <loc>http://jackeggie.github.io/string-search/</loc>
+    <lastmod>2020-01-13</lastmod>
+  </url>  <url>
+    <loc>http://jackeggie.github.io/jvm-memory-structure/</loc>
+    <lastmod>2020-01-13</lastmod>
+  </url>  <url>
+    <loc>http://jackeggie.github.io/my-first-psychological-counseling/</loc>
+    <lastmod>2020-01-13</lastmod>
+  </url>  <url>
+    <loc>http://jackeggie.github.io/emotion-management/</loc>
+    <lastmod>2020-01-13</lastmod>
+  </url>  <url>
     <loc>http://jackeggie.github.io/java-memory-module/</loc>
     <lastmod>2020-01-13</lastmod>
   </url>  <url>
-    <loc>http://jackeggie.github.io/intro-to-search-engine/</loc>
-    <lastmod>2020-01-13</lastmod>
-  </url>  <url>
-    <loc>http://jackeggie.github.io/hexo-pic/</loc>
-    <lastmod>2020-01-13</lastmod>
-  </url>  <url>
-    <loc>http://jackeggie.github.io/distributed-transactions-in-spring-with-and-without-xa-part-1/</loc>
-    <lastmod>2020-01-13</lastmod>
-  </url>  <url>
-    <loc>http://jackeggie.github.io/how-to-build-your-own-neural-network-from-scratch-in-python/</loc>
+    <loc>http://jackeggie.github.io/gitflow-example/</loc>
     <lastmod>2020-01-13</lastmod>
   </url>  <url>
     <loc>http://jackeggie.github.io/json-parser-performance/</loc>
     <lastmod>2020-01-13</lastmod>
   </url>  <url>
-    <loc>http://jackeggie.github.io/a-bird-s-eye-view-of-go/</loc>
+    <loc>http://jackeggie.github.io/create-a-blog/</loc>
     <lastmod>2020-01-13</lastmod>
   </url>  <url>
     <loc>http://jackeggie.github.io/cache-framework-research/</loc>
-    <lastmod>2020-01-13</lastmod>
-  </url>  <url>
-    <loc>http://jackeggie.github.io/create-a-blog/</loc>
     <lastmod>2020-01-13</lastmod>
   </url>  <url>
     <loc>http://jackeggie.github.io/binary-form-of-int-in-java/</loc>
