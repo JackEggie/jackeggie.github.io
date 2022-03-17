@@ -1,256 +1,109 @@
 <!DOCTYPE html>
-<html class="has-navbar-fixed-top">
+<html>
 <head>
-    <meta charset="utf-8">
-<title>搜索引擎技术的简介 - 蛋卷的博客</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
-
-
-<link href="/en/intro-to-search-engine/" rel="alternate" hreflang="en" />
-    
-
-
-
-
-
-
-    <meta name="description" content="什么是搜索引擎？日常生活中的搜索引擎搜索引擎是一种用来在互联网上搜索信息的应用程序。当然，现在说是应用程序已经不太确切了，称为服务会更准确一些。像 Google、Baidu 等互联网搜索引擎人们都已经习以为常。通过搜索引擎，人们可以很轻松方便地从网络上查找到自己需要的资源，很难以想象没有搜索引擎的时代人们需要怎样去获取信息。 搜索引擎 VS 数据库同样提供存储和查询功能，但是搜索引擎和数据库在设计">
-<meta name="keywords" content="search engine">
+  <meta charset="utf-8">
+  
+  
+  <title>搜索引擎技术的简介 | 蛋卷的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="什么是搜索引擎？日常生活中的搜索引擎搜索引擎是一种用来在互联网上搜索信息的应用程序。当然，现在说是应用程序已经不太确切了，称为服务会更准确一些。像 Google、Baidu 等互联网搜索引擎人们都已经习以为常。通过搜索引擎，人们可以很轻松方便地从网络上查找到自己需要的资源，很难以想象没有搜索引擎的时代人们需要怎样去获取信息。 搜索引擎 VS 数据库同样提供存储和查询功能，但是搜索引擎和数据库在设计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搜索引擎技术的简介">
-<meta property="og:url" content="http:&#x2F;&#x2F;jackeggie.github.io&#x2F;intro-to-search-engine&#x2F;index.html">
+<meta property="og:url" content="http://jackeggie.github.io/intro-to-search-engine/index.html">
 <meta property="og:site_name" content="蛋卷的博客">
 <meta property="og:description" content="什么是搜索引擎？日常生活中的搜索引擎搜索引擎是一种用来在互联网上搜索信息的应用程序。当然，现在说是应用程序已经不太确切了，称为服务会更准确一些。像 Google、Baidu 等互联网搜索引擎人们都已经习以为常。通过搜索引擎，人们可以很轻松方便地从网络上查找到自己需要的资源，很难以想象没有搜索引擎的时代人们需要怎样去获取信息。 搜索引擎 VS 数据库同样提供存储和查询功能，但是搜索引擎和数据库在设计">
-<meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-01-13T06:02:34.865Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-05-17T05:20:34.000Z">
+<meta property="article:modified_time" content="2020-01-13T06:02:34.865Z">
+<meta property="article:author" content="蛋卷">
+<meta property="article:tag" content="search engine">
 <meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="蛋卷的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
 
-
-
-
-
-<link rel="icon" href="/images/avatar.jpeg">
-
-
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
-
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
-
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
-
+  
+  
 <link rel="stylesheet" href="/css/style.css">
 
-<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108548768-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-108548768-1');
-</script>
-
-
-    
-
-
-</head>
 <body>
-    
-<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
-    <div class="container">
-        <div class="navbar-brand">
-            <a class="navbar-item navbar-logo" href="/">
-                
-                    
-                    蛋卷的博客
-                    
-                
-            </a>
-            <div class="navbar-burger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-        
-        <div class="navbar-menu navbar-start">
-            
-            <a class="navbar-item "
-               href="/archives">归档</a>
-            
-            <a class="navbar-item "
-               href="/tags">标签</a>
-            
-            <a class="navbar-item "
-               href="/about">关于</a>
-            
-        </div>
-        
-        <div class="navbar-menu navbar-end">
-            
-            <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
-                <i class="fas fa-search"></i>
-            </a>
-            
-            
-            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
-                <a class="navbar-item" title="目录">
-                    <i class="fa fa-list"></i>
-                </a>
-                <div class="navbar-dropdown is-right">
-                    
-                    
-                    
-                    
-                    <a class="navbar-item" href="#什么是搜索引擎？">1&nbsp;&nbsp;<b>什么是搜索引擎？</b></a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#日常生活中的搜索引擎">1.1&nbsp;&nbsp;日常生活中的搜索引擎</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#搜索引擎-VS-数据库">1.2&nbsp;&nbsp;搜索引擎 VS 数据库</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#索引">1.2.1&nbsp;&nbsp;索引</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#数据结构">1.2.2&nbsp;&nbsp;数据结构</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#设计理念">1.2.3&nbsp;&nbsp;设计理念</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#搜索引擎的历史">1.3&nbsp;&nbsp;搜索引擎的历史</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#全文搜索">1.4&nbsp;&nbsp;全文搜索</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#Lucene">1.4.1&nbsp;&nbsp;Lucene</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#Solr-amp-Elasticsearch">1.4.2&nbsp;&nbsp;Solr &amp;amp;amp; Elasticsearch</a>
-                    
-                    
-                    <hr class="navbar-divider">
-                    
-                    
-                    <a class="navbar-item" href="#搜索引擎中的关键技术">2&nbsp;&nbsp;<b>搜索引擎中的关键技术</b></a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#索引技术">2.1&nbsp;&nbsp;索引技术</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#搜索技术">2.2&nbsp;&nbsp;搜索技术</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#TF-IDF">2.2.1&nbsp;&nbsp;TF-IDF</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#VSM（Vector-Space-Model）">2.2.2&nbsp;&nbsp;VSM（Vector Space Model）</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#其他技术">2.3&nbsp;&nbsp;其他技术</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#爬虫">2.3.1&nbsp;&nbsp;爬虫</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#分词">2.3.2&nbsp;&nbsp;分词</a>
-                    
-                    
-                    <hr class="navbar-divider">
-                    
-                    
-                    <a class="navbar-item" href="#结语">3&nbsp;&nbsp;<b>结语</b></a>
-                    
-                </div>
-            </div>
-            
-            
-            <a class="navbar-item" title="GitHub" href="https://github.com/JackEggie" target="_blank" rel="noopener">
-                
-                <i class="fab fa-github"></i>
-                
-            </a>
-               
-            <a class="navbar-item" title="掘金" href="https://juejin.im/user/5c6b743651882562691184ef" target="_blank" rel="noopener">
-                
-                掘金
-                
-            </a>
-               
-            
-        </div>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">蛋卷的博客</a>
+      </h1>
+      
     </div>
-</nav>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://jackeggie.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
 
-    <section class="section">
-    <div class="container">
-    <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            搜索引擎技术的简介
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            <time datetime="2018-05-17T05:20:34.000Z" itemprop="datePublished">5月 17 2018</time>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            14 分钟 读完 (约 2093 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+      <div class="outer">
+        <section id="main"><article id="post-intro-to-search-engine" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/intro-to-search-engine/" class="article-date">
+  <time class="dt-published" datetime="2018-05-17T05:20:34.000Z" itemprop="datePublished">2018-05-17</time>
+</a>
     
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      搜索引擎技术的简介
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
         <h3 id="什么是搜索引擎？"><a href="#什么是搜索引擎？" class="headerlink" title="什么是搜索引擎？"></a>什么是搜索引擎？</h3><h4 id="日常生活中的搜索引擎"><a href="#日常生活中的搜索引擎" class="headerlink" title="日常生活中的搜索引擎"></a>日常生活中的搜索引擎</h4><p>搜索引擎是一种用来在互联网上搜索信息的应用程序。当然，现在说是应用程序已经不太确切了，称为服务会更准确一些。像 Google、Baidu 等互联网搜索引擎人们都已经习以为常。通过搜索引擎，人们可以很轻松方便地从网络上查找到自己需要的资源，很难以想象没有搜索引擎的时代人们需要怎样去获取信息。</p>
 <h4 id="搜索引擎-VS-数据库"><a href="#搜索引擎-VS-数据库" class="headerlink" title="搜索引擎 VS 数据库"></a>搜索引擎 VS 数据库</h4><p>同样提供存储和查询功能，但是搜索引擎和数据库在设计理念和工作方式上差异还是非常大的。数据库的功能更为的全面，是一种通用的数据存取引擎，搜索引擎则重点处理大数据量的文本数据，并且只侧重于获取数据的性能和方式。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h5 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h5><p>数据库通常使用 like 关键字来进行文本匹配，然而这在长文本中效率很低。当然你也可以对需要搜索的字段建立索引，可是数据库中你不能对所有潜在的搜索字段都建立索引。</p>
 <h5 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h5><p>数据库使用 B 树来建立索引，这是一种平衡搜索树，查找到所有的条目的速度都相同。而搜索引擎采用的数据结构是倒排索引，这在后文会进行介绍。</p>
 <h5 id="设计理念"><a href="#设计理念" class="headerlink" title="设计理念"></a>设计理念</h5><p>设计理念的不同导致了功能上的部分差异。数据库的优势在于表与表之间的关系，而搜索引擎几乎不支持任何跨索引查询。数据库在使用上读写两端都同样重要，而搜索引擎则完全侧重于获取数据的方式上。</p>
-<h4 id="搜索引擎的历史"><a href="#搜索引擎的历史" class="headerlink" title="搜索引擎的历史"></a>搜索引擎的历史</h4><p>最早的搜索引擎诞生于 1987 年，名叫 Archie（/‘ɑ:tʃi/），是加拿大魁北克省蒙特利尔的麦吉尔大学的一个志愿者团队制作的。它最初的目的只是提供一个互联网上 FTP 资源的检索功能，是利用 grep 命令来实现的。到了 1990 年，Archie 经过了一次升级，升级后可以使用 telnet 来访问搜索服务了，并且有了最初的 web 界面。</p>
+<h4 id="搜索引擎的历史"><a href="#搜索引擎的历史" class="headerlink" title="搜索引擎的历史"></a>搜索引擎的历史</h4><p>最早的搜索引擎诞生于 1987 年，名叫 Archie（&#x2F;‘ɑ:tʃi&#x2F;），是加拿大魁北克省蒙特利尔的麦吉尔大学的一个志愿者团队制作的。它最初的目的只是提供一个互联网上 FTP 资源的检索功能，是利用 grep 命令来实现的。到了 1990 年，Archie 经过了一次升级，升级后可以使用 telnet 来访问搜索服务了，并且有了最初的 web 界面。</p>
 <p>在最早的搜索引擎出现之后，互联网上的资源渐渐丰富起来，人们对于高效地搜索互联网上的资源渐渐有了需求。到了1995年，Yahoo 公司率先开展了搜索引擎业务。虽然搜索引擎的业务发展在当时还并不理想，但是带动了互联网行业做搜索引擎的趋势。在那之后，1998 年和 2000 年，Google 和 Baidu 相继开展了自己的搜索引擎业务，真正将将搜索引擎普及到寻常百姓家中。在 2009 年，Microsoft 公司才反应过来，推出了 Bing 搜索，但行业中可以分的利益已经不多。</p>
 <p>到现在，Google 已经成为了世界上最受欢迎的搜索引擎，与其他互联网搜索引擎相比，占有 90% 以上的访问量，其次是 Bing 和 Baidu。但在不同的地区，搜索引擎的偏好还是存在很大的差异，在俄罗斯，Yandex 是最受欢迎的搜索引擎，在中国，则是 Baidu 最受欢迎，在韩国最受欢迎的是 Naver，在日本和台湾则是 Yahoo。</p>
 <h4 id="全文搜索"><a href="#全文搜索" class="headerlink" title="全文搜索"></a>全文搜索</h4><p>前文所提到的都是广义上的搜索引擎，在搜索引擎技术的研究中，注意研究全文搜索技术。区别于元数据搜索和数据库搜索，全文搜索侧重于大数据量的文本检索技术。</p>
@@ -272,297 +125,171 @@
 <p>英文的分词是天然由空格形成的，而对于东方的“方格字”，分词就显得很难了。现在应用得最多的分词方式即是基于字典的分词：正向最大匹配法、逆向最大匹配法和双向最大匹配法。</p>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>搜索引擎的技术是一门很深的学问，并且在近年来还处在高速的发展中。虽然现如今如谷歌、阿里等大厂的搜索相关的技术已经较为成熟，但很多技术仍然处于瓶颈中，亟待突破性的发展。</p>
 
-    
+      
     </div>
+    <footer class="article-footer">
+      <a data-url="http://jackeggie.github.io/intro-to-search-engine/" data-id="cl0udc5yg000lqoowc9zgdp80" data-title="搜索引擎技术的简介" class="article-share-link">Share</a>
+      
+        <a href="http://jackeggie.github.io/intro-to-search-engine/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/search-engine/" rel="tag">search engine</a></li></ul>
+
+    </footer>
+  </div>
+  
     
-    <div class="columns is-variable is-1 is-multiline is-mobile">
-    
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/search-engine/">#search engine</a></span>
-    
-    </div>
-    
-    
-    <div class="columns is-mobile is-multiline article-nav">
-        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
-            
-            <a href="/talk-about-double-locking-problem/">Java 中的双重检查锁(Double-Checked Locking)的问题</a>
-            
-        </span>
-        <span class="column is-12-mobile is-half-desktop  article-nav-next">
-            
-            <a href="/structuring-a-page-of-content/">结构化一个页面的内容 - MDN html 作业</a>
-            
-        </span>
-    </div>
-    
+<nav id="article-nav">
+  
+    <a href="/talk-about-double-locking-problem/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Java 中的双重检查锁(Double-Checked Locking)的问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/structuring-a-page-of-content/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">结构化一个页面的内容 - MDN html 作业</div>
+    </a>
+  
+</nav>
+
+  
 </article>
 
 
-<div class="sharebox">
-    
-<div class="sharethis-inline-share-buttons"></div>
-<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5e1d32d09621970018ee1174&amp;product=inline-share-buttons' async='async'></script>
-
-</div>
-
-
-
-<div class="comments">
-    <h3 class="title is-4">评论</h3>
-    
-<div id="valine-thread"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-<script>
-    new Valine({
-        el: '#valine-thread',
-        appId: 'WLQY706vpvTaxFWErwryK5Do-gzGzoHsz',
-        appKey: 'RM1rBSv25YYfFrtQnPy8oRQa',
-        notify: false,
-        verify: false,
-        avatar: '',
-        placeholder: 'Say something...',
-        meta: ['nick', 'mail'],
-        visitor: true,
-        lang: 'zh-cn'
-    })
-</script>
-
-
-</div>
-
-    </div>
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
 </section>
-    <footer class="footer">
-    <div class="container">
-        <div class="columns content">
-            <div class="column is-narrow has-text-centered">
-                &copy; 2020 蛋卷&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
-                        href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
-            </div>
-            <div class="column is-hidden-mobile"></div>
 
-            
-            <div class="column is-narrow">
-                <div class="columns is-mobile is-multiline is-centered">
-                
-                    
-                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/JackEggie" target="_blank" rel="noopener">
-                    
-                    GitHub
-                    
-                </a>
-                
-                </div>
-            </div>
-            
-            
-<div class="column is-narrow has-text-centered">
-    <div class="dropdown is-up is-right is-hoverable" style="margin-top: -0.2em;">
-        <div class="dropdown-trigger">
-            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
-                <span class="icon">
-                    <i class="fas fa-globe"></i>
-                </span>
-                <span>简体中文</span>
-                <span class="icon is-small">
-            <i class="fas fa-angle-down" aria-hidden="true"></i>
-          </span>
-            </button>
-        </div>
-        <div class="dropdown-menu has-text-left" role="menu">
-            <div class="dropdown-content">
-            
-                <a href="/intro-to-search-engine/" class="dropdown-item">
-                    简体中文
-                </a>
-            
-                <a href="/en/intro-to-search-engine/" class="dropdown-item">
-                    English
-                </a>
-            
-            </div>
-        </div>
-    </div>
-</div>
+</section>
+        
+          <aside id="sidebar">
+  
+    
 
-        </div>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/agile/" rel="tag">agile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ai/" rel="tag">ai</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cache/" rel="tag">cache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go-lang/" rel="tag">go-lang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/" rel="tag">json</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jvm/" rel="tag">jvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/multi-thread/" rel="tag">multi-thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/open-source/" rel="tag">open source</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/performance/" rel="tag">performance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/personal-management/" rel="tag">personal-management</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/psychology/" rel="tag">psychology</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rust/" rel="tag">rust</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/search-engine/" rel="tag">search engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/" rel="tag">spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/translation/" rel="tag">translation</a></li></ul>
     </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/agile/" style="font-size: 10px;">agile</a> <a href="/tags/ai/" style="font-size: 10px;">ai</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/frontend/" style="font-size: 13.33px;">frontend</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 13.33px;">github</a> <a href="/tags/go-lang/" style="font-size: 10px;">go-lang</a> <a href="/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/jvm/" style="font-size: 16.67px;">jvm</a> <a href="/tags/multi-thread/" style="font-size: 10px;">multi-thread</a> <a href="/tags/open-source/" style="font-size: 10px;">open source</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/personal-management/" style="font-size: 10px;">personal-management</a> <a href="/tags/psychology/" style="font-size: 16.67px;">psychology</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rust/" style="font-size: 10px;">rust</a> <a href="/tags/search-engine/" style="font-size: 10px;">search engine</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/translation/" style="font-size: 20px;">translation</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/my-2019-summary/">蛋卷的 2019 年度总结</a>
+          </li>
+        
+          <li>
+            <a href="/a-bird-s-eye-view-of-go/">【译】Go 语言概览</a>
+          </li>
+        
+          <li>
+            <a href="/binary-form-of-int-in-java/">Java 中 int 类型的二进制表示</a>
+          </li>
+        
+          <li>
+            <a href="/what-we-ve-learned-about-hiring-engineering-managers/">【译】我们从招聘技术经理的过程中学到了什么</a>
+          </li>
+        
+          <li>
+            <a href="/distributed-transactions-in-spring-with-and-without-xa-part-1/">【译】Spring 的分布式事务实现 — 使用和不使用 XA — 第一部分</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 蛋卷<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
 </footer>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
 
-<!-- test if the browser is outdated -->
-<div id="outdated">
-    <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update my browser now </a></p>
-    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
-</div>
-<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
 <script>
-    $(document).ready(function () {
-        // plugin function, place inside DOM ready function
-        outdatedBrowser({
-            bgColor: '#f25648',
-            color: '#ffffff',
-            lowerThan: 'flex'
-        })
-    });
-</script>
-
-<script>
-    window.FontAwesomeConfig = {
-        searchPseudoElements: true
-    }
-    moment.locale("zh-CN");
+  var disqus_shortname = 'jackeggie';
+  
+  var disqus_url = 'http://jackeggie.github.io/intro-to-search-engine/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.async = true;
+    dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
 </script>
 
 
-    
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<script>
-    MathJax.Hub.Config({
-        "HTML-CSS": {
-            matchFontHeight: false
-        },
-        SVG: {
-            matchFontHeight: false
-        },
-        CommonHTML: {
-            matchFontHeight: false
-        },
-        tex2jax: {
-            inlineMath: [
-                ['$','$'],
-                ['\\(','\\)']
-            ]
-        }
-    });
-</script>
 
-    
-    
-    
-    
-<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
-<script>
-    (function ($) {
-        $(document).ready(function () {
-            if (typeof($.fn.lightGallery) === 'function') {
-                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
-            }
-            if (typeof($.fn.justifiedGallery) === 'function') {
-                $('.justified-gallery').justifiedGallery();
-            }
-        });
-    })(jQuery);
-</script>
+<script src="/js/jquery-3.4.1.min.js"></script>
 
-    
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
-    <style>
-        .hljs {
-            position: relative;
-        }
 
-        .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
 
-        .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
-        }
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
 
-        .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
-        }
 
-        .hljs:hover > .clipboard-btn {
-            display: inline;
-        }
-
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
-        }
-    </style>
-    <script>
-      $(document).ready(function () {
-        $('figure.hljs').each(function(i, figure) {
-          var codeId = 'code-' + i;
-          var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
-          code.id = codeId;
-          copyButton.addClass('clipboard-btn');
-          copyButton.attr('data-clipboard-target-id', codeId);
-
-          var figcaption = figure.querySelector('figcaption');
-
-          if (figcaption) {
-            figcaption.append(copyButton[0]);
-          } else {
-            figure.prepend(copyButton[0]);
-          }
-        })
-
-        var clipboard = new ClipboardJS('.clipboard-btn', {
-          target: function(trigger) {
-            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
-          }
-        });
-        clipboard.on('success', function(e) {
-          e.clearSelection();
-        })
-      })
-    </script>
-
-    
-    
-
-    
 
 
 <script src="/js/script.js"></script>
 
-    
-    <div class="searchbox ins-search">
-    <div class="searchbox-mask"></div>
-    <div class="searchbox-container ins-search-container">
-        <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
-            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="searchbox-result-wrapper ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-    (function (window) {
-        var INSIGHT_CONFIG = {
-            TRANSLATION: {
-                POSTS: '文章',
-                PAGES: '页面',
-                CATEGORIES: '分类',
-                TAGS: '标签',
-                UNTITLED: '(无标题)',
-            },
-            CONTENT_URL: '/content.json',
-        };
-        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-    })(window);
-</script>
-<script src="/js/insight.js"></script>
-    
+
+
+
+
+  </div>
 </body>
 </html>

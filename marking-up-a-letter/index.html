@@ -1,202 +1,108 @@
 <!DOCTYPE html>
-<html class="has-navbar-fixed-top">
+<html>
 <head>
-    <meta charset="utf-8">
-<title>标记一封信 - MDN html 作业 - 蛋卷的博客</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
-
-
-<link href="/en/marking-up-a-letter/" rel="alternate" hreflang="en" />
-    
-
-
-
-
-
-
-    <meta name="description" content="前言本文将会解析来自MDN web docs的一份html作业，内容较为基础，有一定html知识的同学可以选择绕道。 作业描述作业地址：标记一封信 将上述页面提供的一封信进行合适的html标记，使其成为一封传统的信件的格式。">
-<meta name="keywords" content="frontend">
+  <meta charset="utf-8">
+  
+  
+  <title>标记一封信 - MDN html 作业 | 蛋卷的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="前言本文将会解析来自MDN web docs的一份html作业，内容较为基础，有一定html知识的同学可以选择绕道。 作业描述作业地址：标记一封信 将上述页面提供的一封信进行合适的html标记，使其成为一封传统的信件的格式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="标记一封信 - MDN html 作业">
-<meta property="og:url" content="http:&#x2F;&#x2F;jackeggie.github.io&#x2F;marking-up-a-letter&#x2F;index.html">
+<meta property="og:url" content="http://jackeggie.github.io/marking-up-a-letter/index.html">
 <meta property="og:site_name" content="蛋卷的博客">
 <meta property="og:description" content="前言本文将会解析来自MDN web docs的一份html作业，内容较为基础，有一定html知识的同学可以选择绕道。 作业描述作业地址：标记一封信 将上述页面提供的一封信进行合适的html标记，使其成为一封传统的信件的格式。">
-<meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-01-13T05:57:58.302Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-04-21T02:02:18.000Z">
+<meta property="article:modified_time" content="2020-01-13T05:57:58.302Z">
+<meta property="article:author" content="蛋卷">
+<meta property="article:tag" content="frontend">
 <meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="蛋卷的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
 
-
-
-
-
-<link rel="icon" href="/images/avatar.jpeg">
-
-
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
-
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
-
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
-
+  
+  
 <link rel="stylesheet" href="/css/style.css">
 
-<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108548768-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-108548768-1');
-</script>
-
-
-    
-
-
-</head>
 <body>
-    
-<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
-    <div class="container">
-        <div class="navbar-brand">
-            <a class="navbar-item navbar-logo" href="/">
-                
-                    
-                    蛋卷的博客
-                    
-                
-            </a>
-            <div class="navbar-burger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-        
-        <div class="navbar-menu navbar-start">
-            
-            <a class="navbar-item "
-               href="/archives">归档</a>
-            
-            <a class="navbar-item "
-               href="/tags">标签</a>
-            
-            <a class="navbar-item "
-               href="/about">关于</a>
-            
-        </div>
-        
-        <div class="navbar-menu navbar-end">
-            
-            <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
-                <i class="fas fa-search"></i>
-            </a>
-            
-            
-            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
-                <a class="navbar-item" title="目录">
-                    <i class="fa fa-list"></i>
-                </a>
-                <div class="navbar-dropdown is-right">
-                    
-                    
-                    
-                    
-                    <a class="navbar-item" href="#前言">1&nbsp;&nbsp;<b>前言</b></a>
-                    
-                    
-                    <hr class="navbar-divider">
-                    
-                    
-                    <a class="navbar-item" href="#作业描述">2&nbsp;&nbsp;<b>作业描述</b></a>
-                    
-                    
-                    <hr class="navbar-divider">
-                    
-                    
-                    <a class="navbar-item" href="#答案">3&nbsp;&nbsp;<b>答案</b></a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#页面构建">3.1&nbsp;&nbsp;页面构建</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#样式调整">3.2&nbsp;&nbsp;样式调整</a>
-                    
-                    
-                    
-                    <a class="navbar-item" href="#语义标记">3.3&nbsp;&nbsp;语义标记</a>
-                    
-                </div>
-            </div>
-            
-            
-            <a class="navbar-item" title="GitHub" href="https://github.com/JackEggie" target="_blank" rel="noopener">
-                
-                <i class="fab fa-github"></i>
-                
-            </a>
-               
-            <a class="navbar-item" title="掘金" href="https://juejin.im/user/5c6b743651882562691184ef" target="_blank" rel="noopener">
-                
-                掘金
-                
-            </a>
-               
-            
-        </div>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">蛋卷的博客</a>
+      </h1>
+      
     </div>
-</nav>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://jackeggie.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
 
-    <section class="section">
-    <div class="container">
-    <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+      <div class="outer">
+        <section id="main"><article id="post-marking-up-a-letter" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/marking-up-a-letter/" class="article-date">
+  <time class="dt-published" datetime="2018-04-21T02:02:18.000Z" itemprop="datePublished">2018-04-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
         
-            标记一封信 - MDN html 作业
-        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      标记一封信 - MDN html 作业
     </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            <time datetime="2018-04-21T02:02:18.000Z" itemprop="datePublished">4月 21 2018</time>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            7 分钟 读完 (约 1018 字)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本文将会解析来自MDN web docs的一份html作业，内容较为基础，有一定html知识的同学可以选择绕道。</p>
-<h3 id="作业描述"><a href="#作业描述" class="headerlink" title="作业描述"></a>作业描述</h3><p>作业地址：<a href="https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML/Marking_up_a_letter" target="_blank" rel="noopener">标记一封信</a></p>
-<p>将上述页面提供的一封信进行合适的html标记，使其成为一封传统的信件的格式。</p>
-<a id="more"></a>
+  
 
-<h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><p><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"author"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"Dr Eleanor Gaye"</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>my test letter<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"styles/letter.css"</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sender-column"</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">i</span>&gt;</span></span><br><span class="line">			<span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>Dr. Eleanor Gaye<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">			Awesome Science faculty<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">			University of Awesome<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">			Bobtown, CA 99999,<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">			USA<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">			<span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>Tel:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> 123-456-7890<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">			<span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>Email:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> no_reply&amp;#64;example.com</span><br><span class="line">		<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sender-column"</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">time</span> <span class="hljs-attr">datetime</span>=<span class="hljs-string">"2016-01-20"</span>&gt;</span>20 January 2016<span class="hljs-tag">&lt;/<span class="hljs-name">time</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">i</span>&gt;</span></span><br><span class="line">			<span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>Miss Eileen Dover<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span></span><br><span class="line">			4321 Cliff Top Edge<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">			Dover, CT9 XXX<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="line">			UK</span><br><span class="line">		<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Re: Eileen Dover university application<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Dear Eileen,<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Thank you for your recent application to join us at the University of Awesome's science faculty to study as part of your <span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Philosophiae Doctor"</span>&gt;</span>PhD<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span> next year. I will answer your questions one by one, in the following sections.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Starting dates<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>We are happy to accomodate you starting your study with us at any time, however it would suit us better if you could start at the beginning of a semester; the start dates for each one are as follows:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>First semester: <span class="hljs-tag">&lt;<span class="hljs-name">time</span> <span class="hljs-attr">datetime</span>=<span class="hljs-string">"2016-09-09"</span>&gt;</span>9 September 2016<span class="hljs-tag">&lt;/<span class="hljs-name">time</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Second semester: <span class="hljs-tag">&lt;<span class="hljs-name">time</span> <span class="hljs-attr">datetime</span>=<span class="hljs-string">"2017-01-15"</span>&gt;</span>15 January 2017<span class="hljs-tag">&lt;/<span class="hljs-name">time</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Third semester: <span class="hljs-tag">&lt;<span class="hljs-name">time</span> <span class="hljs-attr">datetime</span>=<span class="hljs-string">"2017-05-02"</span>&gt;</span>2 May 2017<span class="hljs-tag">&lt;/<span class="hljs-name">time</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Please let me know if this is ok, and if so which start date you would prefer.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>You can find more information about <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://example.com"</span>&gt;</span>important university dates<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> on our website.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Subjects of study<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>At the Awesome Science Faculty, we have a pretty open-minded research facility — as long as the subjects fall somewhere in the realm of science and technology. You seem like an intelligent, dedicated researcher, and just the kind of person we'd like to have on our team. Saying that, of the ideas you submitted we were most intrigued by are as follows, in order of priority:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Turning H<span class="hljs-tag">&lt;<span class="hljs-name">sub</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">sub</span>&gt;</span>O into wine, and the health benefits of Resveratrol (C<span class="hljs-tag">&lt;<span class="hljs-name">sub</span>&gt;</span>14<span class="hljs-tag">&lt;/<span class="hljs-name">sub</span>&gt;</span>H<span class="hljs-tag">&lt;<span class="hljs-name">sub</span>&gt;</span>12<span class="hljs-tag">&lt;/<span class="hljs-name">sub</span>&gt;</span>O<span class="hljs-tag">&lt;<span class="hljs-name">sub</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">sub</span>&gt;</span>.)<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Measuring the effect on performance of funk bassplayers at temperatures exceeding 30&amp;deg;C (86&amp;deg;F), when the audience size exponentially increases (effect of 3 &amp;#215; 10<span class="hljs-tag">&lt;<span class="hljs-name">sup</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">sup</span>&gt;</span> &amp;gt; 3 &amp;#215; 10<span class="hljs-tag">&lt;<span class="hljs-name">sup</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-name">sup</span>&gt;</span>.)<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Hypertext Markup Language"</span>&gt;</span>HTML<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span> and <span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Cascading Style Sheets"</span>&gt;</span>CSS<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span> constructs for representing musical scores.<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>So please can you provide more information on each of these subjects, including how long you'd expect the research to take, required staff and other resources, and anything else you think we'd need to know? Thanks.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Exotic dance moves<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Yes, you are right! As part of my post-doctorate work, I <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>did<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span> study exotic tribal dances. To answer your question, my favourite dances are as follows, with definitions:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">dl</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>Polynesian chicken dance<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>A little known but very influential dance dating back as far as 300<span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Before Christ"</span>&gt;</span>BC<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span>, a whole village would dance around in a circle like chickens, to encourage their livestock or be "fruitful".<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>Icelandic brownian shuffle<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>Before the Icelanders developed fire as a means of getting warm, they used to practice this dance, which involved huddling close together in a circle on the floor, and shuffling their bodies around in imperceptably tiny, very rapid movements. One of my fellow students used to say that he thought this dance inspired modern styles such as Twerking.<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>Arctic robot dance<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>An interesting example of historic misinformation, English explorers in the 1960s believed to have discovered a new dance style characterised by "robotic", stilted movements, being practiced by inhabitants of Northern Alaska and Canada. Later on however it was discovered that they were just moving like this because they were really cold.<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;/<span class="hljs-name">dl</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>For more of my research, see my <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://example.com"</span>&gt;</span>exotic dance research page<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Yours sincerely,<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Dr Eleanor Gaye<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>University of Awesome motto: <span class="hljs-tag">&lt;<span class="hljs-name">q</span> <span class="hljs-attr">cite</span>=<span class="hljs-string">"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q"</span>&gt;</span>Be awesome to each other.<span class="hljs-tag">&lt;/<span class="hljs-name">q</span>&gt;</span> -- <span class="hljs-tag">&lt;<span class="hljs-name">cite</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"http://example.com"</span>&gt;</span>Bill S Preston, <span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Esquire"</span>&gt;</span>Esq<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">cite</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本文将会解析来自MDN web docs的一份html作业，内容较为基础，有一定html知识的同学可以选择绕道。</p>
+<h3 id="作业描述"><a href="#作业描述" class="headerlink" title="作业描述"></a>作业描述</h3><p>作业地址：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML/Marking_up_a_letter">标记一封信</a></p>
+<p>将上述页面提供的一封信进行合适的html标记，使其成为一封传统的信件的格式。</p>
+<span id="more"></span>
+
+<h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;author&quot;</span> <span class="attr">content</span>=<span class="string">&quot;Dr Eleanor Gaye&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>my test letter<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;styles/letter.css&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;sender-column&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">i</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">b</span>&gt;</span>Dr. Eleanor Gaye<span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">			Awesome Science faculty<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">			University of Awesome<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">			Bobtown, CA 99999,<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">			USA<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">b</span>&gt;</span>Tel:<span class="tag">&lt;/<span class="name">b</span>&gt;</span> 123-456-7890<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">b</span>&gt;</span>Email:<span class="tag">&lt;/<span class="name">b</span>&gt;</span> no_reply<span class="symbol">&amp;#64;</span>example.com</span><br><span class="line">		<span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;sender-column&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">time</span> <span class="attr">datetime</span>=<span class="string">&quot;2016-01-20&quot;</span>&gt;</span>20 January 2016<span class="tag">&lt;/<span class="name">time</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">i</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">b</span>&gt;</span>Miss Eileen Dover<span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br><span class="line">			4321 Cliff Top Edge<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">			Dover, CT9 XXX<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">			UK</span><br><span class="line">		<span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>Re: Eileen Dover university application<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>Dear Eileen,<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>Thank you for your recent application to join us at the University of Awesome&#x27;s science faculty to study as part of your <span class="tag">&lt;<span class="name">abbr</span> <span class="attr">title</span>=<span class="string">&quot;Philosophiae Doctor&quot;</span>&gt;</span>PhD<span class="tag">&lt;/<span class="name">abbr</span>&gt;</span> next year. I will answer your questions one by one, in the following sections.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>Starting dates<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>We are happy to accomodate you starting your study with us at any time, however it would suit us better if you could start at the beginning of a semester; the start dates for each one are as follows:<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>First semester: <span class="tag">&lt;<span class="name">time</span> <span class="attr">datetime</span>=<span class="string">&quot;2016-09-09&quot;</span>&gt;</span>9 September 2016<span class="tag">&lt;/<span class="name">time</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>Second semester: <span class="tag">&lt;<span class="name">time</span> <span class="attr">datetime</span>=<span class="string">&quot;2017-01-15&quot;</span>&gt;</span>15 January 2017<span class="tag">&lt;/<span class="name">time</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>Third semester: <span class="tag">&lt;<span class="name">time</span> <span class="attr">datetime</span>=<span class="string">&quot;2017-05-02&quot;</span>&gt;</span>2 May 2017<span class="tag">&lt;/<span class="name">time</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>Please let me know if this is ok, and if so which start date you would prefer.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>You can find more information about <span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span> <span class="attr">href</span>=<span class="string">&quot;http://example.com&quot;</span>&gt;</span>important university dates<span class="tag">&lt;/<span class="name">a</span>&gt;</span> on our website.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>Subjects of study<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>At the Awesome Science Faculty, we have a pretty open-minded research facility — as long as the subjects fall somewhere in the realm of science and technology. You seem like an intelligent, dedicated researcher, and just the kind of person we&#x27;d like to have on our team. Saying that, of the ideas you submitted we were most intrigued by are as follows, in order of priority:<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>Turning H<span class="tag">&lt;<span class="name">sub</span>&gt;</span>2<span class="tag">&lt;/<span class="name">sub</span>&gt;</span>O into wine, and the health benefits of Resveratrol (C<span class="tag">&lt;<span class="name">sub</span>&gt;</span>14<span class="tag">&lt;/<span class="name">sub</span>&gt;</span>H<span class="tag">&lt;<span class="name">sub</span>&gt;</span>12<span class="tag">&lt;/<span class="name">sub</span>&gt;</span>O<span class="tag">&lt;<span class="name">sub</span>&gt;</span>3<span class="tag">&lt;/<span class="name">sub</span>&gt;</span>.)<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>Measuring the effect on performance of funk bassplayers at temperatures exceeding 30<span class="symbol">&amp;deg;</span>C (86<span class="symbol">&amp;deg;</span>F), when the audience size exponentially increases (effect of 3 <span class="symbol">&amp;#215;</span> 10<span class="tag">&lt;<span class="name">sup</span>&gt;</span>3<span class="tag">&lt;/<span class="name">sup</span>&gt;</span> <span class="symbol">&amp;gt;</span> 3 <span class="symbol">&amp;#215;</span> 10<span class="tag">&lt;<span class="name">sup</span>&gt;</span>4<span class="tag">&lt;/<span class="name">sup</span>&gt;</span>.)<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">abbr</span> <span class="attr">title</span>=<span class="string">&quot;Hypertext Markup Language&quot;</span>&gt;</span>HTML<span class="tag">&lt;/<span class="name">abbr</span>&gt;</span> and <span class="tag">&lt;<span class="name">abbr</span> <span class="attr">title</span>=<span class="string">&quot;Cascading Style Sheets&quot;</span>&gt;</span>CSS<span class="tag">&lt;/<span class="name">abbr</span>&gt;</span> constructs for representing musical scores.<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>So please can you provide more information on each of these subjects, including how long you&#x27;d expect the research to take, required staff and other resources, and anything else you think we&#x27;d need to know? Thanks.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>Exotic dance moves<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>Yes, you are right! As part of my post-doctorate work, I <span class="tag">&lt;<span class="name">em</span>&gt;</span>did<span class="tag">&lt;/<span class="name">em</span>&gt;</span> study exotic tribal dances. To answer your question, my favourite dances are as follows, with definitions:<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dt</span>&gt;</span>Polynesian chicken dance<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dd</span>&gt;</span>A little known but very influential dance dating back as far as 300<span class="tag">&lt;<span class="name">abbr</span> <span class="attr">title</span>=<span class="string">&quot;Before Christ&quot;</span>&gt;</span>BC<span class="tag">&lt;/<span class="name">abbr</span>&gt;</span>, a whole village would dance around in a circle like chickens, to encourage their livestock or be &quot;fruitful&quot;.<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dt</span>&gt;</span>Icelandic brownian shuffle<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dd</span>&gt;</span>Before the Icelanders developed fire as a means of getting warm, they used to practice this dance, which involved huddling close together in a circle on the floor, and shuffling their bodies around in imperceptably tiny, very rapid movements. One of my fellow students used to say that he thought this dance inspired modern styles such as Twerking.<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dt</span>&gt;</span>Arctic robot dance<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dd</span>&gt;</span>An interesting example of historic misinformation, English explorers in the 1960s believed to have discovered a new dance style characterised by &quot;robotic&quot;, stilted movements, being practiced by inhabitants of Northern Alaska and Canada. Later on however it was discovered that they were just moving like this because they were really cold.<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>For more of my research, see my <span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span> <span class="attr">href</span>=<span class="string">&quot;http://example.com&quot;</span>&gt;</span>exotic dance research page<span class="tag">&lt;/<span class="name">a</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>Yours sincerely,<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">pre</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>Dr Eleanor Gaye<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>University of Awesome motto: <span class="tag">&lt;<span class="name">q</span> <span class="attr">cite</span>=<span class="string">&quot;https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q&quot;</span>&gt;</span>Be awesome to each other.<span class="tag">&lt;/<span class="name">q</span>&gt;</span> -- <span class="tag">&lt;<span class="name">cite</span> <span class="attr">title</span>=<span class="string">&quot;http://example.com&quot;</span>&gt;</span>Bill S Preston, <span class="tag">&lt;<span class="name">abbr</span> <span class="attr">title</span>=<span class="string">&quot;Esquire&quot;</span>&gt;</span>Esq<span class="tag">&lt;/<span class="name">abbr</span>&gt;</span><span class="tag">&lt;/<span class="name">cite</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <h4 id="页面构建"><a href="#页面构建" class="headerlink" title="页面构建"></a>页面构建</h4><p>创建<code>DOCTYPE</code>声明，用以表明文本格式。</p>
 <p>创建<code>html</code>、<code>head</code>、<code>body</code>基础标签。</p>
 <p>设置文本语言和字符集，在<code>html</code>的属性中和<code>head</code>标签的<code>meta</code>中。</p>
@@ -206,304 +112,178 @@
 <h4 id="样式调整"><a href="#样式调整" class="headerlink" title="样式调整"></a>样式调整</h4><p>为发信人段落添加样式引用（<code>class</code>），并对其使用适当的斜体、加粗样式。</p>
 <p>使用列表来标记信中列举出来的信息，用<code>ol</code>表示有序列表，用<code>ul</code>表示无序列表，用<code>dl</code>表示描述列表。</p>
 <p>使用超链接标记站点信息，并设置合适的<code>title</code>和<code>target</code>属性。</p>
-<p>对文中的化学式、温度、公式使用合适的上下标，这里也可以对一些特殊字符使用url转义来在页面上展示，如<code>&amp;deg;</code>表示&deg;。</p>
+<p>对文中的化学式、温度、公式使用合适的上下标，这里也可以对一些特殊字符使用url转义来在页面上展示，如<code>&amp;deg;</code>表示&amp;deg;。</p>
 <p>使用<code>pre</code>标签保留文本中的换行。</p>
 <h4 id="语义标记"><a href="#语义标记" class="headerlink" title="语义标记"></a>语义标记</h4><p>使用时间标签标记文档中的时间。</p>
 <p>使用缩写标签对文档中的缩写进行解释。</p>
 <p>使用强调标签对文中的某些短语做标记。</p>
 <p>使用引用标签标示文中的引文和出处，<code>q</code>和<code>blockquote</code>标签需要设置<code>cite</code>属性以表示出处（不显示），并且需要使用<code>cite</code>标签来显示出处。</p>
 
-    
+      
     </div>
+    <footer class="article-footer">
+      <a data-url="http://jackeggie.github.io/marking-up-a-letter/" data-id="cl0udc5yl000sqoowgwyleg3h" data-title="标记一封信 - MDN html 作业" class="article-share-link">Share</a>
+      
+        <a href="http://jackeggie.github.io/marking-up-a-letter/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li></ul>
+
+    </footer>
+  </div>
+  
     
-    <div class="columns is-variable is-1 is-multiline is-mobile">
-    
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/frontend/">#frontend</a></span>
-    
-    </div>
-    
-    
-    <div class="columns is-mobile is-multiline article-nav">
-        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
-            
-            <a href="/structuring-a-page-of-content/">结构化一个页面的内容 - MDN html 作业</a>
-            
-        </span>
-        <span class="column is-12-mobile is-half-desktop  article-nav-next">
-            
-            <a href="/upgrade-hexo-and-next/">本博客升级过程</a>
-            
-        </span>
-    </div>
-    
+<nav id="article-nav">
+  
+    <a href="/structuring-a-page-of-content/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          结构化一个页面的内容 - MDN html 作业
+        
+      </div>
+    </a>
+  
+  
+    <a href="/upgrade-hexo-and-next/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">本博客升级过程</div>
+    </a>
+  
+</nav>
+
+  
 </article>
 
 
-<div class="sharebox">
-    
-<div class="sharethis-inline-share-buttons"></div>
-<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5e1d32d09621970018ee1174&amp;product=inline-share-buttons' async='async'></script>
-
-</div>
-
-
-
-<div class="comments">
-    <h3 class="title is-4">评论</h3>
-    
-<div id="valine-thread"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-<script>
-    new Valine({
-        el: '#valine-thread',
-        appId: 'WLQY706vpvTaxFWErwryK5Do-gzGzoHsz',
-        appKey: 'RM1rBSv25YYfFrtQnPy8oRQa',
-        notify: false,
-        verify: false,
-        avatar: '',
-        placeholder: 'Say something...',
-        meta: ['nick', 'mail'],
-        visitor: true,
-        lang: 'zh-cn'
-    })
-</script>
-
-
-</div>
-
-    </div>
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
 </section>
-    <footer class="footer">
-    <div class="container">
-        <div class="columns content">
-            <div class="column is-narrow has-text-centered">
-                &copy; 2020 蛋卷&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
-                        href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
-            </div>
-            <div class="column is-hidden-mobile"></div>
 
-            
-            <div class="column is-narrow">
-                <div class="columns is-mobile is-multiline is-centered">
-                
-                    
-                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/JackEggie" target="_blank" rel="noopener">
-                    
-                    GitHub
-                    
-                </a>
-                
-                </div>
-            </div>
-            
-            
-<div class="column is-narrow has-text-centered">
-    <div class="dropdown is-up is-right is-hoverable" style="margin-top: -0.2em;">
-        <div class="dropdown-trigger">
-            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
-                <span class="icon">
-                    <i class="fas fa-globe"></i>
-                </span>
-                <span>简体中文</span>
-                <span class="icon is-small">
-            <i class="fas fa-angle-down" aria-hidden="true"></i>
-          </span>
-            </button>
-        </div>
-        <div class="dropdown-menu has-text-left" role="menu">
-            <div class="dropdown-content">
-            
-                <a href="/marking-up-a-letter/" class="dropdown-item">
-                    简体中文
-                </a>
-            
-                <a href="/en/marking-up-a-letter/" class="dropdown-item">
-                    English
-                </a>
-            
-            </div>
-        </div>
-    </div>
-</div>
+</section>
+        
+          <aside id="sidebar">
+  
+    
 
-        </div>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/agile/" rel="tag">agile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ai/" rel="tag">ai</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cache/" rel="tag">cache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go-lang/" rel="tag">go-lang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/" rel="tag">json</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jvm/" rel="tag">jvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/multi-thread/" rel="tag">multi-thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/open-source/" rel="tag">open source</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/performance/" rel="tag">performance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/personal-management/" rel="tag">personal-management</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/psychology/" rel="tag">psychology</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rust/" rel="tag">rust</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/search-engine/" rel="tag">search engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/" rel="tag">spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/translation/" rel="tag">translation</a></li></ul>
     </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/agile/" style="font-size: 10px;">agile</a> <a href="/tags/ai/" style="font-size: 10px;">ai</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/frontend/" style="font-size: 13.33px;">frontend</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 13.33px;">github</a> <a href="/tags/go-lang/" style="font-size: 10px;">go-lang</a> <a href="/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/jvm/" style="font-size: 16.67px;">jvm</a> <a href="/tags/multi-thread/" style="font-size: 10px;">multi-thread</a> <a href="/tags/open-source/" style="font-size: 10px;">open source</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/personal-management/" style="font-size: 10px;">personal-management</a> <a href="/tags/psychology/" style="font-size: 16.67px;">psychology</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rust/" style="font-size: 10px;">rust</a> <a href="/tags/search-engine/" style="font-size: 10px;">search engine</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/translation/" style="font-size: 20px;">translation</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/my-2019-summary/">蛋卷的 2019 年度总结</a>
+          </li>
+        
+          <li>
+            <a href="/a-bird-s-eye-view-of-go/">【译】Go 语言概览</a>
+          </li>
+        
+          <li>
+            <a href="/binary-form-of-int-in-java/">Java 中 int 类型的二进制表示</a>
+          </li>
+        
+          <li>
+            <a href="/what-we-ve-learned-about-hiring-engineering-managers/">【译】我们从招聘技术经理的过程中学到了什么</a>
+          </li>
+        
+          <li>
+            <a href="/distributed-transactions-in-spring-with-and-without-xa-part-1/">【译】Spring 的分布式事务实现 — 使用和不使用 XA — 第一部分</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 蛋卷<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
 </footer>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
 
-<!-- test if the browser is outdated -->
-<div id="outdated">
-    <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update my browser now </a></p>
-    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
-</div>
-<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
 <script>
-    $(document).ready(function () {
-        // plugin function, place inside DOM ready function
-        outdatedBrowser({
-            bgColor: '#f25648',
-            color: '#ffffff',
-            lowerThan: 'flex'
-        })
-    });
-</script>
-
-<script>
-    window.FontAwesomeConfig = {
-        searchPseudoElements: true
-    }
-    moment.locale("zh-CN");
+  var disqus_shortname = 'jackeggie';
+  
+  var disqus_url = 'http://jackeggie.github.io/marking-up-a-letter/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.async = true;
+    dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
 </script>
 
 
-    
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<script>
-    MathJax.Hub.Config({
-        "HTML-CSS": {
-            matchFontHeight: false
-        },
-        SVG: {
-            matchFontHeight: false
-        },
-        CommonHTML: {
-            matchFontHeight: false
-        },
-        tex2jax: {
-            inlineMath: [
-                ['$','$'],
-                ['\\(','\\)']
-            ]
-        }
-    });
-</script>
 
-    
-    
-    
-    
-<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
-<script>
-    (function ($) {
-        $(document).ready(function () {
-            if (typeof($.fn.lightGallery) === 'function') {
-                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
-            }
-            if (typeof($.fn.justifiedGallery) === 'function') {
-                $('.justified-gallery').justifiedGallery();
-            }
-        });
-    })(jQuery);
-</script>
+<script src="/js/jquery-3.4.1.min.js"></script>
 
-    
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
-    <style>
-        .hljs {
-            position: relative;
-        }
 
-        .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
 
-        .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
-        }
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
 
-        .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
-        }
 
-        .hljs:hover > .clipboard-btn {
-            display: inline;
-        }
-
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
-        }
-    </style>
-    <script>
-      $(document).ready(function () {
-        $('figure.hljs').each(function(i, figure) {
-          var codeId = 'code-' + i;
-          var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
-          code.id = codeId;
-          copyButton.addClass('clipboard-btn');
-          copyButton.attr('data-clipboard-target-id', codeId);
-
-          var figcaption = figure.querySelector('figcaption');
-
-          if (figcaption) {
-            figcaption.append(copyButton[0]);
-          } else {
-            figure.prepend(copyButton[0]);
-          }
-        })
-
-        var clipboard = new ClipboardJS('.clipboard-btn', {
-          target: function(trigger) {
-            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
-          }
-        });
-        clipboard.on('success', function(e) {
-          e.clearSelection();
-        })
-      })
-    </script>
-
-    
-    
-
-    
 
 
 <script src="/js/script.js"></script>
 
-    
-    <div class="searchbox ins-search">
-    <div class="searchbox-mask"></div>
-    <div class="searchbox-container ins-search-container">
-        <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="站内搜索" />
-            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="searchbox-result-wrapper ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-    (function (window) {
-        var INSIGHT_CONFIG = {
-            TRANSLATION: {
-                POSTS: '文章',
-                PAGES: '页面',
-                CATEGORIES: '分类',
-                TAGS: '标签',
-                UNTITLED: '(无标题)',
-            },
-            CONTENT_URL: '/content.json',
-        };
-        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-    })(window);
-</script>
-<script src="/js/insight.js"></script>
-    
+
+
+
+
+  </div>
 </body>
 </html>
